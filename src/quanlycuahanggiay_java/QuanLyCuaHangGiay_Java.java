@@ -4,8 +4,10 @@
  */
 package quanlycuahanggiay_java;
 import javax.swing.*;  
+import quanlycuahanggiay_java.SanPham.*;
 public class  QuanLyCuaHangGiay_Java{  
 public static void main(String[] args) {  
     display dp = new display();
+    Giay g = new Giay();
 }  
 }  
