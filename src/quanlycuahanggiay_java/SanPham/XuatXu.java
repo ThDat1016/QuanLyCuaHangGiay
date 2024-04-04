@@ -4,10 +4,30 @@
  */
 package quanlycuahanggiay_java.SanPham;
 
-/**
- *
- * @author Admin
- */
+
 public class XuatXu {
+    private String strMaxuatxu;
+    private String strTennuoc;
+
+    public XuatXu(String strMaxuatxu, String strTennuoc) {
+        this.strMaxuatxu = strMaxuatxu;
+        this.strTennuoc = strTennuoc;
+    }
+
+    public void setStrMaxuatxu(String strMaxuatxu) {
+        this.strMaxuatxu = strMaxuatxu;
+    }
+
+    public void setStrTennuoc(String strTennuoc) {
+        this.strTennuoc = strTennuoc;
+    }
+
+    public String getStrMaxuatxu() {
+        return strMaxuatxu;
+    }
+
+    public String getStrTennuoc() {
+        return strTennuoc;
+    }
     
 }

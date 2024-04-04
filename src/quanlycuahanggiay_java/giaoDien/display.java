@@ -22,7 +22,7 @@ public class display {
 
     f.setSize(400,500);//Do rong la 400 va chieu cao la 500  
     f.setLayout(null);//Khong su dung Layout Manager  
-    f.setVisible(true);//Tao Frame la co the nhin thay (visible)  
+    f.setVisible(true);//Tao Frame la co the nhin thay (visible) 
     }
     display(){
         box();
