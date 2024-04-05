@@ -4,7 +4,7 @@
  */
 package quanlycuahanggiay_java;
 import javax.swing.*;  
-import quanlycuahanggiay_java.SanPham.*;
+import quanlycuahanggiay_java.DTO.*;
 public class  QuanLyCuaHangGiay_Java{  
 public static void main(String[] args) {  
     display dp = new display();
