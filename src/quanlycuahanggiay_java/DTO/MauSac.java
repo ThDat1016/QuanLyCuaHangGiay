@@ -15,12 +15,12 @@ public class mausac {
 		return MaMau;
 	}
 	public void setMaMau(String maMau) {
-		MaMau = maMau;
+		this.MaMau = maMau;
 	}
 	public String getTenMau() {
 		return TenMau;
 	}
 	public void setTenMau(String tenMau) {
-		TenMau = tenMau;
+		this.TenMau = tenMau;
 	}
 }
