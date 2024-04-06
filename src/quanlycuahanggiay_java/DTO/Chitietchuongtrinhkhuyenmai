@@ -12,13 +12,13 @@ public class Chitietchuongtrinhkhuyenmai {
 	public int getMaKM() {
 		return MaKM;
 	}
-	public void setMaKM(int maKM) {
+	public void setMaKM(String maKM) {
 		MaKM = maKM;
 	}
 	public int getMaGiay() {
 		return MaGiay;
 	}
-	public void setMaGiay(int maGiay) {
+	public void setMaGiay(String maGiay) {
 		MaGiay = maGiay;
 	}
 	public int getTileKMtheoPhanTram() {
