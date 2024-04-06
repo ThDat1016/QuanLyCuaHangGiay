@@ -1,0 +1,32 @@
+package quanlycuahanggiay_java.sanpham;
+
+public class Chitietchuongtrinhkhuyenmai {
+	private String MaKM;
+	private String MaGiay;
+	private int TileKMtheoPhanTram;
+	public Chitietchuongtrinhkhuyenmai(int maKM, int maGiay, int tileKMtheoPhanTram) {
+		MaKM = maKM;
+		MaGiay = maGiay;
+		TileKMtheoPhanTram = tileKMtheoPhanTram;
+	}
+	public int getMaKM() {
+		return MaKM;
+	}
+	public void setMaKM(String maKM) {
+		MaKM = maKM;
+	}
+	public int getMaGiay() {
+		return MaGiay;
+	}
+	public void setMaGiay(String maGiay) {
+		MaGiay = maGiay;
+	}
+	public int getTileKMtheoPhanTram() {
+		return TileKMtheoPhanTram;
+	}
+	public void setTileKMtheoPhanTram(int tileKMtheoPhanTram) {
+		TileKMtheoPhanTram = tileKMtheoPhanTram;
+	}
+
+	
+}

@@ -1,0 +1,40 @@
+package quanlycuahanggiay_java.sanpham;
+
+public class Chitiethoadon {
+	private String MaGiay;
+	private String MaHD;
+	private int Soluong;
+	private int GiaBan;
+	public Chitiethoadon(String maGiay, String maHD, int soluong, int giaBan) {
+		super();
+		MaGiay = maGiay;
+		MaHD = maHD;
+		Soluong = soluong;
+		GiaBan = giaBan;
+	}
+	public String getMaGiay() {
+		return MaGiay;
+	}
+	public void setMaGiay(String maGiay) {
+		MaGiay = maGiay;
+	}
+	public String getMaHD() {
+		return MaHD;
+	}
+	public void setMaHD(String maHD) {
+		MaHD = maHD;
+	}
+	public int getSoluong() {
+		return Soluong;
+	}
+	public void setSoluong(int soluong) {
+		Soluong = soluong;
+	}
+	public int getGiaBan() {
+		return GiaBan;
+	}
+	public void setGiaBan(int giaBan) {
+		GiaBan = giaBan;
+	}
+	
+}
