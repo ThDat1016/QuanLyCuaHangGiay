@@ -1,8 +1,8 @@
 package quanlycuahanggiay_java.sanpham;
 
 public class Chitietchuongtrinhkhuyenmai {
-	private int MaKM;
-	private int MaGiay;
+	private String MaKM;
+	private String MaGiay;
 	private int TileKMtheoPhanTram;
 	public Chitietchuongtrinhkhuyenmai(int maKM, int maGiay, int tileKMtheoPhanTram) {
 		MaKM = maKM;
