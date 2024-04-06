@@ -1,0 +1,63 @@
+package quanlycuahanggiay_java.sanpham;
+
+public class hoadon {
+	private String MaHD;
+	private String MaNV;
+	private String MaKH;
+	private String MaKM;
+	private int NgayBan;
+	private int TongTien;
+	private int Thue;
+	public hoadon(String maHD, String maNV, String maKH, String maKM, int ngayBan, int tongTien, int thue) {
+		super();
+		MaHD = maHD;
+		MaNV = maNV;
+		MaKH = maKH;
+		MaKM = maKM;
+		NgayBan = ngayBan;
+		TongTien = tongTien;
+		Thue = thue;
+	}
+	public String getMaHD() {
+		return MaHD;
+	}
+	public void setMaHD(String maHD) {
+		MaHD = maHD;
+	}
+	public String getMaNV() {
+		return MaNV;
+	}
+	public void setMaNV(String maNV) {
+		MaNV = maNV;
+	}
+	public String getMaKH() {
+		return MaKH;
+	}
+	public void setMaKH(String maKH) {
+		MaKH = maKH;
+	}
+	public String getMaKM() {
+		return MaKM;
+	}
+	public void setMaKM(String maKM) {
+		MaKM = maKM;
+	}
+	public int getNgayBan() {
+		return NgayBan;
+	}
+	public void setNgayBan(int ngayBan) {
+		NgayBan = ngayBan;
+	}
+	public int getTongTien() {
+		return TongTien;
+	}
+	public void setTongTien(int tongTien) {
+		TongTien = tongTien;
+	}
+	public int getThue() {
+		return Thue;
+	}
+	public void setThue(int thue) {
+		Thue = thue;
+	}
+}
