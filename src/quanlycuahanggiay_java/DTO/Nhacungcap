@@ -1,0 +1,39 @@
+package quanlycuahanggiay_java.sanpham;
+
+public class Nhacungcap {
+	private String MaNCC;
+	private String TenNCC;
+	private String Diachi;
+	private int DienThoai;
+	public String getMaNCC() {
+		return MaNCC;
+	}
+	public void setMaNCC(String maNCC) {
+		MaNCC = maNCC;
+	}
+	public String getTenNCC() {
+		return TenNCC;
+	}
+	public void setTenNCC(String tenNCC) {
+		TenNCC = tenNCC;
+	}
+	public String getDiachi() {
+		return Diachi;
+	}
+	public void setDiachi(String diachi) {
+		Diachi = diachi;
+	}
+	public int getDienThoai() {
+		return DienThoai;
+	}
+	public void setDienThoai(int dienThoai) {
+		DienThoai = dienThoai;
+	}
+	public Nhacungcap(String maNCC, String tenNCC, String diachi, int dienThoai) {
+		super();
+		MaNCC = maNCC;
+		TenNCC = tenNCC;
+		Diachi = diachi;
+		DienThoai = dienThoai;
+	}
+}
