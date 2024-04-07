@@ -1,8 +1,12 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
 */
-package quanlycuahanggiay_java.sanpham;
+package quanlycuahanggiay_java.DTO;
 
 public class ThuongHieu {
 	private String MaThuongHieu;
@@ -40,3 +44,4 @@ public class ThuongHieu {
 		this.email = email;
 	}
 }
+

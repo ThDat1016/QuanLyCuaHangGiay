@@ -1,11 +1,20 @@
-package quanlycuahanggiay_java.sanpham;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package quanlycuahanggiay_java.DTO;
+import java.math.BigDecimal;
 
-public class Chitiethoadon {
+
+
+     
+
+public class ChiTietHoaDon {
 	private String MaGiay;
 	private String MaHD;
 	private int Soluong;
-	private int GiaBan;
-	public Chitiethoadon(String maGiay, String maHD, int soluong, int giaBan) {
+	private BigDecimal GiaBan;
+	public ChiTietHoaDon(String maGiay, String maHD, int soluong, BigDecimal giaBan) {
 		super();
 		MaGiay = maGiay;
 		MaHD = maHD;
@@ -30,11 +39,12 @@ public class Chitiethoadon {
 	public void setSoluong(int soluong) {
 		Soluong = soluong;
 	}
-	public int getGiaBan() {
+	public BigDecimal getGiaBan() {
 		return GiaBan;
 	}
-	public void setGiaBan(int giaBan) {
+	public void setGiaBan(BigDecimal giaBan) {
 		GiaBan = giaBan;
 	}
 	
 }
+

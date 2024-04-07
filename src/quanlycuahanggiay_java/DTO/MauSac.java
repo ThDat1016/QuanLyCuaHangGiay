@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package quanlycuahanggiay_java.sanpham;
+package quanlycuahanggiay_java.DTO;
 
-public class mausac {
+public class MauSac {
 	private String MaMau;
 	private String TenMau;
-	public mausac(String maMau, String tenMau) {
+	public MauSac(String maMau, String tenMau) {
 		this.MaMau = maMau;
 		this.TenMau = tenMau;
 	}

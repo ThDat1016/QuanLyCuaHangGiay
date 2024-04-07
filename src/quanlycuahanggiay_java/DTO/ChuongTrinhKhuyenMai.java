@@ -1,16 +1,26 @@
-package quanlycuahanggiay_java.sanpham;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package quanlycuahanggiay_java.DTO;
 
-public class Chuongtrinhkhuyenmai {
-	private String MaKM;
-	private int NgayBatDau;
-	private int Ngayketthuc;
+/**
+ *
+ * @author Admin
+ */
+
+import java.time.LocalDate;
+
+
+public class ChuongTrinhKhuyenMai {
+        private String MaKM;
+	private LocalDate NgayBatDau;
+	private LocalDate Ngayketthuc;
 	private String tenchuongtrinh;
 	private String loaiChuongtrinh;
 	private String dieukien;
-	public String getMaKM() {
-		return MaKM;
-	}
-	public Chuongtrinhkhuyenmai(String maKM, int ngayBatDau, int ngayketthuc, String tenchuongtrinh,
+	
+	public ChuongTrinhKhuyenMai(String maKM, LocalDate ngayBatDau, LocalDate ngayketthuc, String tenchuongtrinh,
 			String loaiChuongtrinh, String dieukien) {
 		super();
 		MaKM = maKM;
@@ -23,16 +33,19 @@ public class Chuongtrinhkhuyenmai {
 	public void setMaKM(String maKM) {
 		MaKM = maKM;
 	}
-	public int getNgayBatDau() {
+        public String getMaKM() {
+		return MaKM;
+	}
+	public LocalDate getNgayBatDau() {
 		return NgayBatDau;
 	}
-	public void setNgayBatDau(int ngayBatDau) {
+	public void setNgayBatDau(LocalDate ngayBatDau) {
 		NgayBatDau = ngayBatDau;
 	}
-	public int getNgayketthuc() {
+	public LocalDate getNgayketthuc() {
 		return Ngayketthuc;
 	}
-	public void setNgayketthuc(int ngayketthuc) {
+	public void setNgayketthuc(LocalDate ngayketthuc) {
 		Ngayketthuc = ngayketthuc;
 	}
 	public String getTenchuongtrinh() {
@@ -54,4 +67,3 @@ public class Chuongtrinhkhuyenmai {
 		this.dieukien = dieukien;
 	}
 }
-
