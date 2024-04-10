@@ -12,6 +12,8 @@ public class TaiKhoangNV {
         private int MaNV;
 	private String MatKhau;
 	private String CapBac;
+        
+     public TaiKhoangNV(){}
 
     public TaiKhoangNV(int MaNV, String MatKhau, String CapBac) {
         this.MaNV = MaNV;

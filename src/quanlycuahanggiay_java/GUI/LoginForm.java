@@ -4,7 +4,10 @@
  */
 package quanlycuahanggiay_java.GUI;
 
+
 import javax.swing.JOptionPane;
+import quanlycuahanggiay_java.DAO.ConectToDB;
+import quanlycuahanggiay_java.DTO.TaiKhoangNV;
 
 /**
  *
@@ -248,7 +251,8 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-           String userID =  textUserID.getText(); 
+        TaiKhoangNV tk = new TaiKhoangNV();
+        String userID =  textUserID.getText(); 
            String password = new String(textPassword.getPassword());
            
            StringBuilder sb = new StringBuilder();
@@ -276,6 +280,9 @@ public class LoginForm extends javax.swing.JFrame {
            //pass.requestFocus();
            //}
            
+           
+           
+           
     }//GEN-LAST:event_LoginActionPerformed
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
@@ -283,7 +290,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void textUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUserIDActionPerformed
-
+        
     }//GEN-LAST:event_textUserIDActionPerformed
 
     private void NhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NhanVienMouseClicked
