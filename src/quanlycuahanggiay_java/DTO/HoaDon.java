@@ -9,7 +9,7 @@ package quanlycuahanggiay_java.DTO;
  * @author Admin
  */
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
 
 
 
@@ -17,11 +17,13 @@ public class HoaDon {
         private int MaHD;
 	private int MaNV;
 	private int MaKH;
-	private String MaKM;
-	private LocalDate NgayBan;
+	private int MaKM;
+	private Date NgayBan;
 	private BigDecimal TongTien;
 	private float Thue;
-	public HoaDon(int maHD, int maNV, int maKH, String maKM, LocalDate ngayBan, BigDecimal tongTien, int thue) {
+        
+        public HoaDon(){}
+	public HoaDon(int maHD, int maNV, int maKH, int maKM, Date ngayBan, BigDecimal tongTien, int thue) {
 		super();
 		MaHD = maHD;
 		MaNV = maNV;
@@ -44,11 +46,11 @@ public class HoaDon {
         this.MaKH = MaKH;
     }
 
-    public void setMaKM(String MaKM) {
+    public void setMaKM(int MaKM) {
         this.MaKM = MaKM;
     }
 
-    public void setNgayBan(LocalDate NgayBan) {
+    public void setNgayBan(Date NgayBan) {
         this.NgayBan = NgayBan;
     }
 
@@ -72,11 +74,11 @@ public class HoaDon {
         return MaKH;
     }
 
-    public String getMaKM() {
+    public int getMaKM() {
         return MaKM;
     }
 
-    public LocalDate getNgayBan() {
+    public Date getNgayBan() {
         return NgayBan;
     }
 

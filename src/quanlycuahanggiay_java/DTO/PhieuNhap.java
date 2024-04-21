@@ -14,11 +14,11 @@ import java.time.LocalDate;
 
 public class PhieuNhap {
         private int MaPN;
-	private BigDecimal NgayNhap;
+	private LocalDate NgayNhap;
 	private BigDecimal TongTien;
 	private int MaNV;
 
-    public PhieuNhap(int MaPN, BigDecimal NgayNhap, BigDecimal TongTien, int MaNV, String MaNCC) {
+    public PhieuNhap(int MaPN, LocalDate NgayNhap, BigDecimal TongTien, int MaNV, String MaNCC) {
         this.MaPN = MaPN;
         this.NgayNhap = NgayNhap;
         this.TongTien = TongTien;
@@ -30,7 +30,7 @@ public class PhieuNhap {
         this.MaPN = MaPN;
     }
 
-    public void setNgayNhap(BigDecimal NgayNhap) {
+    public void setNgayNhap(LocalDate NgayNhap) {
         this.NgayNhap = NgayNhap;
     }
 
@@ -50,7 +50,7 @@ public class PhieuNhap {
         return MaPN;
     }
 
-    public BigDecimal getNgayNhap() {
+    public LocalDate getNgayNhap() {
         return NgayNhap;
     }
 

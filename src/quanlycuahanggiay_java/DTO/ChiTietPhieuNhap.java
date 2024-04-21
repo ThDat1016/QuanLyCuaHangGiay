@@ -6,28 +6,29 @@ package quanlycuahanggiay_java.DTO;
 import java.math.BigDecimal;
 
 public class ChiTietPhieuNhap {
-	private String MaGiay;
-	private String MaPN;
+	private int MaGiay;
+	private int MaPN;
 	private int SoLuong;
 	private BigDecimal GiaNhap;
         
-        public ChiTietPhieuNhap(String maGiay, String maPN, int soLuong, BigDecimal giaNhap) {
+        public ChiTietPhieuNhap(){}
+        public ChiTietPhieuNhap(int maGiay, int maPN, int soLuong, BigDecimal giaNhap) {
 		super();
 		MaGiay = maGiay;
 		MaPN = maPN;
 		SoLuong = soLuong;
 		GiaNhap = giaNhap;
 	}
-	public String getMaGiay() {
+	public int getMaGiay() {
 		return MaGiay;
 	}
-	public void setMaGiay(String maGiay) {
+	public void setMaGiay(int maGiay) {
 		MaGiay = maGiay;
 	}
-	public String getMaPN() {
+	public int getMaPN() {
 		return MaPN;
 	}
-	public void setMaPN(String maPN) {
+	public void setMaPN(int maPN) {
 		MaPN = maPN;
 	}
 	public int getSoLuong() {

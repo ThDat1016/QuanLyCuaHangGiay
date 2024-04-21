@@ -19,7 +19,9 @@ public class KhachHang {
 	private boolean GioiTinh;
 	private String DiaChi;
 	private String Email;
-
+        
+        
+    public KhachHang(){}
     public KhachHang(int MaKH, String Loai, BigDecimal TongChiTieu, String Ho, String Ten, boolean GioiTinh, String DiaChi, String Email) {
         this.MaKH = MaKH;
         this.Loai = Loai;

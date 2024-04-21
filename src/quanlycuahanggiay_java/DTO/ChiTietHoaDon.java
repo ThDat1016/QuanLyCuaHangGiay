@@ -10,27 +10,28 @@ import java.math.BigDecimal;
      
 
 public class ChiTietHoaDon {
-	private String MaGiay;
-	private String MaHD;
+	private int MaGiay;
+	private int MaHD;
 	private int Soluong;
 	private BigDecimal GiaBan;
-	public ChiTietHoaDon(String maGiay, String maHD, int soluong, BigDecimal giaBan) {
+        public ChiTietHoaDon(){}
+	public ChiTietHoaDon(int maGiay, int maHD, int soluong, BigDecimal giaBan) {
 		super();
 		MaGiay = maGiay;
 		MaHD = maHD;
 		Soluong = soluong;
 		GiaBan = giaBan;
 	}
-	public String getMaGiay() {
+	public int getMaGiay() {
 		return MaGiay;
 	}
-	public void setMaGiay(String maGiay) {
+	public void setMaGiay(int maGiay) {
 		MaGiay = maGiay;
 	}
-	public String getMaHD() {
+	public int getMaHD() {
 		return MaHD;
 	}
-	public void setMaHD(String maHD) {
+	public void setMaHD(int maHD) {
 		MaHD = maHD;
 	}
 	public int getSoluong() {

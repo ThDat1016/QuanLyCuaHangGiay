@@ -1,57 +1,110 @@
 package quanlycuahanggiay_java.DAO;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConectToDB {
 
-    private static final String DB_URL = "jdbc:sqlserver://DESKTOP-CCD18C2\\SQLEXPRESS:1433;databaseName=StoreManager;trustServerCertificate=true;";
-    private static final String USER_NAME = "sa";
-    private static final String PASSWORD = "15102004";
+    String Host = "";
+    String Username = "";
+    String Password = "";
+    String Database = "";
 
-    public static void main(String[] args) {
-        Connection conn = null;
+    Connection connect = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+
+    public ConectToDB(String Host, String Username, String Password, String Database) {
+        this.Host = Host;
+        this.Username = Username;
+        this.Password = Password;
+        this.Database = Database;
+    }
+
+    protected void driveTest() throws Exception {
         try {
-            conn = getConnection(DB_URL, USER_NAME, PASSWORD);
-            if (conn != null) {
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT MaNV FROM NhanVien");
-                while (rs.next()) {
-                    // Lấy dữ liệu từ cột "MaNV"
-                    int manv = rs.getInt("MaNV");
-
-                    // In ra dữ liệu từ cột "MaNV" của mỗi hàng
-                    System.out.println(manv);
-                }
-
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            throw new Exception("SQL Server driver not found");
         }
     }
 
-    public static Connection getConnection(String dbURL, String userName, String password) {
-        Connection conn = null;
-        try {
-            SQLServerDataSource ds = new SQLServerDataSource();
-            ds.setURL(dbURL);
-            ds.setUser(userName);
-            ds.setPassword(password);
-            conn = ds.getConnection();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    protected Connection getConnect() throws Exception {
+        // Nếu connection null thì khởi tạo mới
+        if (this.connect == null) {
+            // Kiểm tra Driver
+            driveTest();
+
+            // Tạo url để kết nối tới Database
+            String url = "jdbc:sqlserver://" + this.Host + ":1433;databaseName=" + this.Database + ";trustServerCertificate=true";
+
+            try {
+                // Tạo connect thông qua url
+                this.connect = DriverManager.getConnection(url, this.Username, this.Password);
+            } catch (SQLException e) {
+                throw new Exception("Không thể kết nối tới Database: " + url + " - " + e.getMessage());
+            }
         }
-        return conn;
+
+        return this.connect;
+    }
+
+    //tạo hàm statement để query
+    protected Statement getStatement() throws Exception {
+        //kiểm tra xem statement đã đóng chưa
+        if (this.statement == null) {
+            //khởi tạo statement mới
+            this.statement = getConnect().createStatement();
+        } else {
+            this.statement.isClosed();
+        }
+        return this.statement;
+    }
+
+    //hàm thực thi các câu lệnh SQL
+    public ResultSet excuteQuery(String Query) throws Exception {
+        try {
+            // thực thi câu lệnh
+            this.resultSet = getStatement().executeQuery(Query);
+
+        } catch (Exception e) {
+            throw new Exception("Error excuteQuery " + e.getMessage());
+        }
+
+        return this.resultSet;
+    }
+
+    //thực thi các Insert, Update, Delete
+    public int executeUpdate(String Query) throws Exception {
+        //khai báo biến int để lưu trữ kết quả trong quá trình thực thi
+        int res = Integer.MIN_VALUE;
+
+        try {
+            //thực thi câu lệnh
+            res = getStatement().executeUpdate(Query);
+        } catch (Exception e) {
+            throw new Exception("Error " + e.getMessage());
+        }
+
+        return res;
+    }
+
+    //hàm đóng kết nối
+    public void Close() throws Exception {
+        if (this.resultSet != null && this.resultSet.isClosed()) {
+            this.resultSet.close();
+            this.resultSet = null;
+        }
+        if (this.statement != null && this.statement.isClosed()) {
+            this.statement.close();
+            this.statement = null;
+        }
+        if (this.connect != null && this.connect.isClosed()) {
+            this.connect.close();
+            this.connect = null;
+        }
     }
 }

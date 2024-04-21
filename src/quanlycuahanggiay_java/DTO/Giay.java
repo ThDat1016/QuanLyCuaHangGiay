@@ -6,13 +6,14 @@ package quanlycuahanggiay_java.DTO;
 
 public class Giay {
 
-    private String strMaGiay, strTenGiay, strDoiTuongSD, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
-    private int iSoLuong, iGia, iSize;
+    private String  strTenGiay, strDoiTuongSD, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
+    private int iSoLuong, iGia, iSize, strMaGiay;
+    
 
     public Giay() {
     }
 
-    public Giay(String strMaGiay, String strTenGiay, String strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, int iGia, int iSize) {
+    public Giay(int strMaGiay, String strTenGiay, String strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, int iGia, int iSize) {
         this.strMaGiay = strMaGiay;
         this.strTenGiay = strTenGiay;
         this.strDoiTuongSD = strDoiTuongSD;
@@ -26,7 +27,7 @@ public class Giay {
         this.iSize = iSize;
     }
 
-    public void setStrMaGiay(String strMaGiay) {
+    public void setStrMaGiay(int strMaGiay) {
         this.strMaGiay = strMaGiay;
     }
 
@@ -70,7 +71,7 @@ public class Giay {
         this.iSize = iSize;
     }
 
-    public String getStrMaGiay() {
+    public int getStrMaGiay() {
         return strMaGiay;
     }
 

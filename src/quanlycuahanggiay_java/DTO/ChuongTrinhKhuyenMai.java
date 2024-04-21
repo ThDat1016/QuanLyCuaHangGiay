@@ -13,14 +13,14 @@ import java.time.LocalDate;
 
 
 public class ChuongTrinhKhuyenMai {
-        private String MaKM;
+        private int MaKM;
 	private LocalDate NgayBatDau;
 	private LocalDate Ngayketthuc;
 	private String tenchuongtrinh;
 	private String loaiChuongtrinh;
 	private String dieukien;
 	
-	public ChuongTrinhKhuyenMai(String maKM, LocalDate ngayBatDau, LocalDate ngayketthuc, String tenchuongtrinh,
+	public ChuongTrinhKhuyenMai(int maKM, LocalDate ngayBatDau, LocalDate ngayketthuc, String tenchuongtrinh,
 			String loaiChuongtrinh, String dieukien) {
 		super();
 		MaKM = maKM;
@@ -30,10 +30,10 @@ public class ChuongTrinhKhuyenMai {
 		this.loaiChuongtrinh = loaiChuongtrinh;
 		this.dieukien = dieukien;
 	}
-	public void setMaKM(String maKM) {
+	public void setMaKM(int maKM) {
 		MaKM = maKM;
 	}
-        public String getMaKM() {
+        public int getMaKM() {
 		return MaKM;
 	}
 	public LocalDate getNgayBatDau() {

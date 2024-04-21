@@ -13,6 +13,10 @@ public class ThuongHieu {
 	private String TenThuongHieu;
 	private String DiaChi;
 	private String email;
+        
+        public ThuongHieu(){
+            
+        }
 	public ThuongHieu(String maThuongHieu, String tenThuongHieu, String diaChi, String email) {
 		this.MaThuongHieu = maThuongHieu;
 		this.TenThuongHieu = tenThuongHieu;
