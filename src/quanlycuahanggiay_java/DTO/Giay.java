@@ -3,17 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package quanlycuahanggiay_java.DTO;
-
+import java.math.BigDecimal;
 public class Giay {
 
     private String  strTenGiay, strDoiTuongSD, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
-    private int iSoLuong, iGia, iSize, strMaGiay;
+    private int iSoLuong, iSize, strMaGiay;
+    private BigDecimal iGia;
     
 
     public Giay() {
     }
 
-    public Giay(int strMaGiay, String strTenGiay, String strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, int iGia, int iSize) {
+    public Giay(int strMaGiay, String strTenGiay, String strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, BigDecimal iGia, int iSize) {
         this.strMaGiay = strMaGiay;
         this.strTenGiay = strTenGiay;
         this.strDoiTuongSD = strDoiTuongSD;
@@ -63,7 +64,7 @@ public class Giay {
         this.iSoLuong = iSoLuong;
     }
 
-    public void setiGia(int iGia) {
+    public void setiGia(BigDecimal iGia) {
         this.iGia = iGia;
     }
 
@@ -107,7 +108,7 @@ public class Giay {
         return iSoLuong;
     }
 
-    public int getiGia() {
+    public BigDecimal getiGia() {
         return iGia;
     }
 

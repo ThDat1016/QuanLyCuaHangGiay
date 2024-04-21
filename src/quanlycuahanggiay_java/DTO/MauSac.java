@@ -7,6 +7,8 @@ package quanlycuahanggiay_java.DTO;
 public class MauSac {
 	private String MaMau;
 	private String TenMau;
+        
+        public MauSac(){}
 	public MauSac(String maMau, String tenMau) {
 		this.MaMau = maMau;
 		this.TenMau = tenMau;

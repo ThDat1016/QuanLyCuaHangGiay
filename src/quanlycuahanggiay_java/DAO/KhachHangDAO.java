@@ -41,7 +41,7 @@ public class KhachHangDAO {
         return KH;
     }
     
-        public ArrayList<KhachHangDTO> docDB(String condition) throws Exception {
+        public ArrayList<KhachHang> docDB(String condition) throws Exception {
         return docDB(condition, null);
     }
     
@@ -53,21 +53,21 @@ public class KhachHangDAO {
      * Tạo thêm 1 khách hàng dựa theo đã có thông tin trước
      * @return true nếu thành công
      */
-    public Boolean them(KhachHangDTO kh) throws Exception {
-        connect = new MyConnectUnit();
+    public Boolean them(KhachHang kh) throws Exception {
+        connect = new ConnectUnit();
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("diachi", kh.getStrDiaChi());
-        insertValues.put("Email", kh.getStrEmail());
-        insertValues.put("GioiTinh", kh.getStrGioiTinh());
-        insertValues.put("ho", kh.getStrHo());
-        insertValues.put("loai", kh.getStrLoai());
-        insertValues.put("makh", kh.getStrMaKH());
-        insertValues.put("ten", kh.getStrTen());
-        insertValues.put("tongchitieu", kh.getiTongChiTieu());
+        insertValues.put("diachi", kh.getDiaChi());
+        insertValues.put("Email", kh.getEmail());
+        insertValues.put("GioiTinh", kh.isGioiTinh());
+        insertValues.put("ho", kh.getHo());
+        insertValues.put("loai", kh.getLoai());
+        insertValues.put("makh", kh.getMaKH());
+        insertValues.put("ten", kh.getTen());
+        insertValues.put("tongchitieu", kh.getTongChiTieu());
         
-        Boolean check = connect.Insert("tblkhachhang", insertValues);
+        Boolean check = connect.Insert("KHACHHANG", insertValues);
         
         connect.Close();
         return check;
@@ -78,7 +78,7 @@ public class KhachHangDAO {
         connect = new ConnectUnit();
         String condition = " makh = '"+kh.getMaKH()+"'";
         
-        Boolean check = connect.Delete("tblkhachhang", condition);
+        Boolean check = connect.Delete("KHACHHANG", condition);
         
         connect.Close();
         return check;
@@ -100,7 +100,7 @@ public class KhachHangDAO {
         
         String condition = " MaKH = '"+kh.getMaKH()+"'";
         
-        Boolean check = connect.Update("tblkhachhang", insertValues, condition);
+        Boolean check = connect.Update("KHACHHANG", insertValues, condition);
         
         connect.Close();
         return check;

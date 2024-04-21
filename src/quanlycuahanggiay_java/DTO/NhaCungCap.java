@@ -11,13 +11,15 @@ package quanlycuahanggiay_java.DTO;
 public class NhaCungCap {
         private String MaNCC;
 	private String TenNCC;
-	private String Diachi;
+	private String DiaChi;
 	private String DienThoai;
+        
+    public NhaCungCap(){}
 
     public NhaCungCap(String MaNCC, String TenNCC, String Diachi, String DienThoai) {
         this.MaNCC = MaNCC;
         this.TenNCC = TenNCC;
-        this.Diachi = Diachi;
+        this.DiaChi = Diachi;
         this.DienThoai = DienThoai;
     }
 
@@ -29,8 +31,8 @@ public class NhaCungCap {
         this.TenNCC = TenNCC;
     }
 
-    public void setDiachi(String Diachi) {
-        this.Diachi = Diachi;
+    public void setDiaChi(String Diachi) {
+        this.DiaChi = Diachi;
     }
 
     public void setDienThoai(String DienThoai) {
@@ -45,8 +47,8 @@ public class NhaCungCap {
         return TenNCC;
     }
 
-    public String getDiachi() {
-        return Diachi;
+    public String getDiaChi() {
+        return DiaChi;
     }
 
     public String getDienThoai() {

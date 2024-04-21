@@ -10,24 +10,25 @@ package quanlycuahanggiay_java.DTO;
  * @author Admin
  */
 public class Loai {
-    private String Maloai;
+    private String MaLoai;
     private String TenLoai;
-
+    
+    public Loai(){}
     public Loai(String Maloai, String TenLoai) {
-        this.Maloai = Maloai;
+        this.MaLoai = Maloai;
         this.TenLoai = TenLoai;
     }
 
-    public String getMaloai() {
-        return Maloai;
+    public String getMaLoai() {
+        return MaLoai;
     }
 
     public String getTenLoai() {
         return TenLoai;
     }
 
-    public void setMaloai(String Maloai) {
-        this.Maloai = Maloai;
+    public void setMaLoai(String Maloai) {
+        this.MaLoai = Maloai;
     }
 
     public void setTenLoai(String TenLoai) {

@@ -10,15 +10,16 @@ package quanlycuahanggiay_java.DTO;
  */
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class PhieuNhap {
         private int MaPN;
-	private LocalDate NgayNhap;
+	private Date NgayNhap;
 	private BigDecimal TongTien;
 	private int MaNV;
-
-    public PhieuNhap(int MaPN, LocalDate NgayNhap, BigDecimal TongTien, int MaNV, String MaNCC) {
+public PhieuNhap(){}
+    public PhieuNhap(int MaPN, Date NgayNhap, BigDecimal TongTien, int MaNV, String MaNCC) {
         this.MaPN = MaPN;
         this.NgayNhap = NgayNhap;
         this.TongTien = TongTien;
@@ -30,7 +31,7 @@ public class PhieuNhap {
         this.MaPN = MaPN;
     }
 
-    public void setNgayNhap(LocalDate NgayNhap) {
+    public void setNgayNhap(Date NgayNhap) {
         this.NgayNhap = NgayNhap;
     }
 
@@ -50,7 +51,7 @@ public class PhieuNhap {
         return MaPN;
     }
 
-    public LocalDate getNgayNhap() {
+    public Date getNgayNhap() {
         return NgayNhap;
     }
 

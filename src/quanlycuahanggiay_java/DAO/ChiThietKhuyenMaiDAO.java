@@ -21,7 +21,7 @@ public class ChiThietKhuyenMaiDAO {
         // kết nối CSDL
         connect = new ConnectUnit();
         
-        ResultSet result = this.connect.Select("tblchitietkm", condition, orderBy);
+        ResultSet result = this.connect.Select("CHITIETCHUONGTRINHKHUYENMAI", condition, orderBy);
         ArrayList<ChiTietChuongTrinhKhuyenMai> KM = new ArrayList<>();
         while ( result.next() ) {
             ChiTietChuongTrinhKhuyenMai khuyenmai = new ChiTietChuongTrinhKhuyenMai();
@@ -66,7 +66,7 @@ public class ChiThietKhuyenMaiDAO {
         connect = new ConnectUnit();
         String condition = " makm = '"+hd.getMaKM()+"' && magiay = '"+hd.getMaGiay()+"'";
         
-        Boolean check = connect.Delete("tblchitietkm", condition);
+        Boolean check = connect.Delete("CHITIETCHUONGTRINHKHUYENMAI", condition);
         
         connect.Close();
         return check;
@@ -87,7 +87,7 @@ public class ChiThietKhuyenMaiDAO {
         
         String condition = " makm = '"+hd.getMaKM()+"' && magiay = '"+hd.getMaGiay()+"'";
         
-        Boolean check = connect.Update("tblchitietkm", insertValues, condition);
+        Boolean check = connect.Update("CHITIETCHUONGTRINHKHUYENMAI", insertValues, condition);
         
         connect.Close();
         return check;

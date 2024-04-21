@@ -21,6 +21,7 @@ public class NhanVien {
     private String DienThoai;
     private String  Email;
     private BigDecimal Luong;
+    public NhanVien(){}
      public NhanVien(int MaNV, String ChucVu, String Ho, String Ten, boolean GioiTinh, String DiaChi, String DienThoai, String Email, BigDecimal Luong) {
         this.MaNV = MaNV;
         this.ChucVu = ChucVu;

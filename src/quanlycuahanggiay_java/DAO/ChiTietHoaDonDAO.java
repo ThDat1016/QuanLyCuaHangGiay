@@ -63,7 +63,7 @@ public class ChiTietHoaDonDAO {
         connect = new ConnectUnit();
         String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getMaGiay()+"'";
         
-        Boolean check = connect.Delete("tblchitiethd", condition);
+        Boolean check = connect.Delete("CHITIETHOADON", condition);
         
         connect.Close();
         return check;
@@ -84,7 +84,7 @@ public class ChiTietHoaDonDAO {
         
         String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getMaGiay()+"'";
         
-        Boolean check = connect.Update("tblchitiethd", insertValues, condition);
+        Boolean check = connect.Update("CHITIETHOADON", insertValues, condition);
         
         connect.Close();
         return check;

@@ -9,26 +9,28 @@ package quanlycuahanggiay_java.DTO;
  * @author Admin
  */
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 
 public class ChuongTrinhKhuyenMai {
         private int MaKM;
-	private LocalDate NgayBatDau;
-	private LocalDate Ngayketthuc;
-	private String tenchuongtrinh;
-	private String loaiChuongtrinh;
-	private String dieukien;
+	private Date NgayBatDau;
+	private Date NgayKetThuc;
+	private String TenChuongTrinh;
+	private String LoaiChuongTrinh;
+	private String DieuKien;
 	
-	public ChuongTrinhKhuyenMai(int maKM, LocalDate ngayBatDau, LocalDate ngayketthuc, String tenchuongtrinh,
+        
+        public ChuongTrinhKhuyenMai(){}
+	public ChuongTrinhKhuyenMai(int maKM, Date ngayBatDau, Date ngayketthuc, String tenchuongtrinh,
 			String loaiChuongtrinh, String dieukien) {
 		super();
 		MaKM = maKM;
 		NgayBatDau = ngayBatDau;
-		Ngayketthuc = ngayketthuc;
-		this.tenchuongtrinh = tenchuongtrinh;
-		this.loaiChuongtrinh = loaiChuongtrinh;
-		this.dieukien = dieukien;
+		NgayKetThuc = ngayketthuc;
+		this.TenChuongTrinh = tenchuongtrinh;
+		this.LoaiChuongTrinh = loaiChuongtrinh;
+		this.DieuKien = dieukien;
 	}
 	public void setMaKM(int maKM) {
 		MaKM = maKM;
@@ -36,34 +38,34 @@ public class ChuongTrinhKhuyenMai {
         public int getMaKM() {
 		return MaKM;
 	}
-	public LocalDate getNgayBatDau() {
+	public Date getNgayBatDau() {
 		return NgayBatDau;
 	}
-	public void setNgayBatDau(LocalDate ngayBatDau) {
+	public void setNgayBatDau(Date ngayBatDau) {
 		NgayBatDau = ngayBatDau;
 	}
-	public LocalDate getNgayketthuc() {
-		return Ngayketthuc;
+	public Date getNgayKetThuc() {
+		return NgayKetThuc;
 	}
-	public void setNgayketthuc(LocalDate ngayketthuc) {
-		Ngayketthuc = ngayketthuc;
+	public void setNgayKetThuc(Date ngayketthuc) {
+		NgayKetThuc = ngayketthuc;
 	}
-	public String getTenchuongtrinh() {
-		return tenchuongtrinh;
+	public String getTenChuongTrinh() {
+		return TenChuongTrinh;
 	}
-	public void setTenchuongtrinh(String tenchuongtrinh) {
-		this.tenchuongtrinh = tenchuongtrinh;
+	public void setTenChuongTrinh(String tenchuongtrinh) {
+		this.TenChuongTrinh = tenchuongtrinh;
 	}
-	public String getLoaiChuongtrinh() {
-		return loaiChuongtrinh;
+	public String getLoaiChuongTrinh() {
+		return LoaiChuongTrinh;
 	}
-	public void setLoaiChuongtrinh(String loaiChuongtrinh) {
-		this.loaiChuongtrinh = loaiChuongtrinh;
+	public void setLoaiChuongTrinh(String loaiChuongtrinh) {
+		this.LoaiChuongTrinh = loaiChuongtrinh;
 	}
-	public String getDieukien() {
-		return dieukien;
+	public String getDieuKien() {
+		return DieuKien;
 	}
-	public void setDieukien(String dieukien) {
-		this.dieukien = dieukien;
+	public void setDieuKien(String dieukien) {
+		this.DieuKien = dieukien;
 	}
 }

@@ -56,7 +56,7 @@ public class HoaDonDAO {
         insertValues.put("ngayban", hd.getNgayBan());
         insertValues.put("tongtien", hd.getTongTien());
         
-        Boolean check = connect.Insert("tblhoadon", insertValues);
+        Boolean check = connect.Insert("HOADON", insertValues);
         
         connect.Close();
         return check;
@@ -70,7 +70,7 @@ public class HoaDonDAO {
         connect = new ConnectUnit();
         String condition = " mahd = '"+hd.getMaHD()+"'";
         
-        Boolean check = connect.Delete("tblhoadon", condition);
+        Boolean check = connect.Delete("HOADON", condition);
         
         connect.Close();
         return check;
@@ -94,7 +94,7 @@ public class HoaDonDAO {
         
         String condition = " MaHD = '"+hd.getMaHD()+"'";
         
-        Boolean check = connect.Update("tblhoadon", insertValues, condition);
+        Boolean check = connect.Update("HOADON", insertValues, condition);
         
         connect.Close();
         return check;

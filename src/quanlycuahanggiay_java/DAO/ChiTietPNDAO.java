@@ -53,7 +53,7 @@ public class ChiTietPNDAO {
         insertValues.put("soluong", pn.getSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
         
-        Boolean check = connect.Insert("tblchitietpn", insertValues);
+        Boolean check = connect.Insert("", insertValues);
         
         connect.Close();
         return check;
@@ -64,7 +64,7 @@ public class ChiTietPNDAO {
         connect = new ConnectUnit();
         String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getMaGiay()+"'";
         
-        Boolean check = connect.Delete("tblchitietpn", condition);
+        Boolean check = connect.Delete("CHITIETPHIEUNHAP", condition);
         
         connect.Close();
         return check;
@@ -80,7 +80,7 @@ public class ChiTietPNDAO {
         
         String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getMaGiay()+"'";
         
-        Boolean check = connect.Update("tblchitietpn", insertValues, condition);
+        Boolean check = connect.Update("CHITIETPHIEUNHAP", insertValues, condition);
         
         connect.Close();
         return check;

@@ -9,6 +9,7 @@ public class XuatXu {
     private String strMaxuatxu;
     private String strTennuoc;
 
+    public XuatXu(){}
     public XuatXu(String strMaxuatxu, String strTennuoc) {
         this.strMaxuatxu = strMaxuatxu;
         this.strTennuoc = strTennuoc;
