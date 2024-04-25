@@ -45,7 +45,7 @@ public class KhachHangDAO {
         return docDB(condition, null);
     }
     
-    public ArrayList<KhachHangDTO> docDB() throws Exception {
+    public ArrayList<KhachHang> docDB() throws Exception {
         return docDB(null);
     }
     

@@ -11,28 +11,29 @@ package quanlycuahanggiay_java.DTO;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-
-
 public class HoaDon {
-        private int MaHD;
-	private int MaNV;
-	private int MaKH;
-	private int MaKM;
-	private Date NgayBan;
-	private BigDecimal TongTien;
-	private float Thue;
-        
-        public HoaDon(){}
-	public HoaDon(int maHD, int maNV, int maKH, int maKM, Date ngayBan, BigDecimal tongTien, int thue) {
-		super();
-		MaHD = maHD;
-		MaNV = maNV;
-		MaKH = maKH;
-		MaKM = maKM;
-		NgayBan = ngayBan;
-		TongTien = tongTien;
-		Thue = thue;
-	}
+
+    private int MaHD;
+    private int MaNV;
+    private int MaKH;
+    private int MaKM;
+    private Date NgayBan;
+    private BigDecimal TongTien;
+    private float Thue;
+
+    public HoaDon() {
+    }
+
+    public HoaDon(int maHD, int maNV, int maKH, int maKM, Date ngayBan, BigDecimal tongTien, int thue) {
+        super();
+        MaHD = maHD;
+        MaNV = maNV;
+        MaKH = maKH;
+        MaKM = maKM;
+        NgayBan = ngayBan;
+        TongTien = tongTien;
+        Thue = thue;
+    }
 
     public void setMaHD(int MaHD) {
         this.MaHD = MaHD;
@@ -89,5 +90,117 @@ public class HoaDon {
     public float getThue() {
         return Thue;
     }
-	
+
+    public static int maHDTangdan(HoaDon a, HoaDon b) {
+        int maHDA = a.getMaHD();
+        int maHDB = b.getMaHD();
+
+        if (maHDA < maHDB) {
+            return -1;
+        } else if (maHDA > maHDB) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+   public static int maHDGiamdan(HoaDon a, HoaDon b) {
+    int maHDA = a.getMaHD();
+    int maHDB = b.getMaHD();
+
+    if (maHDA < maHDB) {
+        return 1;
+    } else if (maHDA > maHDB) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+public static int maKHTangdan(HoaDon a, HoaDon b) {
+    int maKHA = a.getMaKH();
+    int maKHB = b.getMaKH();
+
+    if (maKHA < maKHB) {
+        return -1;
+    } else if (maKHA > maKHB) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+public static int maKHGiamdan(HoaDon a, HoaDon b) {
+    int maKHA = a.getMaKH();
+    int maKHB = b.getMaKH();
+
+    if (maKHA < maKHB) {
+        return 1;
+    } else if (maKHA > maKHB) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+public static int maKMTangdan(HoaDon a, HoaDon b) {
+    int maKMA = a.getMaKM();
+    int maKMB = b.getMaKM();
+
+    if (maKMA < maKMB) {
+        return -1;
+    } else if (maKMA > maKMB) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+public static int maKMGiamdan(HoaDon a, HoaDon b) {
+    int maKMA = a.getMaKM();
+    int maKMB = b.getMaKM();
+
+    if (maKMA < maKMB) {
+        return 1;
+    } else if (maKMA > maKMB) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+public static int maNVTangdan(HoaDon a, HoaDon b) {
+    int maNVA = a.getMaNV();
+    int maNVB = b.getMaNV();
+
+    if (maNVA < maNVB) {
+        return -1;
+    } else if (maNVA > maNVB) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+    public static int maNVGiamdan(HoaDon a, HoaDon b) {
+        int maNVA = a.getMaNV();
+        int maNVB = b.getMaNV();
+
+        if (maNVA < maNVB) {
+            return 1;
+        } else if (maNVA > maNVB) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public static int tongTienTangdan(HoaDon a, HoaDon b) {
+        return (-1) * b.getTongTien().compareTo(a.getTongTien());
+
+    }
+
+    public static int tongTienGiamdan(HoaDon a, HoaDon b) {
+        return b.getTongTien().compareTo(a.getTongTien());
+    }
 }

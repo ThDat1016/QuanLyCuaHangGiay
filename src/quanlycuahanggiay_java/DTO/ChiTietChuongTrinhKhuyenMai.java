@@ -30,5 +30,16 @@ public class ChiTietChuongTrinhKhuyenMai {
 		TiLeKM = tileKMtheoPhanTram;
 	}
 
-	
+	  @Override
+    public String toString() {
+        return "ChiTietKMDTO{" + "strMaKM=" + MaKM + ", strMaGiay=" + MaGiay + ", TiLeKM=" + TiLeKM + '}';
+    }
+
+
+   
+    
+    public static int maSPTangdan(ChiTietChuongTrinhKhuyenMai a, ChiTietChuongTrinhKhuyenMai b){
+        return Integer.compare(a.getMaGiay(), b.getMaGiay());
+
+    }
 }

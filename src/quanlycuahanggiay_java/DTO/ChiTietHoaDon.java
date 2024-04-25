@@ -46,6 +46,41 @@ public class ChiTietHoaDon {
 	public void setGiaBan(BigDecimal giaBan) {
 		GiaBan = giaBan;
 	}
+        
+       public static int maSPTangdan(ChiTietHoaDon a, ChiTietHoaDon b) {
+             return Integer.compare(a.getMaGiay(), b.getMaGiay());
+        }   
+
+    public static int maSPGiamdan(ChiTietHoaDon a, ChiTietHoaDon b){
+             return Integer.compare(a.getMaGiay(), b.getMaGiay());
+    }
+    
+    public static int soLuongTangdan(ChiTietHoaDon a, ChiTietHoaDon b){
+        if (a.getSoluong()< b.getSoluong()) {
+            return -1;
+        } 
+        else {
+            if (a.getSoluong() == a.getSoluong()) {
+                return 0;
+            }
+            else {
+                return 1;
+            }
+        }
+    }
+    public static int soLuongGiamdan(ChiTietHoaDon a, ChiTietHoaDon b){
+        if (a.getSoluong() > b.getSoluong()) {
+            return -1;
+        } 
+        else {
+            if (a.getSoluong() == a.getSoluong()) {
+                return 0;
+            }
+            else {
+                return 1;
+            }
+        }
+    }
 	
 }
 
