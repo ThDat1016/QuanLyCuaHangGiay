@@ -71,13 +71,13 @@ public class HoaDonBUS {
         return hd;
     }
 
-    public int getMaKM(int MaHD) {
+    public String getMaKM(int MaHD) {
         for (HoaDon hoadon : list_HD) {
             if (hoadon.getMaHD() == MaHD) {
                 return hoadon.getMaKM();
             }
         }
-        return 0;
+        return "0";
     }
 
     public ArrayList<HoaDon> timKiem_MaHD(int MaHD, boolean sapxep) {
@@ -131,7 +131,7 @@ public class HoaDonBUS {
         return arr;
     }
 
-    public ArrayList<HoaDon> timKiem_MaKM(int MaKM, boolean sapxep) {
+    public ArrayList<HoaDon> timKiem_MaKM(String MaKM, boolean sapxep) {
         ArrayList<HoaDon> arr = new ArrayList<>();
         for (HoaDon hoadon : list_HD) {
             if (hoadon.getMaKM() == MaKM) {

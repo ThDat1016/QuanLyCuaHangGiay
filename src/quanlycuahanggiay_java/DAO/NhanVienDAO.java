@@ -24,7 +24,6 @@ public class NhanVienDAO {
             NhanVien nhanvien = new NhanVien();
             nhanvien.setMaNV(result.getInt("MANV") );
             nhanvien.setLuong(result.getBigDecimal("LUONG"));
-            nhanvien.setDienThoai(result.getString("DIENTHOAI"));
             nhanvien.setChucVu(result.getString("CHUCVU"));
             nhanvien.setDiaChi(result.getString("DIACHI"));
             nhanvien.setEmail(result.getString("EMAIL"));
@@ -56,7 +55,6 @@ public class NhanVienDAO {
         insertValues.put("Ten", nv.getTen());
         insertValues.put("GioiTinh", nv.isGioiTinh());
         insertValues.put("DiaChi", nv.getDiaChi());
-        insertValues.put("DienThoai", nv.getDienThoai());
         insertValues.put("Email", nv.getEmail());
         insertValues.put("Luong", nv.getLuong());
         
@@ -87,7 +85,6 @@ public class NhanVienDAO {
         insertValues.put("Ten", nv.getTen());
         insertValues.put("GioiTinh", nv.isGioiTinh());
         insertValues.put("DiaChi", nv.getDiaChi());
-        insertValues.put("DienThoai", nv.getDienThoai());
         insertValues.put("Email", nv.getEmail());
         insertValues.put("Luong", nv.getLuong());
         

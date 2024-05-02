@@ -18,18 +18,16 @@ public class NhanVien {
     private String Ten;
     private boolean GioiTinh;
     private String DiaChi;
-    private String DienThoai;
     private String  Email;
     private BigDecimal Luong;
     public NhanVien(){}
-     public NhanVien(int MaNV, String ChucVu, String Ho, String Ten, boolean GioiTinh, String DiaChi, String DienThoai, String Email, BigDecimal Luong) {
+     public NhanVien(int MaNV, String ChucVu, String Ho, String Ten, boolean GioiTinh, String DiaChi,String Email, BigDecimal Luong) {
         this.MaNV = MaNV;
         this.ChucVu = ChucVu;
         this.Ho = Ho;
         this.Ten = Ten;
         this.GioiTinh = GioiTinh;
         this.DiaChi = DiaChi;
-        this.DienThoai = DienThoai;
         this.Email = Email;
         this.Luong = Luong;
     }
@@ -62,9 +60,7 @@ public class NhanVien {
         this.DiaChi = DiaChi;
     }
 
-    public void setDienThoai(String DienThoai) {
-        this.DienThoai = DienThoai;
-    }
+    
 
     public void setEmail(String Email) {
         this.Email = Email;
@@ -94,10 +90,7 @@ public class NhanVien {
         return DiaChi;
     }
 
-    public String getDienThoai() {
-        return DienThoai;
-    }
-
+    
     public String getEmail() {
         return Email;
     }

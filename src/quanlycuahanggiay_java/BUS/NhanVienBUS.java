@@ -9,69 +9,65 @@ import quanlycuahanggiay_java.DTO.NhanVien;
 import java.util.ArrayList;
 
 public class NhanVienBUS {
- private ArrayList<NhanVien> list_NV;
-    
+
+    private ArrayList<NhanVien> list_NV;
+
     private NhanVienDAO nvDAO;
-    
+
     public NhanVienBUS() throws Exception {
         list_NV = new ArrayList<>();
         nvDAO = new NhanVienDAO();
         list_NV = nvDAO.docDB();
     }
-    
+
     /**
      * thêm 1 nhân viên vào danh sách và database
+     *
      * @return true nếu thành công
      */
-    public Boolean them(NhanVien nv) throws Exception{
-        if ( nvDAO.them(nv) ) {
+    public Boolean them(NhanVien nv) throws Exception {
+        if (nvDAO.them(nv)) {
             list_NV.add(nv);
         }
         return false;
     }
-    
-    /**
-     * xóa 1 nhân viên khỏi danh sách và database
-     * @return true nếu thành công
-     */
+
     public Boolean xoa(NhanVien nv) throws Exception {
-        if ( nvDAO.xoa(nv) ) {
-            
-            // duyệt từng phẩn tử
-            for ( NhanVien nhanvien : list_NV ) {
-                if (nhanvien.getMaNV() == nv.getMaNV()){
+        if (nvDAO.xoa(nv)) {
+
+            for (NhanVien nhanvien : list_NV) {
+                if (nhanvien.getMaNV() == nv.getMaNV()) {
                     list_NV.remove(nhanvien);
-                break;
+                    break;
                 }
             }
         }
-        
+
         return false;
     }
-    
-    
+
     public Boolean sua(NhanVien nv) throws Exception {
-        if ( nvDAO.sua(nv) ) {
-            
-            // duyệt từng phẩn tử
-            for ( NhanVien nhanvien : list_NV ) {
-                if (nhanvien.getMaNV() == nv.getMaNV()){
-                break;
+        if (nvDAO.sua(nv)) {
+
+            for (NhanVien nhanvien : list_NV) {
+                if (nhanvien.getMaNV() == nv.getMaNV()) {
+                    break;
                 }
             }
         }
-        
+
         return false;
     }
-    
+
     public NhanVien getNhanVien_MaNV(int MaNV) {
-        for ( NhanVien nhanvien : list_NV ) {
+        for (NhanVien nhanvien : list_NV) {
             if (nhanvien.getMaNV() == MaNV) {
                 return nhanvien;
             }
         }
         return null;
     }
+
     public static void main(String[] args) {
         try {
             NhanVienBUS nhanVienBUS = new NhanVienBUS();

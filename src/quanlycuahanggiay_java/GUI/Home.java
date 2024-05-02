@@ -6,6 +6,7 @@ package quanlycuahanggiay_java.GUI;
 
 import quanlycuahanggiay_java.DTO.NhanVien;
 import quanlycuahanggiay_java.DTO.TaiKhoangNV;
+import quanlycuahanggiay_java.BUS.NhanVienBUS;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,23 +15,21 @@ import javax.swing.JOptionPane;
  */
 public class Home extends javax.swing.JFrame {
 
-    TaiKhoangNV nv = null;
-    NhanVien nvBUS = null;
+    NhanVien nv;
+    NhanVienBUS nvBUS;
 
-    
-    public Home(TaiKhoangNV tk, NhanVien nvB) {
+    public Home() {
         try {
-        nv = new TaiKhoangNV();
-        nvBUS = new NhanVien(); 
-    } catch(Exception ex) {
-        ex.printStackTrace(); 
-    }
-         nv.setMaNV(tk.getMaNV());
-        nv.setMatKhau(tk.getMatKhau());
-        nv.setCapBac(tk.getCapBac());
-        nvBUS = nvB;
+            nvBUS = new NhanVienBUS();
+            nv = nvBUS.getNhanVien_MaNV(Memory.maNV);
+            Memory.nhanvien = nv;
+
+        } catch (Exception e) {
+            System.out.println("Khoi tao khong thanh cong");
+        }
+
         initComponents();
-       
+
     }
 
     /**
@@ -43,15 +42,7 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        ShowName = new javax.swing.JLabel(nvBUS.getHo() + " " + nvBUS.getTen());
-        jLabel7 = new javax.swing.JLabel();
-        ShowLevel = new javax.swing.JLabel(nvBUS.getChucVu());
-        Logout = new javax.swing.JLabel();
-        ShowID = new javax.swing.JLabel(String.valueOf(nv.getMaNV()));
         jPanel9 = new javax.swing.JPanel();
         HoaDon = new javax.swing.JLabel();
         XuatExcel = new javax.swing.JLabel();
@@ -59,51 +50,18 @@ public class Home extends javax.swing.JFrame {
         ThongKe = new javax.swing.JLabel();
         NhapHang = new javax.swing.JLabel();
         KhuyenMai = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel("ID: " + Memory.maNV);
+        jLabel5 = new javax.swing.JLabel("Họ và tên: " + Memory.nhanvien.getHo() + " " + Memory.nhanvien.getTen());
+        jLabel6 = new javax.swing.JLabel("Chức vụ: " + Memory.iCapBac);
+        Logout = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(153, 153, 0));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setBackground(new java.awt.Color(153, 102, 255));
-        jLabel1.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/boy 1.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 126, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("ID:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 13, 21, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Họ Và Tên:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 56, 79, 23));
-
-        ShowName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ShowName.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(ShowName, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 51, -1, 32));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Chức vụ:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 13, -1, -1));
-
-        ShowLevel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ShowLevel.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(ShowLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
-
-        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/Logout (1).png"))); // NOI18N
-        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LogoutMouseClicked(evt);
-            }
-        });
-        jPanel1.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 70, 70));
-        jPanel1.add(ShowID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 15, 70, 20));
 
         jPanel9.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -163,13 +121,13 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
                         .addComponent(NhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(HoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(KhuyenMai, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(XuatExcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ThongKe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,22 +149,80 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(HangHoa, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NhapHang, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(51, 255, 51));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/boy 1.png"))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+
+        Logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/Logout (1).png"))); // NOI18N
+        Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogoutMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -278,15 +294,12 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_ThongKeMouseClicked
 
     private void LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutMouseClicked
-        int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng xuất không?", "Xác nhận đăng xuất", JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            try {
-                LoginForm login = new LoginForm();
-                login.setVisible(true);
-                this.setVisible(false);
-            } catch (Exception e) {
-                System.out.println("Lỗi " + e.getMessage());
-            }
+        int option = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng xuất?", "Xác nhận đăng xuất", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            // Đăng xuất
+            LoginForm lg = new LoginForm();
+            lg.setVisible(true);
+            this.dispose(); // Đóng cửa sổ hiện tại
         }
     }//GEN-LAST:event_LogoutMouseClicked
 
@@ -331,17 +344,15 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel KhuyenMai;
     private javax.swing.JLabel Logout;
     private javax.swing.JLabel NhapHang;
-    private javax.swing.JLabel ShowID;
-    private javax.swing.JLabel ShowLevel;
-    private javax.swing.JLabel ShowName;
     private javax.swing.JLabel ThongKe;
     private javax.swing.JLabel XuatExcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 

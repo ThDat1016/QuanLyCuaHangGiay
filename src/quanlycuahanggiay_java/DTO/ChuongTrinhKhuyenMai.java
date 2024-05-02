@@ -13,7 +13,7 @@ import java.sql.Date;
 
 
 public class ChuongTrinhKhuyenMai {
-        private int MaKM;
+        private String MaKM;
 	private Date NgayBatDau;
 	private Date NgayKetThuc;
 	private String TenChuongTrinh;
@@ -22,7 +22,7 @@ public class ChuongTrinhKhuyenMai {
 	
         
         public ChuongTrinhKhuyenMai(){}
-	public ChuongTrinhKhuyenMai(int maKM, Date ngayBatDau, Date ngayketthuc, String tenchuongtrinh,
+	public ChuongTrinhKhuyenMai(String maKM, Date ngayBatDau, Date ngayketthuc, String tenchuongtrinh,
 			String loaiChuongtrinh, String dieukien) {
 		super();
 		MaKM = maKM;
@@ -32,10 +32,10 @@ public class ChuongTrinhKhuyenMai {
 		this.LoaiChuongTrinh = loaiChuongtrinh;
 		this.DieuKien = dieukien;
 	}
-	public void setMaKM(int maKM) {
+	public void setMaKM(String maKM) {
 		MaKM = maKM;
 	}
-        public int getMaKM() {
+        public String getMaKM() {
 		return MaKM;
 	}
 	public Date getNgayBatDau() {

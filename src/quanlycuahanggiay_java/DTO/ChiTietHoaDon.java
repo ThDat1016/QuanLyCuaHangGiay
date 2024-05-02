@@ -16,7 +16,6 @@ public class ChiTietHoaDon {
 	private BigDecimal GiaBan;
         public ChiTietHoaDon(){}
 	public ChiTietHoaDon(int maGiay, int maHD, int soluong, BigDecimal giaBan) {
-		super();
 		MaGiay = maGiay;
 		MaHD = maHD;
 		Soluong = soluong;

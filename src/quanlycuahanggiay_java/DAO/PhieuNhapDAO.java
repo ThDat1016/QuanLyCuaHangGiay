@@ -52,7 +52,6 @@ public class PhieuNhapDAO {
         HashMap<String, Object> insertValues = new HashMap<>();
         insertValues.put("mancc", nv.getMaNCC());
         insertValues.put("manv", nv.getMaNV());
-        insertValues.put("mapn", nv.getMaPN());
         insertValues.put("ngaynhap", nv.getNgayNhap());
         insertValues.put("tongtien", nv.getTongTien());
         

@@ -53,7 +53,7 @@ public class ChiTietPNDAO {
         insertValues.put("soluong", pn.getSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
         
-        Boolean check = connect.Insert("", insertValues);
+        Boolean check = connect.Insert("CHITIETPHIEUNHAP", insertValues);
         
         connect.Close();
         return check;

@@ -44,12 +44,13 @@ public class KhachHangBUS {
      * thêm 1 khách hàng vào danh sách và database
      * @return true nếu thành công
      */
-    public Boolean them(KhachHang kh) throws Exception{
-        if ( khDAO.them(kh) ) {
-            list_KH.add(kh);
-        }
-        return false;
+  public Boolean them(KhachHang kh) throws Exception {
+    if (khDAO.them(kh)) {
+        list_KH.add(kh);
+        return true; // Return true if the insertion into the database was successful
     }
+    return false; // Return false if the insertion into the database failed
+}
     
     /**
      * xóa 1 khách hàng khỏi danh sách và database

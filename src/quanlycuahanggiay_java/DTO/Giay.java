@@ -6,15 +6,16 @@ package quanlycuahanggiay_java.DTO;
 import java.math.BigDecimal;
 public class Giay {
 
-    private String  strTenGiay, strDoiTuongSD, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
+    private String  strTenGiay, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
     private int iSoLuong, iSize, strMaGiay;
     private BigDecimal iGia;
+    private boolean  strDoiTuongSD;
     
 
     public Giay() {
     }
 
-    public Giay(int strMaGiay, String strTenGiay, String strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, BigDecimal iGia, int iSize) {
+    public Giay(int strMaGiay, String strTenGiay, boolean strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, BigDecimal iGia, int iSize) {
         this.strMaGiay = strMaGiay;
         this.strTenGiay = strTenGiay;
         this.strDoiTuongSD = strDoiTuongSD;
@@ -36,7 +37,7 @@ public class Giay {
         this.strTenGiay = strTenGiay;
     }
 
-    public void setStrDoiTuongSD(String strDoiTuongSD) {
+    public void setStrDoiTuongSD(boolean strDoiTuongSD) {
         this.strDoiTuongSD = strDoiTuongSD;
     }
 
@@ -80,7 +81,7 @@ public class Giay {
         return strTenGiay;
     }
 
-    public String getStrDoiTuongSD() {
+    public boolean getStrDoiTuongSD() {
         return strDoiTuongSD;
     }
 

@@ -9,21 +9,21 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 /**
  *
  * @author Admin
  */
 public class KhachHangDAO {
+
     ConnectUnit connect;
-    
-    public ArrayList<KhachHang> docDB(String condition, String orderBy) throws Exception{
+
+    public ArrayList<KhachHang> docDB(String condition, String orderBy) throws Exception {
         connect = new ConnectUnit();
-        
+
         ResultSet result = this.connect.Select("KHACHHANG", condition, orderBy);
         ArrayList<KhachHang> KH = new ArrayList<>();
-        while(result.next()){
-            
+        while (result.next()) {
+
             KhachHang khachhang = new KhachHang();
             khachhang.setDiaChi(result.getString("DIACHI"));
             khachhang.setEmail(result.getString("EMAIL"));
@@ -34,60 +34,66 @@ public class KhachHangDAO {
             khachhang.setMaKH(result.getInt("MAKH"));
             khachhang.setTongChiTieu(result.getBigDecimal("TONGCHITIEU"));
             KH.add(khachhang);
-            
+
         }
-        
+
         connect.Close();
         return KH;
     }
-    
-        public ArrayList<KhachHang> docDB(String condition) throws Exception {
+
+    public ArrayList<KhachHang> docDB(String condition) throws Exception {
         return docDB(condition, null);
     }
-    
+
     public ArrayList<KhachHang> docDB() throws Exception {
         return docDB(null);
     }
-    
+
     /**
      * Tạo thêm 1 khách hàng dựa theo đã có thông tin trước
+     *
      * @return true nếu thành công
      */
     public Boolean them(KhachHang kh) throws Exception {
         connect = new ConnectUnit();
-        
-        // tạo đối tượng truyền vào
+
+        // Tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("diachi", kh.getDiaChi());
-        insertValues.put("Email", kh.getEmail());
-        insertValues.put("GioiTinh", kh.isGioiTinh());
         insertValues.put("ho", kh.getHo());
-        insertValues.put("loai", kh.getLoai());
-        insertValues.put("makh", kh.getMaKH());
         insertValues.put("ten", kh.getTen());
-        insertValues.put("tongchitieu", kh.getTongChiTieu());
-        
+        insertValues.put("GioiTinh", kh.isGioiTinh());
+        insertValues.put("loai", kh.getLoai());
+
+        // Kiểm tra và thêm giá trị cho các trường có thể là null
+        if (kh.getDiaChi() != null) {
+            insertValues.put("diachi", kh.getDiaChi());
+        }
+        if (kh.getEmail() != null) {
+            insertValues.put("Email", kh.getEmail());
+        }
+        if (kh.getTongChiTieu() != null) {
+            insertValues.put("tongchitieu", kh.getTongChiTieu());
+        }
+
         Boolean check = connect.Insert("KHACHHANG", insertValues);
-        
+
         connect.Close();
         return check;
     }
-    
- 
+
     public Boolean xoa(KhachHang kh) throws Exception {
         connect = new ConnectUnit();
-        String condition = " makh = '"+kh.getMaKH()+"'";
-        
+        String condition = " makh = '" + kh.getMaKH() + "'";
+
         Boolean check = connect.Delete("KHACHHANG", condition);
-        
+
         connect.Close();
         return check;
     }
-    
-    
+
     public Boolean sua(KhachHang kh) throws Exception {
         connect = new ConnectUnit();
-        
+
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
         insertValues.put("diachi", kh.getDiaChi());
@@ -97,11 +103,11 @@ public class KhachHangDAO {
         insertValues.put("loai", kh.getLoai());
         insertValues.put("ten", kh.getTen());
         insertValues.put("tongchitieu", kh.getTongChiTieu());
-        
-        String condition = " MaKH = '"+kh.getMaKH()+"'";
-        
+
+        String condition = " MaKH = '" + kh.getMaKH() + "'";
+
         Boolean check = connect.Update("KHACHHANG", insertValues, condition);
-        
+
         connect.Close();
         return check;
     }

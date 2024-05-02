@@ -225,8 +225,12 @@ public class LoginForm extends javax.swing.JFrame {
 
         if (list_TK != null && list_TK.kiemTraDangNhap(tk)) {
             try {
+                Memory.maNV = tk.getMaNV();
+                Memory.iCapBac = list_TK.getCapBac_Ten(tk.getMaNV());
+                Memory.flag_Menu = true;
                 nv.getNhanVien_MaNV(tk.getMaNV());
-                Home home = new Home(tk, nv.getNhanVien_MaNV(tk.getMaNV()));
+                Home home = new Home();
+
                 home.setVisible(true);
                 this.setVisible(false);
             } catch (Exception e) {

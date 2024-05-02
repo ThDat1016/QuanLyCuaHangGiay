@@ -1,20 +1,20 @@
 package quanlycuahanggiay_java.DTO;
 
 public class ChiTietChuongTrinhKhuyenMai {
-	private int MaKM;
+	private String MaKM;
 	private int MaGiay;
 	private float TiLeKM;
         public ChiTietChuongTrinhKhuyenMai(){}
-	public ChiTietChuongTrinhKhuyenMai(int maKM, int maGiay, float tileKMtheoPhanTram) {
+	public ChiTietChuongTrinhKhuyenMai(String maKM, int maGiay, float tileKMtheoPhanTram) {
 		MaKM = maKM;
 		MaGiay = maGiay;
 		TiLeKM = tileKMtheoPhanTram;
 	}
 
-	public int getMaKM() {
+	public String getMaKM() {
 		return MaKM;
 	}
-	public void setMaKM(int maKM) {
+	public void setMaKM(String maKM) {
 		MaKM = maKM;
 	}
 	public int getMaGiay() {

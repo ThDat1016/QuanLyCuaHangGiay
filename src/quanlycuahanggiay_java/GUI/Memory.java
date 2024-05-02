@@ -5,17 +5,23 @@
 package quanlycuahanggiay_java.GUI;
 
 import quanlycuahanggiay_java.DTO.*;
+import java.math.BigDecimal;
+
 
 
 public class Memory {
     //Tai khoan
     static int  maNV;
-    static int iCapBac;
+    static String iCapBac;
     
+    
+    static int index;
     //NHan vien
     static NhanVien nhanvien;
-
+ 
+    static HoaDon hoadon;
     // color
+   
     static java.awt.Color colorThemes;
     static java.awt.Color colorThemes_2;
     static java.awt.Color colorText;
@@ -27,7 +33,12 @@ public class Memory {
     static boolean yesno_Q;
     
     // sản phẩm
-    static String maSP;
+    static int maSP;
+    static int MaHD;
+    static int maPN;
+    static String maNCC;
+   static BigDecimal tongTien;
+   static BigDecimal giaban;
     
     // link file
     static String filechoose;

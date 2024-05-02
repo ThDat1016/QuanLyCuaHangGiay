@@ -32,7 +32,7 @@ public class ConectToDB {
         }
     }
 
-    protected Connection getConnect() throws Exception {
+    public Connection getConnect() throws Exception {
         // Nếu connection null thì khởi tạo mới
         if (this.connect == null) {
             // Kiểm tra Driver

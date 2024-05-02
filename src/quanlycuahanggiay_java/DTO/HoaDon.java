@@ -16,7 +16,7 @@ public class HoaDon {
     private int MaHD;
     private int MaNV;
     private int MaKH;
-    private int MaKM;
+    private String MaKM;
     private Date NgayBan;
     private BigDecimal TongTien;
     private float Thue;
@@ -24,7 +24,7 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(int maHD, int maNV, int maKH, int maKM, Date ngayBan, BigDecimal tongTien, int thue) {
+    public HoaDon(int maHD, int maNV, int maKH, String maKM, Date ngayBan, BigDecimal tongTien, int thue) {
         super();
         MaHD = maHD;
         MaNV = maNV;
@@ -47,7 +47,7 @@ public class HoaDon {
         this.MaKH = MaKH;
     }
 
-    public void setMaKM(int MaKM) {
+    public void setMaKM(String MaKM) {
         this.MaKM = MaKM;
     }
 
@@ -75,7 +75,7 @@ public class HoaDon {
         return MaKH;
     }
 
-    public int getMaKM() {
+    public String getMaKM() {
         return MaKM;
     }
 
