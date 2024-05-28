@@ -85,36 +85,36 @@ public class GiayBUS {
 //        return null;
 //    }
 
-    public ArrayList<Giay> timKiem_MaSP(int strMaSP1, int strMaSP2, int sapxep) {
-        ArrayList<Giay> arr = new ArrayList<>();
-        
-//        Collections.sort(this.list_SP, SanPhamDTO::maSPTangdan);
-
-        int flag = 0;
-        for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrMaGiay() == strMaSP1) {
-                flag = 1;
-//                System.out.println("Tim thay SP1" + sanpham.getStrMaSP() );
-            }
-            if ( sanpham.getStrMaGiay() == strMaSP2  ) {
-                flag = 2;
-//                System.out.println("Tim thay SP2" + sanpham.getStrMaSP() );
-            }
-            if ( flag == 1 || flag == 2 )
-                arr.add(sanpham);
-            if ( flag == 2 )
-                break;
-        }
-        
-        if(sapxep == 1){
-//            Collections.sort(arr, SanPhamDTO::maSPTangdan);
-        }
-        else if(sapxep == -1) {
-//            Collections.sort(arr, SanPhamDTO::maSPGiamdan);
-        }
-        return arr;
-    }
-    
+//    public ArrayList<Giay> timKiem_MaSP(int strMaSP1, int strMaSP2, int sapxep) {
+//        ArrayList<Giay> arr = new ArrayList<>();
+//        
+//        //Collections.sort(this.list_SP, SanPhamDTO::maSPTangdan);
+//
+//        int flag = 0;
+//        for (Giay sanpham : list_SP) {
+//            if ( sanpham.getStrMaGiay() == strMaSP1) {
+//                flag = 1;
+////                System.out.println("Tim thay SP1" + sanpham.getStrMaSP() );
+//            }
+//            if ( sanpham.getStrMaGiay() == strMaSP2  ) {
+//                flag = 2;
+////                System.out.println("Tim thay SP2" + sanpham.getStrMaSP() );
+//            }
+//            if ( flag == 1 || flag == 2 )
+//                arr.add(sanpham);
+//            if ( flag == 2 )
+//                break;
+//        }
+//        
+//        if(sapxep == 1){
+////            Collections.sort(arr, SanPhamDTO::maSPTangdan);
+//        }
+//        else if(sapxep == -1) {
+////            Collections.sort(arr, SanPhamDTO::maSPGiamdan);
+//        }
+//        return arr;
+//    }
+//    
     public ArrayList<Giay> timKiem_SoLuong(int SL1, int SL2,int sapxep) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
@@ -146,17 +146,25 @@ public class GiayBUS {
         return false;
     }
     
-    public ArrayList<Giay> timKiem_TenGiay(String strTenGiay) {
-        ArrayList<Giay> arr = new ArrayList<>();
-        for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrTenGiay().indexOf(strTenGiay) != -1 ) {
-                arr.add(sanpham);
+        public ArrayList<Giay> timKiem_TenGiay(String strTenGiay) {
+            ArrayList<Giay> arr = new ArrayList<>();
+            for (Giay sanpham : list_SP) {
+                if (sanpham.getStrTenGiay().indexOf(strTenGiay) != -1) {
+                    arr.add(sanpham);
+                }
             }
+
+            return arr;
         }
-        
-        
-        return arr;
-    }
+        public Giay timKiem_MaGiay(int maGiay) {
+            for (Giay sanpham : list_SP) {
+                if (sanpham.getStrMaGiay()== maGiay) {
+                   return sanpham;
+                }
+            }
+
+            return null;
+        }
     public ArrayList<Giay> timKiem_MaLoai(String strMaLoai) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {

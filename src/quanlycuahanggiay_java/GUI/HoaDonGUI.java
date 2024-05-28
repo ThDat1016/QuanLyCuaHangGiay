@@ -36,7 +36,11 @@ import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+ import javax.swing.WindowConstants;
 public class HoaDonGUI extends javax.swing.JFrame {
 
     /**
@@ -44,15 +48,16 @@ public class HoaDonGUI extends javax.swing.JFrame {
      */
     public HoaDonGUI() {
 
-        JPanel jPanel4 = new JPanel();
+        jPanel4 = new JPanel();
         jPanel4.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3)); // Tạo viền màu xanh, độ dày 3 pixel
 
         JPanel jPanel5 = new JPanel();
         jPanel5.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3)); // Tạo viền màu xanh lá cây, độ dày 3 pixel
-
+        
         initComponents();
 
     }
+    
     private CacChucNangQuanTrong cachamquantrong;
     private Color colorPanel_Top, colorPanel_Center, colorText;
     private JLabel[] listLblTop;
@@ -185,6 +190,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
         jLabel6.setText("HÀNG HÓA");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new java.awt.CardLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(204, 204, 0)));
@@ -323,7 +329,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(MaKM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +340,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(TT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(201, 201, 201)
+                                        .addGap(213, 213, 213)
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(227, 227, 227)
@@ -345,7 +351,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(34, 34, 34)
                     .addComponent(DeletdHD, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(929, Short.MAX_VALUE)))
+                    .addContainerGap(1089, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,37 +389,19 @@ public class HoaDonGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(236, 236, 236)
                     .addComponent(DeletdHD)
-                    .addContainerGap(373, Short.MAX_VALUE)))
+                    .addContainerGap(438, Short.MAX_VALUE)))
         );
+
+        jPanel1.add(jPanel4, "card2");
 
         jLabel1.setBackground(new java.awt.Color(153, 255, 153));
         jLabel1.setForeground(new java.awt.Color(255, 204, 204));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(93, 93, 93))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(823, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel1, "card3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -437,7 +425,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1086, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,7 +445,7 @@ public class HoaDonGUI extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(810, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -480,38 +468,6 @@ public class HoaDonGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void HDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HDMouseClicked
-        HoaDonGUI hd = new HoaDonGUI();
-        hd.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_HDMouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        NhapHang nh = new NhapHang();
-        nh.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        ThongKe tk = new ThongKe();
-        tk.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        // TODO add your handling code here:
-        KhuyenMai km = new KhuyenMai();
-        km.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jPanel3MouseClicked
-
-    private void BackHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackHomeMouseClicked
-
-        Home home = new Home();
-        home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BackHomeMouseClicked
     private void showDuLieu() {
         String[] arr = {"Mã HĐ", "Mã KH", "Mã KM", "Mã NV", "Ngày bán", "Tổng tiền"};
         DefaultTableModel model = new DefaultTableModel(arr, 0);
@@ -605,27 +561,30 @@ public class HoaDonGUI extends javax.swing.JFrame {
             }
         }
 
-        // Gán model mới cho bảng
         ChiTietHD.setModel(model);
     }
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         showDuLieu();
     }//GEN-LAST:event_formComponentShown
 
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        KhuyenMai km = new KhuyenMai();
+        km.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
+
+    }//GEN-LAST:event_jPanel4ComponentShown
+
     private void ChiTietComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ChiTietComponentShown
 
     }//GEN-LAST:event_ChiTietComponentShown
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
-        BanHang bh = new BanHang();
-        bh.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void ChiTietHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChiTietHDMouseClicked
-
-    }//GEN-LAST:event_ChiTietHDMouseClicked
+    private void DeletdHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletdHDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeletdHDActionPerformed
 
     private void DeletdHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletdHDMouseClicked
         ConnectUnit connect = new ConnectUnit();
@@ -638,17 +597,44 @@ public class HoaDonGUI extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Khong the xoa");
         }
-
     }//GEN-LAST:event_DeletdHDMouseClicked
 
-    private void DeletdHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletdHDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeletdHDActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        
+        
+    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jPanel4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel4ComponentShown
-     
-    }//GEN-LAST:event_jPanel4ComponentShown
+    private void ChiTietHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChiTietHDMouseClicked
 
+    }//GEN-LAST:event_ChiTietHDMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        ThongKe tk = new ThongKe();
+        tk.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        NhapHang nh = new NhapHang();
+        nh.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void HDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HDMouseClicked
+        HoaDonGUI hd = new HoaDonGUI();
+        hd.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_HDMouseClicked
+
+    private void BackHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackHomeMouseClicked
+
+        Home home = new Home();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackHomeMouseClicked
+public JPanel getHoadon() {
+        return jPanel4;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

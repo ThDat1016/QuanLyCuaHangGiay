@@ -24,9 +24,9 @@ public class ChiTietHoaDonDAO {
         ArrayList<ChiTietHoaDon> CTHD = new ArrayList<>();
         while ( result.next() ) {
             ChiTietHoaDon hoadon = new ChiTietHoaDon();
-            hoadon.setMaGiay(result.getInt("MAGIAY"));
+            hoadon.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
             hoadon.setMaHD(result.getInt("MAHD"));
-            hoadon.setGiaBan(result.getBigDecimal("GIABAN"));
+            hoadon.getGiay().setiGia(result.getBigDecimal("GIABAN"));
             hoadon.setSoluong(result.getInt("SOLUONG"));
             
             CTHD.add(hoadon);
@@ -49,7 +49,7 @@ public class ChiTietHoaDonDAO {
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
         insertValues.put("mahd", hd.getMaHD());
-        insertValues.put("magiay", hd.getMaGiay());
+        insertValues.put("magiay", hd.getGiay().getStrMaGiay());
         insertValues.put("soluong", hd.getSoluong());
         insertValues.put("giaban", hd.getGiaBan());
         
@@ -61,7 +61,7 @@ public class ChiTietHoaDonDAO {
     
    public Boolean xoa(ChiTietHoaDon hd) throws Exception {
         connect = new ConnectUnit();
-        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getMaGiay()+"'";
+        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Delete("CHITIETHOADON", condition);
         
@@ -69,11 +69,7 @@ public class ChiTietHoaDonDAO {
         return check;
     }
     
-    /**
-     * @param hd truyền vào dữ liệu hdách hàng mới
-     * Sửa thông tin đăng nhập hoặc là cấp bậc của 1 hdách hàng
-     * @return true nếu thành công
-     */
+  
     public Boolean sua(ChiTietHoaDon hd) throws Exception {
         connect = new ConnectUnit();
         
@@ -82,7 +78,7 @@ public class ChiTietHoaDonDAO {
         insertValues.put("soluong", hd.getSoluong());
         insertValues.put("giaban", hd.getGiaBan());
         
-        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getMaGiay()+"'";
+        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Update("CHITIETHOADON", insertValues, condition);
         

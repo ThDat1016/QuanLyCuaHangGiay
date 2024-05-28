@@ -25,9 +25,10 @@ public class ChiTietPNDAO {
         
         while(result.next()){
             ChiTietPhieuNhap phieunhap = new ChiTietPhieuNhap();
-            phieunhap.setMaGiay(result.getInt("MAGIAY"));
+            //phieunhap.setMaGiay(result.getInt("MAGIAY"));
+            phieunhap.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
             phieunhap.setMaPN(result.getInt("MAPN"));
-            phieunhap.setSoLuong(result.getInt("SOLUONG"));
+            phieunhap.getGiay().setiSoLuong(result.getInt("SOLUONG"));
             phieunhap.setGiaNhap(result.getBigDecimal("GIANHAP"));
             CTPN.add(phieunhap);
         }
@@ -49,8 +50,8 @@ public class ChiTietPNDAO {
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
         insertValues.put("mapn", pn.getMaPN());
-        insertValues.put("magiay", pn.getMaGiay());
-        insertValues.put("soluong", pn.getSoLuong());
+        insertValues.put("magiay", pn.getGiay().getStrMaGiay());
+        insertValues.put("soluong", pn.getGiay().getiSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
         
         Boolean check = connect.Insert("CHITIETPHIEUNHAP", insertValues);
@@ -62,7 +63,7 @@ public class ChiTietPNDAO {
     
     public Boolean xoa(ChiTietPhieuNhap pn) throws Exception {
         connect = new ConnectUnit();
-        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getMaGiay()+"'";
+        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Delete("CHITIETPHIEUNHAP", condition);
         
@@ -75,10 +76,10 @@ public class ChiTietPNDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("soluong", pn.getSoLuong());
+        insertValues.put("soluong", pn.getGiay().getiSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
         
-        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getMaGiay()+"'";
+        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Update("CHITIETPHIEUNHAP", insertValues, condition);
         

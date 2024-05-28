@@ -35,8 +35,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel9" max="32767" attributes="0"/>
           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel9" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -54,7 +54,7 @@
     <Container class="javax.swing.JPanel" name="jPanel9">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="ff" red="cc" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -66,7 +66,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="HangHoa" min="-2" pref="138" max="-2" attributes="0"/>
-                          <EmptySpace pref="147" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="NhapHang" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -75,7 +75,7 @@
                           <Component id="KhuyenMai" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="XuatExcel" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
                       <Component id="ThongKe" alignment="1" min="-2" pref="138" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="66" max="32767" attributes="0"/>
+                  <EmptySpace pref="164" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -181,7 +181,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="ff" red="33" type="rgb"/>
+          <Color blue="cc" green="ff" red="99" type="rgb"/>
         </Property>
       </Properties>
 
@@ -200,7 +200,7 @@
                           <Component id="jLabel2" min="-2" pref="113" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="254" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="265" max="32767" attributes="0"/>
                           <Component id="Logout" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
@@ -225,9 +225,9 @@
                           <Component id="Logout" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="jLabel5" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

@@ -81,7 +81,6 @@ public class NhanVienBUS {
                 System.out.println("Họ và tên: " + nvTimThay.getHo() + " " + nvTimThay.getTen());
                 System.out.println("Giới tính: " + (nvTimThay.isGioiTinh() ? "Nam" : "Nữ"));
                 System.out.println("Địa chỉ: " + nvTimThay.getDiaChi());
-                System.out.println("Điện thoại: " + nvTimThay.getDienThoai());
                 System.out.println("Email: " + nvTimThay.getEmail());
                 System.out.println("Lương: " + nvTimThay.getLuong());
             } else {

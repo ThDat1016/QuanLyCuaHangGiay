@@ -77,24 +77,24 @@ public class ChiTietHoaDonBUS {
         int flag = 0;
         if (MaSP1 == MaSP2) {
             for (ChiTietHoaDon hoadon : list_HD) {
-                if (hoadon.getMaGiay() == MaSP1) {
+                if (hoadon.getGiay().getStrMaGiay() == MaSP1) {
                     arr.add(hoadon);
                     System.out.println("Tim thay SP1" + hoadon.getMaHD());
                 }
             }
         } else {
             for (ChiTietHoaDon hoadon : list_HD) {
-                if (hoadon.getMaGiay() == MaSP1) {
+                if (hoadon.getGiay().getStrMaGiay() == MaSP1) {
                     flag = 1;
                     System.out.println("Tim thay SP1" + hoadon.getMaHD());
                 }
-                if (hoadon.getMaGiay() == MaSP2) {
+                if (hoadon.getGiay().getStrMaGiay() == MaSP2) {
                     flag = 2;
                     System.out.println("Tim thay SP2" + hoadon.getMaHD());
                 }
 
                 if (flag == 2) {
-                    if (hoadon.getMaGiay() == MaSP2) {
+                    if (hoadon.getGiay().getStrMaGiay() == MaSP2) {
                         break;
                     }
                 }

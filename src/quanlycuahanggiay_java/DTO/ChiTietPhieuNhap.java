@@ -8,29 +8,37 @@ import java.math.BigDecimal;
 
 public class ChiTietPhieuNhap {
 
-    private int MaGiay;
     private int MaPN;
-    private int SoLuong;
     private BigDecimal GiaNhap;
+    private Giay giay;
+
 
     public ChiTietPhieuNhap() {
+        giay = new Giay();
     }
 
-    public ChiTietPhieuNhap(int maGiay, int maPN, int soLuong, BigDecimal giaNhap) {
+    public ChiTietPhieuNhap(int maGiay, int maPN, int soLuong, BigDecimal giaNhap, Giay giay) {
         super();
-        MaGiay = maGiay;
         MaPN = maPN;
-        SoLuong = soLuong;
         GiaNhap = giaNhap;
+        this.giay = giay;
     }
 
-    public int getMaGiay() {
-        return MaGiay;
+    public void setGiay(Giay giay) {
+        this.giay = giay;
     }
 
-    public void setMaGiay(int maGiay) {
-        MaGiay = maGiay;
+    public Giay getGiay() {
+        return giay;
     }
+
+//    public int getMaGiay() {
+//        return MaGiay;
+//    }
+//
+//    public void setMaGiay(int maGiay) {
+//        MaGiay = maGiay;
+//    }
 
     public int getMaPN() {
         return MaPN;
@@ -40,13 +48,13 @@ public class ChiTietPhieuNhap {
         MaPN = maPN;
     }
 
-    public int getSoLuong() {
-        return SoLuong;
-    }
-
-    public void setSoLuong(int soLuong) {
-        SoLuong = soLuong;
-    }
+//    public int getSoLuong() {
+//        return SoLuong;
+//    }
+//
+//    public void setSoLuong(int soLuong) {
+//        SoLuong = soLuong;
+//    }
 
     public BigDecimal getGiaNhap() {
         return GiaNhap;
@@ -57,8 +65,7 @@ public class ChiTietPhieuNhap {
     }
 
     public static int maSPTangdan(ChiTietPhieuNhap a, ChiTietPhieuNhap b) {
-    return Integer.compare(a.getMaGiay(), b.getMaGiay());
-}
-
+        return Integer.compare(a.getGiay().getStrMaGiay(), a.getGiay().getStrMaGiay());
+    }
 
 }

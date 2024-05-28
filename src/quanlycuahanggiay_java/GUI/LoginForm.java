@@ -59,11 +59,13 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel11.setText("jLabel11");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(25, 118, 211));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 0, new java.awt.Color(204, 204, 204)));
         jPanel1.setDoubleBuffered(false);
         jPanel1.setEnabled(false);
         jPanel1.setFocusable(false);
@@ -74,9 +76,12 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setText("Login");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Mã nhân viên");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel5.setText("Mật khẩu");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/user.png"))); // NOI18N
@@ -93,9 +98,10 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        MaNVTXT.setBackground(new java.awt.Color(25, 118, 221));
+        MaNVTXT.setBackground(new java.awt.Color(153, 255, 255));
+        MaNVTXT.setForeground(new java.awt.Color(255, 255, 255));
 
-        PassTXT.setBackground(new java.awt.Color(25, 118, 221));
+        PassTXT.setBackground(new java.awt.Color(153, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,7 +150,7 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(PassTXT))
                 .addGap(18, 18, 18)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 380));
@@ -170,6 +176,7 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 0, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 0, 5, 5, new java.awt.Color(204, 204, 204)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 283, -1, -1));
 
@@ -190,7 +197,7 @@ public class LoginForm extends javax.swing.JFrame {
         StoreName.setBackground(new java.awt.Color(255, 204, 51));
         StoreName.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         StoreName.setForeground(new java.awt.Color(0, 102, 102));
-        StoreName.setText("SHOES STORE ");
+        StoreName.setText("SHOE STORE ");
         jPanel4.add(StoreName, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 208, -1, 53));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 300, 560));
@@ -225,11 +232,9 @@ public class LoginForm extends javax.swing.JFrame {
 
         if (list_TK != null && list_TK.kiemTraDangNhap(tk)) {
             try {
-                Memory.maNV = tk.getMaNV();
-                Memory.iCapBac = list_TK.getCapBac_Ten(tk.getMaNV());
-                Memory.flag_Menu = true;
-                nv.getNhanVien_MaNV(tk.getMaNV());
-                Home home = new Home();
+
+                Memory.nhanvien = nv.getNhanVien_MaNV(tk.getMaNV());
+                MainFrame1 home = new MainFrame1();
 
                 home.setVisible(true);
                 this.setVisible(false);

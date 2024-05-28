@@ -59,7 +59,7 @@ public class FormNhapHang extends javax.swing.JFrame {
     public FormNhapHang() {
         list = new ArrayList<>();
         chiTietPN = new ArrayList<>();
-        Memory.tongTien = new BigDecimal("0");
+        Memory.tongTien = new ArrayList<>();
         initComponents();
         ShowMaMau();
         ShowMaTH();
@@ -420,9 +420,9 @@ public class FormNhapHang extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1022, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(414, 414, 414)
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1028, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(427, 427, 427)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -532,11 +532,8 @@ public class FormNhapHang extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1045, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1045, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,9 +699,9 @@ public class FormNhapHang extends javax.swing.JFrame {
 
         // add chi tiet PN
         ctpn.setGiaNhap(giaBan);
-        ctpn.setMaGiay(0); // luc nhap hang se cap nhat lai ma giay
+        ctpn.getGiay().setStrMaGiay(0); // luc nhap hang se cap nhat lai ma giay
         ctpn.setMaPN(0);    // luc nhap hang se cap nhat lai ma PN
-        ctpn.setSoLuong((int) SoLuong.getValue());
+        ctpn.getGiay().setiSoLuong((int) SoLuong.getValue());
 
         chiTietPN.add(ctpn);
         list.add(e);
@@ -909,4 +906,6 @@ public class FormNhapHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
+
+
 }

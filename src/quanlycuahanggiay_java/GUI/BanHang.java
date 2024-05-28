@@ -39,7 +39,7 @@ public class BanHang extends javax.swing.JFrame {
      * Creates new form BanHang
      */
     public BanHang() {
-        Memory.tongTien = new BigDecimal("0");
+        Memory.tongTien.clear();
         chiTiet = new ArrayList<>();
         initComponents();
         NhapMaGiay();
@@ -258,6 +258,8 @@ public class BanHang extends javax.swing.JFrame {
             }
         });
 
+        gia.setBorder(new javax.swing.border.MatteBorder(null));
+
         delete.setBackground(new java.awt.Color(51, 255, 204));
         delete.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         delete.setForeground(new java.awt.Color(0, 0, 0));
@@ -265,6 +267,11 @@ public class BanHang extends javax.swing.JFrame {
         delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deleteMouseClicked(evt);
+            }
+        });
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
             }
         });
 
@@ -503,12 +510,9 @@ public class BanHang extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 283, Short.MAX_VALUE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(295, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -549,9 +553,7 @@ public class BanHang extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        ThongKe tk = new ThongKe();
-        tk.setVisible(true);
-        this.dispose();
+            
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -609,14 +611,15 @@ public class BanHang extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         if (MaGiay.getText().isEmpty() || gia.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            return; 
+            return;
         }
 
         ChiTietHoaDon e = new ChiTietHoaDon();
-        e.setMaGiay(Integer.parseInt(MaGiay.getText()));
+        e.getGiay().setStrMaGiay(Integer.parseInt(MaGiay.getText()));
         BigDecimal giaBan = new BigDecimal(gia.getText());
-        Memory.giaban = giaBan;
-        e.setGiaBan(giaBan);
+        BigDecimal soLuong = new BigDecimal((int) SoLuong.getValue());
+        BigDecimal thanhTien = giaBan.multiply(soLuong);
+        e.setGiaBan(thanhTien);
         e.setMaHD(0); // khi nhận thanh toán, mã hóa đơn sẽ trở thành mã hóa đơn mới nhất (vì lúc này chưa tạo hóa đơn)
         e.setSoluong((int) SoLuong.getValue());
 
@@ -629,7 +632,7 @@ public class BanHang extends javax.swing.JFrame {
 
         try {
             GiayBUS giay = new GiayBUS();
-            int temp = giay.getInfor(e.getMaGiay()).getiSoLuong();
+            int temp = giay.getInfor( e.getGiay().getStrMaGiay()).getiSoLuong();
             if (temp < e.getSoluong()) {
                 JOptionPane.showMessageDialog(this, "Số lượng vượt quá sản phẩm có sẵn", "Thông báo", JOptionPane.WARNING_MESSAGE);
                 SoLuong.setValue(0);
@@ -638,11 +641,10 @@ public class BanHang extends javax.swing.JFrame {
                 chiTiet.add(e);
 
                 DefaultTableModel model = (DefaultTableModel) ChiTiet.getModel();
-                Object[] rowData = {e.getMaGiay(), e.getSoluong(), e.getGiaBan()};
+                Object[] rowData = {e.getGiay().getStrMaGiay(), e.getSoluong(), e.getGiaBan()};
                 model.addRow(rowData);
 
-                
-                Memory.tongTien = Memory.tongTien.add(giaBan);
+                Memory.tongTien.add(thanhTien);
             }
         } catch (Exception ex) {
             System.out.println("Lỗi xảy ra: " + ex.getMessage());
@@ -661,7 +663,7 @@ public class BanHang extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) ChiTiet.getModel();
                 model.removeRow(rowIndex);
                 chiTiet.remove(rowIndex);
-                Memory.tongTien = Memory.tongTien.subtract(Memory.giaban);
+                Memory.tongTien.remove(rowIndex);
             } else {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn một dòng để xóa.", "Thông báo", JOptionPane.WARNING_MESSAGE);
             }
@@ -674,7 +676,13 @@ public class BanHang extends javax.swing.JFrame {
 
     }//GEN-LAST:event_emailKHActionPerformed
 
-
+    public BigDecimal TongTienHD(ArrayList<BigDecimal> arr) {
+        BigDecimal sum = new BigDecimal("0");
+        for (BigDecimal temp : arr) {
+            sum = sum.add(temp);
+        }
+        return sum;
+    }
     private void ThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThanhToanMouseClicked
 
         try {
@@ -691,9 +699,9 @@ public class BanHang extends javax.swing.JFrame {
             hd.setMaKM(maKM.getText());
             hd.setMaNV(Memory.maNV);
 
-            hd.setThue(1);
+            hd.setThue(0.1f);
             hd.setMaKH(maKH);
-            hd.setTongTien(Memory.tongTien);
+            hd.setTongTien(TongTienHD(Memory.tongTien));
             hd.setThue(1);
             if (InforKH() != null) {
 
@@ -710,7 +718,7 @@ public class BanHang extends javax.swing.JFrame {
                 System.out.println(maxHD);
                 hoadon.setMaHD(maxHD);
                 chiTietHDBUS.them(hoadon);
-                System.out.println(hoadon.getMaGiay());
+                System.out.println(hoadon.getGiay().getStrMaGiay());
             }
             HoaDonGUI hoaDonGUI = new HoaDonGUI();
             hoaDonGUI.setVisible(true);
@@ -721,7 +729,11 @@ public class BanHang extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_ThanhToanMouseClicked
-    private void xoaDL() {
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteActionPerformed
+    private void xoaDL() {   
         ListSelectionModel LM = ChiTiet.getSelectionModel();
         try {
             LM.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // chỉ cho phép chọn 1 dòng
@@ -764,7 +776,7 @@ public class BanHang extends javax.swing.JFrame {
                     int soLuongGiaTrenKho = giay.getInfor(maGiayInt).getiSoLuong();
                     int soLuongNhap = (int) SoLuong.getValue();
                     int soLuongMoi = soLuongGiaTrenKho - soLuongNhap;
-
+                        
                     if (soLuongMoi >= 0) {
                         giay.getInfor(maGiayInt).setiSoLuong(soLuongMoi);
 
@@ -862,4 +874,6 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JLabel t;
     private javax.swing.JTextField tenKH;
     // End of variables declaration//GEN-END:variables
+
+    
 }

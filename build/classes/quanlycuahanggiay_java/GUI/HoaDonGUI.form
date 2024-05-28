@@ -92,7 +92,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="1086" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -118,7 +118,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="810" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -216,31 +216,7 @@
             </Property>
           </Properties>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="374" max="-2" attributes="0"/>
-                          <Component id="jPanel4" min="-2" pref="601" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="823" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel4">
               <Properties>
@@ -261,6 +237,11 @@
               <Events>
                 <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="jPanel4ComponentShown"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card2"/>
+                </Constraint>
+              </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -292,7 +273,7 @@
                                           <Component id="MaKM" min="-2" pref="126" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="83" max="32767" attributes="0"/>
+                                  <EmptySpace pref="243" max="32767" attributes="0"/>
                                   <Component id="jScrollPane2" min="-2" pref="696" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -304,7 +285,7 @@
                                                   <Component id="jLabel12" min="-2" pref="96" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="TT" min="-2" pref="126" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                                                   <Component id="jLabel11" min="-2" pref="5" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -323,7 +304,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="DeletdHD" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace pref="929" max="32767" attributes="0"/>
+                              <EmptySpace pref="1089" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -374,13 +355,13 @@
                           <Component id="jScrollPane3" min="-2" pref="243" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel11" min="-2" pref="24" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="77" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                               <Component id="DeletdHD" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="373" max="32767" attributes="0"/>
+                              <EmptySpace pref="438" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -647,6 +628,11 @@
                   <Color blue="cc" green="cc" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card3"/>
+                </Constraint>
+              </Constraints>
             </Component>
           </SubComponents>
         </Container>

@@ -25,7 +25,8 @@ public class ChiThietKhuyenMaiDAO {
         ArrayList<ChiTietChuongTrinhKhuyenMai> KM = new ArrayList<>();
         while ( result.next() ) {
             ChiTietChuongTrinhKhuyenMai khuyenmai = new ChiTietChuongTrinhKhuyenMai();
-            khuyenmai.setMaGiay(result.getInt("MAGIAY"));
+           // khuyenmai.setMaGiay(result.getInt("MAGIAY"));
+            khuyenmai.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
             khuyenmai.setMaKM(result.getString("MAKM"));
             khuyenmai.setTileKM(result.getFloat("TILEKM"));
             KM.add(khuyenmai);
