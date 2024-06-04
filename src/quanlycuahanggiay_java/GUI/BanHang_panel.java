@@ -5,20 +5,15 @@
 package quanlycuahanggiay_java.GUI;
 
 import java.awt.CardLayout;
-import quanlycuahanggiay_java.BUS.GiayBUS;
 import quanlycuahanggiay_java.DTO.KhachHang;
 import quanlycuahanggiay_java.DTO.HoaDon;
 import quanlycuahanggiay_java.BUS.GiayBUS;
-import quanlycuahanggiay_java.BUS.HoaDonBUS;
-import quanlycuahanggiay_java.BUS.ChiTietHoaDonBUS;
 import quanlycuahanggiay_java.BUS.KhachHangBUS;
 import quanlycuahanggiay_java.DTO.ChiTietHoaDon;
-import quanlycuahanggiay_java.DAO.KhachHangDAO;
 import quanlycuahanggiay_java.DAO.ChiTietHoaDonDAO;
 import quanlycuahanggiay_java.DAO.HoaDonDAO;
 import java.util.ArrayList;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 import java.awt.event.ActionEvent;
@@ -29,8 +24,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.time.LocalDateTime;
-import java.sql.ResultSet;
-import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
 import quanlycuahanggiay_java.DAO.ConnectUnit;
@@ -334,9 +327,8 @@ public class BanHang_panel extends javax.swing.JPanel {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(diaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10)
+                    .addComponent(diaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(body_panelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

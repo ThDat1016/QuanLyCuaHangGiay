@@ -5,6 +5,7 @@
 package quanlycuahanggiay_java.GUI;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,11 +13,10 @@ import java.awt.CardLayout;
  */
 public class MainFrame1 extends javax.swing.JFrame {
 
-    
     public MainFrame1() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +33,6 @@ public class MainFrame1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel("Chức vụ: " + Memory.nhanvien.getChucVu());
         Nhaphang = new javax.swing.JButton();
         Hanghoa = new javax.swing.JButton();
-        Excel = new javax.swing.JButton();
         Thongke = new javax.swing.JButton();
         Dangxuat = new javax.swing.JLabel();
         Hoadon = new javax.swing.JButton();
@@ -41,7 +40,7 @@ public class MainFrame1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
+        jPanel1.setBackground(new java.awt.Color(169, 169, 196));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 0, new java.awt.Color(169, 169, 169)));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/boy 1.png"))); // NOI18N
@@ -75,22 +74,22 @@ public class MainFrame1 extends javax.swing.JFrame {
             }
         });
 
-        Excel.setBackground(new java.awt.Color(70, 130, 180));
-        Excel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        Excel.setText("XUẤT EXCEL");
-        Excel.setBorder(null);
-        Excel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcelActionPerformed(evt);
-            }
-        });
-
         Thongke.setBackground(new java.awt.Color(70, 130, 180));
         Thongke.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         Thongke.setText("THỐNG KÊ");
         Thongke.setBorder(null);
+        Thongke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ThongkeActionPerformed(evt);
+            }
+        });
 
         Dangxuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlycuahanggiay_java/images/Logout (1).png"))); // NOI18N
+        Dangxuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DangxuatMouseClicked(evt);
+            }
+        });
 
         Hoadon.setBackground(new java.awt.Color(70, 130, 180));
         Hoadon.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -122,7 +121,6 @@ public class MainFrame1 extends javax.swing.JFrame {
                     .addComponent(Hoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Nhaphang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Hanghoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Excel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Thongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -142,11 +140,9 @@ public class MainFrame1 extends javax.swing.JFrame {
                 .addComponent(Nhaphang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Hanghoa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Excel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(Dangxuat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
         );
@@ -163,16 +159,12 @@ public class MainFrame1 extends javax.swing.JFrame {
 
     private void NhaphangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NhaphangActionPerformed
         NhapHang_panel nhp = new NhapHang_panel();
-        body_panel.add(nhp,"NhapHang");
-         CardLayout cl = (CardLayout) (body_panel.getLayout());
+        body_panel.add(nhp, "NhapHang");
+        CardLayout cl = (CardLayout) (body_panel.getLayout());
         cl.show(body_panel, "NhapHang");
         body_panel.revalidate();
         body_panel.repaint();
     }//GEN-LAST:event_NhaphangActionPerformed
-
-    private void ExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExcelActionPerformed
 
     private void HoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoadonActionPerformed
         HoaDonGUI_panel hdp = new HoaDonGUI_panel();
@@ -181,17 +173,41 @@ public class MainFrame1 extends javax.swing.JFrame {
         cl.show(body_panel, "HoaDonGUI");
         body_panel.revalidate();
         body_panel.repaint();
-        
+
     }//GEN-LAST:event_HoadonActionPerformed
 
     private void HanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HanghoaActionPerformed
-        // TODO add your handling code here:
+        HangHoa_panel hhp = new HangHoa_panel();
+        body_panel.add(hhp, "HangHoa_panel");
+        CardLayout cl = (CardLayout) (body_panel.getLayout());
+        cl.show(body_panel, "HangHoa_panel");
+        body_panel.revalidate();
+        body_panel.repaint();
     }//GEN-LAST:event_HanghoaActionPerformed
 
-    
-    public javax.swing.JPanel getBody_panel(){
+    private void DangxuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DangxuatMouseClicked
+        int option = JOptionPane.showConfirmDialog(this, "Bạn có muốn đăng xuất?", "Xác nhận đăng xuất", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            LoginForm lg = new LoginForm();
+            lg.setVisible(true);
+            this.dispose(); 
+        } 
+    }//GEN-LAST:event_DangxuatMouseClicked
+
+    private void ThongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongkeActionPerformed
+        ThongKe_panel tkp = new ThongKe_panel();
+        body_panel.add(tkp,"ThongKe_panel");
+        CardLayout cl = (CardLayout) (body_panel.getLayout());
+        cl.show(body_panel, "ThongKe_panel");
+        body_panel.revalidate();
+        body_panel.repaint();
+    }//GEN-LAST:event_ThongkeActionPerformed
+
+    public javax.swing.JPanel getBody_panel() {
         return body_panel;
     }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -229,7 +245,6 @@ public class MainFrame1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Dangxuat;
-    private javax.swing.JButton Excel;
     private javax.swing.JButton Hanghoa;
     private javax.swing.JButton Hoadon;
     private javax.swing.JButton Nhaphang;

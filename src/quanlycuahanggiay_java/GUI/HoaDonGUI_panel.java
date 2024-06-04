@@ -17,6 +17,13 @@ import quanlycuahanggiay_java.DTO.ChiTietChuongTrinhKhuyenMai;
 import quanlycuahanggiay_java.DTO.Giay;
 import quanlycuahanggiay_java.DTO.HoaDon;
 import quanlycuahanggiay_java.DAO.HoaDonDAO;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import javax.swing.table.TableModel;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import quanlycuahanggiay_java.DAO.ConnectUnit;
 import quanlycuahanggiay_java.DAO.ConectToDB;
@@ -83,6 +90,8 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
         ChiTietHD = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         ChiTiet = new javax.swing.JTable();
+        excel = new javax.swing.JButton();
+        excel_ct = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(250, 243, 224));
         setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(169, 169, 169)));
@@ -93,49 +102,49 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tổng tiền");
 
         TT.setBackground(new java.awt.Color(51, 255, 204));
-        TT.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        TT.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         TT.setForeground(new java.awt.Color(0, 0, 0));
         TT.setBorder(new javax.swing.border.MatteBorder(null));
 
         MaKH.setBackground(new java.awt.Color(51, 255, 204));
-        MaKH.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        MaKH.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         MaKH.setForeground(new java.awt.Color(0, 0, 0));
         MaKH.setBorder(new javax.swing.border.MatteBorder(null));
 
         MaHD.setBackground(new java.awt.Color(51, 255, 204));
-        MaHD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        MaHD.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         MaHD.setForeground(new java.awt.Color(0, 0, 0));
         MaHD.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Mã hóa đơn");
 
         MaKM.setBackground(new java.awt.Color(51, 255, 204));
-        MaKM.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        MaKM.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         MaKM.setForeground(new java.awt.Color(0, 0, 0));
         MaKM.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Mã nhân viên");
 
         MaNV.setBackground(new java.awt.Color(51, 255, 204));
-        MaNV.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        MaNV.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         MaNV.setForeground(new java.awt.Color(0, 0, 0));
         MaNV.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Mã khách hàng");
 
         TaoMoi.setBackground(new java.awt.Color(51, 255, 204));
-        TaoMoi.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        TaoMoi.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         TaoMoi.setForeground(new java.awt.Color(0, 0, 0));
         TaoMoi.setText("Tạo mới");
         TaoMoi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,12 +158,12 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Mã khuyến mãi");
 
         DeletdHD.setBackground(new java.awt.Color(51, 255, 204));
-        DeletdHD.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        DeletdHD.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         DeletdHD.setForeground(new java.awt.Color(0, 0, 0));
         DeletdHD.setText("Xóa");
         DeletdHD.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,43 +213,74 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(ChiTiet);
 
+        excel.setBackground(new java.awt.Color(51, 255, 204));
+        excel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        excel.setForeground(new java.awt.Color(0, 0, 0));
+        excel.setText("Xuất Excel");
+        excel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excelMouseClicked(evt);
+            }
+        });
+        excel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excelActionPerformed(evt);
+            }
+        });
+
+        excel_ct.setBackground(new java.awt.Color(51, 255, 204));
+        excel_ct.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        excel_ct.setForeground(new java.awt.Color(0, 0, 0));
+        excel_ct.setText("Xuất Chi Tiết");
+        excel_ct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excel_ctMouseClicked(evt);
+            }
+        });
+        excel_ct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excel_ctActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(TaoMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(DeletdHD, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MaKM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel9)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10))
+                            .addGap(13, 13, 13)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(MaKM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(MaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane3)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(DeletdHD, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(TaoMoi)
+                .addGap(81, 81, 81)
+                .addComponent(excel)
+                .addGap(76, 76, 76)
+                .addComponent(excel_ct)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,12 +311,14 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TT, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TaoMoi)
-                    .addComponent(DeletdHD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 96, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TaoMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeletdHD, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(excel_ct, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
     private void resetChiTietTable() {
@@ -381,18 +423,7 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
     }
 
     private void DeletdHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletdHDMouseClicked
-//        ConnectUnit connect = new ConnectUnit();
-//        int selectedRow = ChiTietHD.getSelectedRow();
-//        try {
-//            connect.Delete("CHITIETHOADON", "MAHD = " + Memory.MaHD);
-//            connect.Delete("HOADON", "MAHD = " + Memory.MaHD);
-//            ChiTietHD.remove(selectedRow);
-//            
-//            ChiTietHD.revalidate();
-//            ChiTietHD.repaint();
-//        } catch (Exception e) {
-//            System.out.println("Khong the xoa");
-//        }
+
     }//GEN-LAST:event_DeletdHDMouseClicked
 
     private void DeletdHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletdHDActionPerformed
@@ -434,6 +465,89 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
         mf.getBody_panel().repaint();
     }//GEN-LAST:event_TaoMoiActionPerformed
 
+    private void excelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_excelMouseClicked
+
+    private void excelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelActionPerformed
+        exportToExcel();
+    }//GEN-LAST:event_excelActionPerformed
+
+    private void excel_ctMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excel_ctMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_excel_ctMouseClicked
+
+    private void excel_ctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excel_ctActionPerformed
+        exportToExcelChiTiet();
+    }//GEN-LAST:event_excel_ctActionPerformed
+
+    private void exportToExcel() {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet1 = workbook.createSheet("HOADON");
+
+        // Xuất dữ liệu từ ChiTietHD
+        TableModel model1 = ChiTietHD.getModel();
+        Row headerRow1 = sheet1.createRow(0);
+        for (int i = 0; i < model1.getColumnCount(); i++) {
+            headerRow1.createCell(i).setCellValue(model1.getColumnName(i));
+        }
+
+        for (int i = 0; i < model1.getRowCount(); i++) {
+            Row row = sheet1.createRow(i + 1);
+            for (int j = 0; j < model1.getColumnCount(); j++) {
+                row.createCell(j).setCellValue(String.valueOf(model1.getValueAt(i, j)));
+            }
+        }
+
+      
+
+        // Đường dẫn lưu file
+        String filePath = "D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/excel/exported_data.xlsx";
+        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            workbook.write(fileOut);
+            workbook.close();
+            JOptionPane.showMessageDialog(this, "Export successful to " + filePath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error exporting file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void exportToExcelChiTiet() {
+        Workbook workbook = new XSSFWorkbook();
+
+        Sheet sheet = workbook.createSheet("CHITIETHOADON");
+        TableModel model2 = ChiTiet.getModel();
+        Row headerRow2 = sheet.createRow(0);
+        for (int i = 0; i < model2.getColumnCount(); i++) {
+            headerRow2.createCell(i).setCellValue(model2.getColumnName(i));
+        }
+        TableModel model = ChiTiet.getModel();
+
+        for (int i = 0; i < model2.getRowCount(); i++) {
+            Row row = sheet.createRow(i + 1);
+            for (int j = 0; j < model2.getColumnCount(); j++) {
+                row.createCell(j).setCellValue(String.valueOf(model2.getValueAt(i, j)));
+            }
+        }
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Row row = sheet.createRow(i + 1);
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                row.createCell(j).setCellValue(String.valueOf(model.getValueAt(i, j)));
+            }
+        }
+
+        // Tạo tên file theo mã hóa đơn đang được chọn
+        String fileName = "D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/excel/" + Memory.MaHD + ".xlsx";
+        try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+            workbook.write(fileOut);
+            workbook.close();
+            JOptionPane.showMessageDialog(this, "Export successful to " + fileName);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error exporting file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ChiTiet;
@@ -445,6 +559,8 @@ public class HoaDonGUI_panel extends javax.swing.JPanel {
     private javax.swing.JLabel MaNV;
     private javax.swing.JLabel TT;
     private javax.swing.JButton TaoMoi;
+    private javax.swing.JButton excel;
+    private javax.swing.JButton excel_ct;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;

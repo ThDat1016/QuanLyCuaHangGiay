@@ -19,11 +19,7 @@ public class Memory {
     static NhanVien nhanvien;
 
     static HoaDon hoadon;
-    // color
-
-    static java.awt.Color colorThemes;
-    static java.awt.Color colorThemes_2;
-    static java.awt.Color colorText;
+   
 
     // an hien menu
     static boolean flag_Menu;

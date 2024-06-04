@@ -5,14 +5,22 @@
 package quanlycuahanggiay_java.GUI;
 
 import java.awt.CardLayout;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import quanlycuahanggiay_java.DAO.ConnectUnit;
 
 /**
@@ -57,6 +65,8 @@ public class NhapHang_panel extends javax.swing.JPanel {
         ChiTiet = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         PhieuNhap = new javax.swing.JTable();
+        excel = new javax.swing.JButton();
+        excel_ct = new javax.swing.JButton();
 
         body_panel.setBackground(new java.awt.Color(250, 243, 224));
         body_panel.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(169, 169, 169)));
@@ -171,6 +181,36 @@ public class NhapHang_panel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(PhieuNhap);
 
+        excel.setBackground(new java.awt.Color(51, 255, 204));
+        excel.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        excel.setForeground(new java.awt.Color(0, 0, 0));
+        excel.setText("Xuất Excel");
+        excel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excelMouseClicked(evt);
+            }
+        });
+        excel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excelActionPerformed(evt);
+            }
+        });
+
+        excel_ct.setBackground(new java.awt.Color(51, 255, 204));
+        excel_ct.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        excel_ct.setForeground(new java.awt.Color(0, 0, 0));
+        excel_ct.setText("Xuất Chi Tiết");
+        excel_ct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                excel_ctMouseClicked(evt);
+            }
+        });
+        excel_ct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excel_ctActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout body_panelLayout = new javax.swing.GroupLayout(body_panel);
         body_panel.setLayout(body_panelLayout);
         body_panelLayout.setHorizontalGroup(
@@ -195,8 +235,13 @@ public class NhapHang_panel extends javax.swing.JPanel {
                                     .addComponent(DeletdHD, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(45, 45, 45)
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TaoMoi)
-                                    .addComponent(TongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(body_panelLayout.createSequentialGroup()
+                                        .addComponent(TaoMoi)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(excel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(excel_ct)))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(body_panelLayout.createSequentialGroup()
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +291,9 @@ public class NhapHang_panel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DeletdHD)
-                    .addComponent(TaoMoi))
+                    .addComponent(TaoMoi)
+                    .addComponent(excel)
+                    .addComponent(excel_ct))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
         );
@@ -266,22 +313,22 @@ public class NhapHang_panel extends javax.swing.JPanel {
     private void TaoMoiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaoMoiMouseClicked
 
         try {
-             // Lấy cửa sổ chứa thành phần hiện tại
-        MainFrame1 mf = (MainFrame1) SwingUtilities.getWindowAncestor(this);
+            // Lấy cửa sổ chứa thành phần hiện tại
+            MainFrame1 mf = (MainFrame1) SwingUtilities.getWindowAncestor(this);
 
-        // Tạo panel mới HoaDonGUI_panel
-        FormNhapHang_panel hdp = new FormNhapHang_panel();
+            // Tạo panel mới HoaDonGUI_panel
+            FormNhapHang_panel hdp = new FormNhapHang_panel();
 
-        // Thêm panel mới vào Body_panel của MainFrame1
-        mf.getBody_panel().add(hdp, "FormNhapHang_panel");
+            // Thêm panel mới vào Body_panel của MainFrame1
+            mf.getBody_panel().add(hdp, "FormNhapHang_panel");
 
-        // Sử dụng CardLayout để chuyển đến HoaDonGUI_panel
-        CardLayout cl = (CardLayout) (mf.getBody_panel().getLayout());
-        cl.show(mf.getBody_panel(), "FormNhapHang_panel");
+            // Sử dụng CardLayout để chuyển đến HoaDonGUI_panel
+            CardLayout cl = (CardLayout) (mf.getBody_panel().getLayout());
+            cl.show(mf.getBody_panel(), "FormNhapHang_panel");
 
-        // Cập nhật giao diện người dùng
-        mf.getBody_panel().revalidate();
-        mf.getBody_panel().repaint();
+            // Cập nhật giao diện người dùng
+            mf.getBody_panel().revalidate();
+            mf.getBody_panel().repaint();
 
         } catch (Exception e) {
         }
@@ -306,7 +353,7 @@ public class NhapHang_panel extends javax.swing.JPanel {
             MaNV.setText("");
             MaNCC.setText("");
             NgayNhap.setText("");
-            TongTien.setText("");        
+            TongTien.setText("");
         } catch (Exception e) {
             System.out.println("Khong the xoa");
         }
@@ -409,6 +456,50 @@ public class NhapHang_panel extends javax.swing.JPanel {
         ShowPhieuNhap();
     }//GEN-LAST:event_PhieuNhapComponentShown
 
+    private void excelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_excelMouseClicked
+
+    private void excelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelActionPerformed
+        exportToExcel("PHIEUNHAP", "D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/excel/PhieuNhap.xlsx", PhieuNhap);
+    }//GEN-LAST:event_excelActionPerformed
+    private void exportToExcel(String sheetName, String filePath, javax.swing.JTable table) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet(sheetName);
+
+        // Xuất dữ liệu từ bảng
+        TableModel model = table.getModel();
+        Row headerRow = sheet.createRow(0);
+        for (int i = 0; i < model.getColumnCount(); i++) {
+            headerRow.createCell(i).setCellValue(model.getColumnName(i));
+        }
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Row row = sheet.createRow(i + 1);
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                row.createCell(j).setCellValue(String.valueOf(model.getValueAt(i, j)));
+            }
+        }
+
+        // Lưu workbook vào file
+        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            workbook.write(fileOut);
+            workbook.close();
+            JOptionPane.showMessageDialog(this, "Export successful to " + filePath);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error exporting file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void excel_ctMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_excel_ctMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_excel_ctMouseClicked
+
+    private void excel_ctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excel_ctActionPerformed
+        exportToExcel("CHITIETPHIEUNHAP", "D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/excel/" + Memory.maPN + "ctpn.xlsx", ChiTiet);
+    }//GEN-LAST:event_excel_ctActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ChiTiet;
@@ -421,6 +512,8 @@ public class NhapHang_panel extends javax.swing.JPanel {
     private javax.swing.JButton TaoMoi;
     private javax.swing.JLabel TongTien;
     private javax.swing.JPanel body_panel;
+    private javax.swing.JButton excel;
+    private javax.swing.JButton excel_ct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

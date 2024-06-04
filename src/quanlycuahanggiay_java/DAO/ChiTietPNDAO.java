@@ -25,7 +25,6 @@ public class ChiTietPNDAO {
         
         while(result.next()){
             ChiTietPhieuNhap phieunhap = new ChiTietPhieuNhap();
-            //phieunhap.setMaGiay(result.getInt("MAGIAY"));
             phieunhap.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
             phieunhap.setMaPN(result.getInt("MAPN"));
             phieunhap.getGiay().setiSoLuong(result.getInt("SOLUONG"));

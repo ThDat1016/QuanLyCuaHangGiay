@@ -3,59 +3,52 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/FormNhapHang.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/InHoaDon.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ConectToDB.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/HoaDonBUS.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/XuatXu.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ChiThietKhuyenMaiDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/HoaDonGUI_panel.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/HangHoa.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/FormNhapHang_panel.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/ThongKe_panel.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/KhachHangBUS.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/LoginForm.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/NhanVienDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/ChiTietPhieuNhap.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/images/Logo.png</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/MainFrame1.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ConnectUnit.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/test.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/KhachHang.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/PhieuNhapDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/NhaCungCap.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/GiayDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ChiTietPNDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/Giay.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/ChiTietHoaDonBUS.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/HoaDon.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/LoaiDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/HoaDonGUI.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/HoaDonDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/NhapHang_panel.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/XuatExcel.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/Memory.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/MauSac.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/KhachHangDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/CacChucNangQuanTrong.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/InHoaDon.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/XuatXu.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/SanPham.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/Home.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/images/Logo.png</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/ThongKe.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/QuanLyCuaHangGiay_Java.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/KhachHang.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/PhieuNhap.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/ChiTietChuongTrinhKhuyenMai.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/ChuongTrinhKhuyenMai.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/PhieuNhapDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/images/pass.png</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/NhaCungCap.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/GiayDAO.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/HangHoa_panel.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ChiTietPNDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/NhanVienBUS.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/build.xml</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/Giay.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/ChiTietHoaDonBUS.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/HoaDon.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/NhanVien.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/TaiKhoangNV.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/LoaiDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/BanHang_panel.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/NhapHang.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/BanHang.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/HoaDonDAO.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/TaiKhoangNVDAO.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/NhapHang_panel.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ChuongTrinhKhuyenMaiDAO.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/Memory.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/BUS/GiayBUS.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/MauSac.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/ChiTietHoaDonDAO.java</file>
-            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/KhuyenMai.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DAO/KhachHangDAO.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/ChiTietHoaDon.java</file>
+            <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/GUI/Excel_panel.java</file>
             <file>file:/D:/Users/Admin/Documents/NetBeansProjects/QuanLyCuaHangGiay_Java/src/quanlycuahanggiay_java/DTO/ThuongHieu.java</file>
         </group>
     </open-files>

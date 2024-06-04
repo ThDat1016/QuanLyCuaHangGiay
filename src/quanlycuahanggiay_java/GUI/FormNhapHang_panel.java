@@ -356,9 +356,8 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
                             .addGroup(body_panelLayout.createSequentialGroup()
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(body_panelLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
                                         .addComponent(jLabel24)
-                                        .addGap(18, 18, 18)
+                                        .addGap(24, 24, 24)
                                         .addComponent(Nam)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(Nu))
@@ -367,12 +366,15 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
                                             .addComponent(jLabel25)
                                             .addComponent(jLabel26)
                                             .addComponent(jLabel27))
-                                        .addGap(31, 31, 31)
                                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ChatLieu)
-                                            .addComponent(MaLoai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(MaXX, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                                            .addGroup(body_panelLayout.createSequentialGroup()
+                                                .addGap(78, 78, 78)
+                                                .addComponent(ChatLieu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, body_panelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(MaXX, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(MaLoai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
                                     .addComponent(jLabel28)
@@ -399,29 +401,31 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
                     .addGroup(body_panelLayout.createSequentialGroup()
                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(body_panelLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Nam)
-                                    .addComponent(Nu)
                                     .addComponent(jLabel28)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(MaMau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
                                     .addComponent(MaThuongHieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(body_panelLayout.createSequentialGroup()
-                                .addGap(64, 64, 64)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Nam)
+                                    .addComponent(Nu))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(ChatLieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel25))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 14, Short.MAX_VALUE)
+                        .addGap(14, 14, 14)
                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MaLoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26)
                             .addComponent(jLabel30)
                             .addComponent(MaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGap(9, 9, 9)
                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
                             .addComponent(MaXX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -464,19 +468,7 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MaLoaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaLoaiActionPerformed
-        ConnectUnit conn = new ConnectUnit();
-        try {
-            System.out.println("ok");
-            ResultSet rs = conn.Select("LOAI");
-            MaLoai.removeAllItems();
-            while (rs.next()) {
-                String maLoai = rs.getString("MALOAI");
-                MaLoai.addItem(maLoai);
-            }
-            conn.Close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
     }//GEN-LAST:event_MaLoaiActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
@@ -541,11 +533,11 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
             Object[] rowData = {e.getStrTenGiay(), e.getiSoLuong(), e.getiGia()};
             model.addRow(rowData);
             Memory.tongTien.add(Memory.giaban);
-
+              
         } catch (Exception ex) {
             System.out.println("Lỗi xảy ra: " + ex.getMessage());
         }
-
+        
         TenGiay.setText("");
         SoLuong.setValue(0);
         DonGia.setText("");
