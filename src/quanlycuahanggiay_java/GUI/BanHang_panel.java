@@ -78,6 +78,7 @@ public class BanHang_panel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         ChiTiet = new javax.swing.JTable();
         ThanhToan = new javax.swing.JButton();
+        SuaDL = new javax.swing.JButton();
 
         body_panel.setBackground(new java.awt.Color(250, 243, 224));
         body_panel.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(169, 169, 169)));
@@ -240,6 +241,21 @@ public class BanHang_panel extends javax.swing.JPanel {
             }
         });
 
+        SuaDL.setBackground(new java.awt.Color(51, 255, 204));
+        SuaDL.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        SuaDL.setForeground(new java.awt.Color(0, 0, 0));
+        SuaDL.setText("Sửa");
+        SuaDL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SuaDLMouseClicked(evt);
+            }
+        });
+        SuaDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SuaDLActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout body_panelLayout = new javax.swing.GroupLayout(body_panel);
         body_panel.setLayout(body_panelLayout);
         body_panelLayout.setHorizontalGroup(
@@ -249,9 +265,10 @@ public class BanHang_panel extends javax.swing.JPanel {
                 .addGap(66, 66, 66)
                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(body_panelLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                         .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(body_panelLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
                                 .addComponent(ThanhToan))
@@ -298,9 +315,11 @@ public class BanHang_panel extends javax.swing.JPanel {
                                     .addComponent(gia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(body_panelLayout.createSequentialGroup()
                                 .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(260, 260, 260)
+                                .addGap(59, 59, 59)
+                                .addComponent(SuaDL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73)
                                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                        .addContainerGap(398, Short.MAX_VALUE))))
         );
         body_panelLayout.setVerticalGroup(
             body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +364,8 @@ public class BanHang_panel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(body_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(delete)
-                    .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SuaDL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
         );
@@ -462,9 +482,6 @@ public class BanHang_panel extends javax.swing.JPanel {
                             String giaBan = String.valueOf(ChiTiet.getValueAt(rows[0], 2));
                             Memory.maSP = Integer.parseInt(maGiay);
 
-                            MaGiay.setText(maGiay);
-                            SoLuong.setValue(soLuong);
-                            gia.setText(giaBan);
                         }
                     }
                 }
@@ -616,11 +633,59 @@ public class BanHang_panel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ThanhToanActionPerformed
 
+    private void SuaDLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SuaDLMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SuaDLMouseClicked
+
+    private void SuaDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaDLActionPerformed
+        ListSelectionModel LM = ChiTiet.getSelectionModel();
+        try {
+            LM.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // Chỉ cho phép chọn 1 dòng
+            int selectedRow = ChiTiet.getSelectedRow();
+            if (selectedRow >= 0) { // Đảm bảo có ít nhất một hàng được chọn
+                int soLuongHienTai = (int) ChiTiet.getValueAt(selectedRow, 1);
+                String newSoLuongStr = JOptionPane.showInputDialog(null, "Nhập số lượng mới:", soLuongHienTai);
+                if (newSoLuongStr != null && !newSoLuongStr.trim().isEmpty()) {
+                    try {
+                        int newSoLuong = Integer.parseInt(newSoLuongStr);
+                        if (newSoLuong < 0) {
+                            throw new NumberFormatException();
+                        }
+                        // Cập nhật giá trị trong bảng
+                        ChiTiet.setValueAt(newSoLuong, selectedRow, 1);
+
+                        // Cập nhật đối tượng chiTiet
+                        ChiTietHoaDon chiTietHoaDon = chiTiet.get(selectedRow);
+                        BigDecimal giaBan = chiTietHoaDon.getGiaBan().divide(BigDecimal.valueOf(chiTietHoaDon.getSoluong())); // Lấy giá đơn vị
+                        BigDecimal soLuong = new BigDecimal(newSoLuong);
+                        BigDecimal thanhTien = giaBan.multiply(soLuong);
+                        chiTietHoaDon.setSoluong(newSoLuong);
+                        chiTietHoaDon.setGiaBan(thanhTien);
+
+                        // Cập nhật tổng tiền
+                        if (selectedRow < Memory.tongTien.size()) {
+                            Memory.tongTien.set(selectedRow, thanhTien);
+                        } else {
+                            Memory.tongTien.add(thanhTien);
+                        }
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Số lượng không hợp lệ! Vui lòng nhập một số nguyên không âm.", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn một sản phẩm để sửa.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_SuaDLActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ChiTiet;
     private javax.swing.JTextField MaGiay;
     private javax.swing.JSpinner SoLuong;
+    private javax.swing.JButton SuaDL;
     private javax.swing.JButton ThanhToan;
     private javax.swing.JButton add;
     private javax.swing.JPanel body_panel;
