@@ -192,13 +192,13 @@ public class HangHoa_panel extends javax.swing.JPanel {
                     String size = String.valueOf(g.getiSize());
                     String gt;
 
-                    if (g.getStrDoiTuongSD()) {
+                    if (g.isStrDoiTuongSD()) {
                         gt = "Nam";
                     } else {
                         gt = "Nu";
                     }
 
-                    String[] rowData = {maGiay, g.getStrTenGiay(), sl, gia, size, gt, g.getStrChatLieu(), g.getStrMaLoai(), g.getStrMaxx(), g.getStrMaMau(), g.getStrMaThuongHieu()};
+                    String[] rowData = {maGiay, g.getStrTenGiay(), sl, gia, size, gt, g.getStrChatLieu(), g.getLoai().getMaLoai(), g.getXx().getStrMaxuatxu(), g.getMausac().getMaMau(), g.getThuonghieu().getMaThuongHieu()};
 
                     model.addRow(rowData);
                 }
@@ -212,13 +212,13 @@ public class HangHoa_panel extends javax.swing.JPanel {
                     String size = String.valueOf(g.getiSize());
                     String gt;
 
-                    if (g.getStrDoiTuongSD()) {
+                    if (g.isStrDoiTuongSD()) {
                         gt = "Nam";
                     } else {
                         gt = "Nu";
                     }
 
-                    String[] rowData = {maGiay, g.getStrTenGiay(), sl, gia, size, gt, g.getStrChatLieu(), g.getStrMaLoai(), g.getStrMaxx(), g.getStrMaMau(), g.getStrMaThuongHieu()};
+                    String[] rowData = {maGiay, g.getStrTenGiay(), sl, gia, size, gt, g.getStrChatLieu(), g.getLoai().getMaLoai(), g.getXx().getStrMaxuatxu(), g.getMausac().getMaMau(), g.getThuonghieu().getMaThuongHieu()};
 
                     model.addRow(rowData);
                 }

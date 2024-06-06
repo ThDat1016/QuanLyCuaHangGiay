@@ -8,23 +8,36 @@ package quanlycuahanggiay_java.DTO;
  *
  * @author Admin
  */
-
 import java.math.BigDecimal;
 import java.sql.Date;
 
-
 public class PhieuNhap {
-        private int MaPN;
-	private Date NgayNhap;
-	private BigDecimal TongTien;
-	private int MaNV;
-public PhieuNhap(){}
-    public PhieuNhap(int MaPN, Date NgayNhap, BigDecimal TongTien, int MaNV, String MaNCC) {
+
+    private int MaPN;
+    private Date NgayNhap;
+    private BigDecimal TongTien;
+    private NhanVien nv;
+    private NhaCungCap NCC;
+
+    public PhieuNhap() {
+        nv = new NhanVien();
+        NCC = new NhaCungCap();
+    }
+
+    public PhieuNhap(int MaPN, Date NgayNhap, BigDecimal TongTien, NhaCungCap NCC, NhanVien nv) {
         this.MaPN = MaPN;
+        this.nv = nv;
         this.NgayNhap = NgayNhap;
         this.TongTien = TongTien;
-        this.MaNV = MaNV;
-        this.MaNCC = MaNCC;
+        this.NCC = NCC;
+    }
+
+    public void setNv(NhanVien nv) {
+        this.nv = nv;
+    }
+
+    public NhanVien getNv() {
+        return nv;
     }
 
     public void setMaPN(int MaPN) {
@@ -39,14 +52,6 @@ public PhieuNhap(){}
         this.TongTien = TongTien;
     }
 
-    public void setMaNV(int MaNV) {
-        this.MaNV = MaNV;
-    }
-
-    public void setMaNCC(String MaNCC) {
-        this.MaNCC = MaNCC;
-    }
-
     public int getMaPN() {
         return MaPN;
     }
@@ -59,12 +64,12 @@ public PhieuNhap(){}
         return TongTien;
     }
 
-    public int getMaNV() {
-        return MaNV;
+    public NhaCungCap getNCC() {
+        return NCC;
     }
 
-    public String getMaNCC() {
-        return MaNCC;
+    public void setNCC(NhaCungCap NCC) {
+        this.NCC = NCC;
     }
-	private String MaNCC;
+
 }

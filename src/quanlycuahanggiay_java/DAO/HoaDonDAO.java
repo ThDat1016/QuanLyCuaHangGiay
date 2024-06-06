@@ -27,9 +27,9 @@ public class HoaDonDAO {
         while (result.next()) {
             HoaDon hd = new HoaDon();
             hd.setMaHD(result.getInt("MAHD"));
-            hd.setMaKH(result.getInt("MAKH"));
-            hd.setMaKM(result.getString("MAKM"));
-            hd.setMaNV(result.getInt("MANV"));
+            hd.getKh().setMaKH(result.getInt("MAKH"));
+            hd.getKm().setMaKM(result.getString("MAKM"));
+            hd.getNv().setMaNV(result.getInt("MANV"));
             hd.setNgayBan(result.getDate("NGAYBAN"));
             hd.setThue(result.getFloat("THUE"));
             hd.setTongTien(result.getBigDecimal("TONGTIEN"));
@@ -53,9 +53,9 @@ public class HoaDonDAO {
 
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("makh", hd.getMaKH());
-        insertValues.put("makm", hd.getMaKM());
-        insertValues.put("manv", hd.getMaNV());
+        insertValues.put("makh", hd.getKh().getMaKH());
+        insertValues.put("makm", hd.getKm().getMaKM());
+        insertValues.put("manv", hd.getNv().getMaNV());
         insertValues.put("ngayban", hd.getNgayBan());
         insertValues.put("tongtien", hd.getTongTien());
         insertValues.put("thue", hd.getThue());
@@ -92,9 +92,9 @@ public class HoaDonDAO {
 
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("makh", hd.getMaKH());
-        insertValues.put("makm", hd.getMaKM());
-        insertValues.put("manv", hd.getMaNV());
+        insertValues.put("makh", hd.getKh().getMaKH());
+        insertValues.put("makm", hd.getKm().getMaKM());
+        insertValues.put("manv", hd.getNv().getMaNV());
         insertValues.put("ngayban", hd.getNgayBan());
         insertValues.put("tongtien", hd.getTongTien());
 

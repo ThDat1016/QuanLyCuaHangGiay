@@ -45,8 +45,8 @@ public class ChiTietKMBUS {
 
     public boolean kiemTraKhoachinh(ChiTietChuongTrinhKhuyenMai hd) {
         for (ChiTietChuongTrinhKhuyenMai khuyemai : list_KM) {
-            if (khuyemai.getMaGiay() == hd.getMaGiay()
-                    && khuyemai.getMaKM() == hd.getMaKM()) {
+            if (khuyemai.getGiay().getStrMaGiay() == hd.getGiay().getStrMaGiay()
+                    && khuyemai.getKm().getMaKM() == hd.getKm().getMaKM()) {
                 System.out.println("Bị trùng");
                 return true;
             }
@@ -54,20 +54,20 @@ public class ChiTietKMBUS {
         return false;
     }
     
-      public ChiTietChuongTrinhKhuyenMai getInfor(int MaGiay, int MaKM) {
+      public ChiTietChuongTrinhKhuyenMai getInfor(int MaGiay, String MaKM) {
         for (ChiTietChuongTrinhKhuyenMai km : list_KM) {
-            if ( km.getMaGiay()==MaGiay
-                    && km.getMaKM() == MaKM) {
+            if ( km.getGiay().getStrMaGiay()==MaGiay
+                    && km.getKm().getMaKM() == MaKM) {
                 return km;
             }
         }
-        ChiTietChuongTrinhKhuyenMai khuyenmai = new ChiTietChuongTrinhKhuyenMai(0, 0, 0);
+        ChiTietChuongTrinhKhuyenMai khuyenmai = new ChiTietChuongTrinhKhuyenMai();
         return khuyenmai;
     }
       
      public ChiTietChuongTrinhKhuyenMai getInfor(int MaGiay) {
         for (ChiTietChuongTrinhKhuyenMai km : list_KM) {
-            if ( km.getMaGiay() == MaGiay ) {
+            if ( km.getGiay().getStrMaGiay() == MaGiay ) {
                 System.out.println(km.toString());
                 return km;
             }
@@ -98,8 +98,8 @@ public class ChiTietKMBUS {
             
             // duyệt từng phẩn tử
             for ( ChiTietChuongTrinhKhuyenMai khuyemai : list_KM ) {
-                if (khuyemai.getMaKM()==kh.getMaKM()
-                        &&khuyemai.getMaGiay() == kh.getMaGiay()){
+                if (khuyemai.getKm().getMaKM()==kh.getKm().getMaKM()
+                        &&khuyemai.getGiay().getStrMaGiay() == kh.getGiay().getStrMaGiay()){
                     list_KM.remove(khuyemai);
                 break;
                 }
@@ -109,27 +109,8 @@ public class ChiTietKMBUS {
         return false;
     }
     
-     /**
-     * sửa thông tin của 1khuyến mãi <br>
-     * - Trừ thông tin đăng nhập củakhuyến mãi đó
-     * @return true nếu thực hiện thành công
-     */
-    public Boolean sua(ChiTietChuongTrinhKhuyenMai kh) throws Exception {
-        if ( kmDAO.sua(kh) ) {
-            
-            // duyệt từng phẩn tử
-            for ( ChiTietChuongTrinhKhuyenMai khuyemai : list_KM ) {
-                if (khuyemai.getMaKM()==kh.getMaKM()){
-                     khuyemai.setMaKM(kh.getMaKM());
-                     khuyemai.setMaKM(kh.getMaGiay());
-                     khuyemai.setMaKM(kh.getMaKM());
-                break;
-                }
-            }
-        }
-        
-        return false;
-    }
+    
+   
     
     public ArrayList<ChiTietChuongTrinhKhuyenMai> timKiem_MaSP(int MaSP1, int MaSP2){
         ArrayList<ChiTietChuongTrinhKhuyenMai> arr = new ArrayList<>();
@@ -139,24 +120,24 @@ public class ChiTietKMBUS {
         int flag = 0;
         if (MaSP1 == MaSP2)
             for (ChiTietChuongTrinhKhuyenMai hoadon : list_KM) {
-                if ( hoadon.getMaGiay() == MaSP1 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP1 ) {
                     arr.add(hoadon);
-                    System.out.println("Tim thay SP1" + hoadon.getMaKM() );
+                    System.out.println("Tim thay SP1" + hoadon.getKm().getMaKM() );
                 }
             }
         else    
             for (ChiTietChuongTrinhKhuyenMai hoadon : list_KM) {
-                if ( hoadon.getMaGiay() == MaSP1 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP1 ) {
                     flag = 1;
-                    System.out.println("Tim thay SP1" + hoadon.getMaKM() );
+                    System.out.println("Tim thay SP1" + hoadon.getKm().getMaKM() );
                 }
-                if ( hoadon.getMaGiay() == MaSP2 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP2 ) {
                     flag = 2;
-                    System.out.println("Tim thay SP2" + hoadon.getMaKM() );
+                    System.out.println("Tim thay SP2" + hoadon.getKm().getMaKM() );
                 }
                 
                 if ( flag == 2 )
-                    if ( hoadon.getMaGiay() == MaSP2  )
+                    if ( hoadon.getGiay().getStrMaGiay() == MaSP2  )
                         break;
                 
                 if ( flag == 1 || flag == 2 )
@@ -171,7 +152,7 @@ public class ChiTietKMBUS {
         ArrayList<ChiTietChuongTrinhKhuyenMai> arr = new ArrayList<>();
         for (ChiTietChuongTrinhKhuyenMai hoadon : list_KM) {
             if ( hoadon.getTiLeKM()>= SL1 && hoadon.getTiLeKM()<= SL2) {
-                System.out.println("Tim thay " + hoadon.getMaKM() );
+                System.out.println("Tim thay " + hoadon.getKm().getMaKM() );
                 arr.add(hoadon);
             }
         }

@@ -10,18 +10,21 @@ package quanlycuahanggiay_java.DTO;
  */
 import java.math.BigDecimal;
 
-
 public class NhanVien {
+
     private int MaNV;
     private String ChucVu;
     private String Ho;
     private String Ten;
     private boolean GioiTinh;
     private String DiaChi;
-    private String  Email;
+    private String Email;
     private BigDecimal Luong;
-    public NhanVien(){}
-     public NhanVien(int MaNV, String ChucVu, String Ho, String Ten, boolean GioiTinh, String DiaChi,String Email, BigDecimal Luong) {
+
+    public NhanVien() {
+    }
+
+    public NhanVien(int MaNV, String ChucVu, String Ho, String Ten, boolean GioiTinh, String DiaChi, String Email, BigDecimal Luong) {
         this.MaNV = MaNV;
         this.ChucVu = ChucVu;
         this.Ho = Ho;
@@ -60,8 +63,6 @@ public class NhanVien {
         this.DiaChi = DiaChi;
     }
 
-    
-
     public void setEmail(String Email) {
         this.Email = Email;
     }
@@ -90,7 +91,6 @@ public class NhanVien {
         return DiaChi;
     }
 
-    
     public String getEmail() {
         return Email;
     }
@@ -98,7 +98,5 @@ public class NhanVien {
     public BigDecimal getLuong() {
         return Luong;
     }
-     
-     
-    
+
 }

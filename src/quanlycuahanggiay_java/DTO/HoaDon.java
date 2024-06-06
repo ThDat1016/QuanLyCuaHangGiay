@@ -14,41 +14,55 @@ import java.sql.Date;
 public class HoaDon {
 
     private int MaHD;
-    private int MaNV;
-    private int MaKH;
-    private String MaKM;
+    private NhanVien nv;
+    private KhachHang kh;
+    private ChuongTrinhKhuyenMai km;
     private Date NgayBan;
     private BigDecimal TongTien;
     private float Thue;
 
-    public HoaDon() {
+    public HoaDon(int MaHD, NhanVien nv, KhachHang kh, ChuongTrinhKhuyenMai km, Date NgayBan, BigDecimal TongTien, float Thue) {
+        this.MaHD = MaHD;
+        this.nv = nv;
+        this.kh = kh;
+        this.km = km;
+        this.NgayBan = NgayBan;
+        this.TongTien = TongTien;
+        this.Thue = Thue;
     }
 
-    public HoaDon(int maHD, int maNV, int maKH, String maKM, Date ngayBan, BigDecimal tongTien, int thue) {
-        super();
-        MaHD = maHD;
-        MaNV = maNV;
-        MaKH = maKH;
-        MaKM = maKM;
-        NgayBan = ngayBan;
-        TongTien = tongTien;
-        Thue = thue;
+    public HoaDon() {
+        nv = new NhanVien();
+        kh = new KhachHang();
+        km = new ChuongTrinhKhuyenMai();
+    }
+
+    public void setNv(NhanVien nv) {
+        this.nv = nv;
+    }
+
+    public void setKh(KhachHang kh) {
+        this.kh = kh;
+    }
+
+    public NhanVien getNv() {
+        return nv;
+    }
+
+    public ChuongTrinhKhuyenMai getKm() {
+        return km;
+    }
+
+    public void setKm(ChuongTrinhKhuyenMai km) {
+        this.km = km;
+    }
+
+    public KhachHang getKh() {
+        return kh;
     }
 
     public void setMaHD(int MaHD) {
         this.MaHD = MaHD;
-    }
-
-    public void setMaNV(int MaNV) {
-        this.MaNV = MaNV;
-    }
-
-    public void setMaKH(int MaKH) {
-        this.MaKH = MaKH;
-    }
-
-    public void setMaKM(String MaKM) {
-        this.MaKM = MaKM;
     }
 
     public void setNgayBan(Date NgayBan) {
@@ -65,18 +79,6 @@ public class HoaDon {
 
     public int getMaHD() {
         return MaHD;
-    }
-
-    public int getMaNV() {
-        return MaNV;
-    }
-
-    public int getMaKH() {
-        return MaKH;
-    }
-
-    public String getMaKM() {
-        return MaKM;
     }
 
     public Date getNgayBan() {
@@ -104,87 +106,61 @@ public class HoaDon {
         }
     }
 
-   public static int maHDGiamdan(HoaDon a, HoaDon b) {
-    int maHDA = a.getMaHD();
-    int maHDB = b.getMaHD();
+    public static int maHDGiamdan(HoaDon a, HoaDon b) {
+        int maHDA = a.getMaHD();
+        int maHDB = b.getMaHD();
 
-    if (maHDA < maHDB) {
-        return 1;
-    } else if (maHDA > maHDB) {
-        return -1;
-    } else {
-        return 0;
+        if (maHDA < maHDB) {
+            return 1;
+        } else if (maHDA > maHDB) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
-}
 
-public static int maKHTangdan(HoaDon a, HoaDon b) {
-    int maKHA = a.getMaKH();
-    int maKHB = b.getMaKH();
+    public static int maKHTangdan(HoaDon a, HoaDon b) {
+        int maKHA = a.getKh().getMaKH();
+        int maKHB = b.getKh().getMaKH();
 
-    if (maKHA < maKHB) {
-        return -1;
-    } else if (maKHA > maKHB) {
-        return 1;
-    } else {
-        return 0;
+        if (maKHA < maKHB) {
+            return -1;
+        } else if (maKHA > maKHB) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
-}
 
-public static int maKHGiamdan(HoaDon a, HoaDon b) {
-    int maKHA = a.getMaKH();
-    int maKHB = b.getMaKH();
+    public static int maKHGiamdan(HoaDon a, HoaDon b) {
+        int maKHA = a.getKh().getMaKH();
+        int maKHB = b.getKh().getMaKH();
 
-    if (maKHA < maKHB) {
-        return 1;
-    } else if (maKHA > maKHB) {
-        return -1;
-    } else {
-        return 0;
+        if (maKHA < maKHB) {
+            return 1;
+        } else if (maKHA > maKHB) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
-}
 
-public static int maKMTangdan(HoaDon a, HoaDon b) {
-    int maKMA = a.getMaKM();
-    int maKMB = b.getMaKM();
+    public static int maNVTangdan(HoaDon a, HoaDon b) {
+        int maNVA = a.getNv().getMaNV();
+        int maNVB = b.getNv().getMaNV();
 
-    if (maKMA < maKMB) {
-        return -1;
-    } else if (maKMA > maKMB) {
-        return 1;
-    } else {
-        return 0;
+        if (maNVA < maNVB) {
+            return -1;
+        } else if (maNVA > maNVB) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
-}
-
-public static int maKMGiamdan(HoaDon a, HoaDon b) {
-    int maKMA = a.getMaKM();
-    int maKMB = b.getMaKM();
-
-    if (maKMA < maKMB) {
-        return 1;
-    } else if (maKMA > maKMB) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
-
-public static int maNVTangdan(HoaDon a, HoaDon b) {
-    int maNVA = a.getMaNV();
-    int maNVB = b.getMaNV();
-
-    if (maNVA < maNVB) {
-        return -1;
-    } else if (maNVA > maNVB) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
 
     public static int maNVGiamdan(HoaDon a, HoaDon b) {
-        int maNVA = a.getMaNV();
-        int maNVB = b.getMaNV();
+        int maNVA = a.getNv().getMaNV();
+        int maNVB = b.getNv().getMaNV();
 
         if (maNVA < maNVB) {
             return 1;

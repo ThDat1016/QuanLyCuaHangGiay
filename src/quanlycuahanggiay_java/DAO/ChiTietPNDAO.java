@@ -26,7 +26,7 @@ public class ChiTietPNDAO {
         while(result.next()){
             ChiTietPhieuNhap phieunhap = new ChiTietPhieuNhap();
             phieunhap.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
-            phieunhap.setMaPN(result.getInt("MAPN"));
+            phieunhap.getPn().setMaPN(result.getInt("MAPN"));
             phieunhap.getGiay().setiSoLuong(result.getInt("SOLUONG"));
             phieunhap.setGiaNhap(result.getBigDecimal("GIANHAP"));
             CTPN.add(phieunhap);
@@ -48,7 +48,7 @@ public class ChiTietPNDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("mapn", pn.getMaPN());
+        insertValues.put("mapn", pn.getPn().getMaPN());
         insertValues.put("magiay", pn.getGiay().getStrMaGiay());
         insertValues.put("soluong", pn.getGiay().getiSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
@@ -62,7 +62,7 @@ public class ChiTietPNDAO {
     
     public Boolean xoa(ChiTietPhieuNhap pn) throws Exception {
         connect = new ConnectUnit();
-        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
+        String condition = " mapn = '"+pn.getPn().getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Delete("CHITIETPHIEUNHAP", condition);
         
@@ -78,7 +78,7 @@ public class ChiTietPNDAO {
         insertValues.put("soluong", pn.getGiay().getiSoLuong());
         insertValues.put("gianhap", pn.getGiaNhap());
         
-        String condition = " mapn = '"+pn.getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
+        String condition = " mapn = '"+pn.getPn().getMaPN()+"' && magiay = '"+pn.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Update("CHITIETPHIEUNHAP", insertValues, condition);
         

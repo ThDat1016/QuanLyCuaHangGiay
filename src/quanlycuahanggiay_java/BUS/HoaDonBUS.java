@@ -74,7 +74,7 @@ public class HoaDonBUS {
     public String getMaKM(int MaHD) {
         for (HoaDon hoadon : list_HD) {
             if (hoadon.getMaHD() == MaHD) {
-                return hoadon.getMaKM();
+                return hoadon.getKm().getMaKM();
             }
         }
         return "0";
@@ -100,7 +100,7 @@ public class HoaDonBUS {
     public ArrayList<HoaDon> timKiem_MaNV(int MaNV, boolean sapxep) {
         ArrayList<HoaDon> arr = new ArrayList<>();
         for (HoaDon hoadon : list_HD) {
-            if (hoadon.getMaNV() == MaNV) {
+            if (hoadon.getNv().getMaNV() == MaNV) {
                 System.out.println("Tim thay " + hoadon.getMaHD());
                 arr.add(hoadon);
             }
@@ -117,7 +117,7 @@ public class HoaDonBUS {
     public ArrayList<HoaDon> timKiem_MaKH(int MaKH, boolean sapxep) {
         ArrayList<HoaDon> arr = new ArrayList<>();
         for (HoaDon hoadon : list_HD) {
-            if (hoadon.getMaKH() == MaKH) {
+            if (hoadon.getKh().getMaKH() == MaKH) {
                 System.out.println("Tim thay " + hoadon.getMaHD());
                 arr.add(hoadon);
             }
@@ -131,22 +131,7 @@ public class HoaDonBUS {
         return arr;
     }
 
-    public ArrayList<HoaDon> timKiem_MaKM(String MaKM, boolean sapxep) {
-        ArrayList<HoaDon> arr = new ArrayList<>();
-        for (HoaDon hoadon : list_HD) {
-            if (hoadon.getMaKM() == MaKM) {
-                System.out.println("Tim thay " + hoadon.getMaHD());
-                arr.add(hoadon);
-            }
-        }
-        if (sapxep) {
-            Collections.sort(arr, HoaDon::maKMTangdan);
-        } else {
-            Collections.sort(arr, HoaDon::maKMGiamdan);
-        }
-
-        return arr;
-    }
+    
 
     public ArrayList<HoaDon> timKiem_TongTien(String strTT, boolean sapxep) {
         ArrayList<HoaDon> arr = new ArrayList<>();

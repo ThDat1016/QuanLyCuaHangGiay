@@ -506,24 +506,24 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
         e.setStrChatLieu(ChatLieu.getText());
         Object selectedObject = MaLoai.getSelectedItem();
         String maloai = (String) selectedObject;
-        e.setStrMaLoai(maloai);
+        e.getLoai().setMaLoai(maloai);
 
         Object mxx = MaXX.getSelectedItem();
         String Maxx = (String) mxx;
-        e.setStrMaxx(Maxx);
+        e.getXx().setStrMaxuatxu(Maxx);
 
         Object mamau = MaMau.getSelectedItem();
         String maMau = (String) mamau;
-        e.setStrMaMau(maMau);
+        e.getMausac().setMaMau(maMau);
 
         Object mth = MaThuongHieu.getSelectedItem();
         String maThuongHieu = (String) mth;
-        e.setStrMaThuongHieu(maThuongHieu);
+        e.getThuonghieu().setMaThuongHieu(maThuongHieu);
 
         // add chi tiet PN
         ctpn.setGiaNhap(Memory.giaban);
         ctpn.getGiay().setStrMaGiay(0); // luc nhap hang se cap nhat lai ma giay
-        ctpn.setMaPN(0);    // luc nhap hang se cap nhat lai ma PN
+        ctpn.getPn().setMaPN(0);    // luc nhap hang se cap nhat lai ma PN
         ctpn.getGiay().setiSoLuong((int) SoLuong.getValue());
 
         chiTietPN.add(ctpn);
@@ -578,10 +578,10 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
             LocalDateTime ngayHienTai = LocalDateTime.now();
             java.sql.Date sqlDate = java.sql.Date.valueOf(ngayHienTai.toLocalDate());
             pn.setNgayNhap(sqlDate);
-            pn.setMaNV(Memory.nhanvien.getMaNV());
+            pn.getNv().setMaNV(Memory.nhanvien.getMaNV());
             Object selectedObject = MaNCC.getSelectedItem();
             String mancc = (String) selectedObject;
-            pn.setMaNCC(mancc);
+            pn.getNCC().setMaNCC(mancc);
             BigDecimal sum = BigDecimal.ZERO; // Khởi tạo tổng ban đầu là 0
             for (BigDecimal value : Memory.tongTien) {
                 sum = sum.add(value); // Cộng giá trị hiện tại vào tổng
@@ -608,7 +608,7 @@ public class FormNhapHang_panel extends javax.swing.JPanel {
 
                 // Gán mã giày cho chi tiết phiếu nhập
                 ct.getGiay().setStrMaGiay(conn.getMaxMaGiay());
-                ct.setMaPN(conn.getMaxMaPN());
+                ct.getPn().setMaPN(conn.getMaxMaPN());
                 if (chiTietPNDAO.them(ct)) {
                     System.out.println("ok");
                 } else {

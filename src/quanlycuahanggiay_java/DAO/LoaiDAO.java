@@ -13,7 +13,6 @@ import java.util.HashMap;
 public class LoaiDAO {
      ConnectUnit connect;
     
-    
     public ArrayList<Loai> docDB(String condition, String orderBy) throws Exception {
         // kết nối CSDL
         connect = new ConnectUnit();

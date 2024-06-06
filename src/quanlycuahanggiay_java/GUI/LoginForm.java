@@ -237,13 +237,13 @@ public class LoginForm extends javax.swing.JFrame {
             return;
         }
 
-        tk.setMaNV(Integer.parseInt(userID));
+        tk.getNv().setMaNV(Integer.parseInt(userID));
         tk.setMatKhau(password);
 
         if (list_TK != null && list_TK.kiemTraDangNhap(tk)) {
             try {
 
-                Memory.nhanvien = nv.getNhanVien_MaNV(tk.getMaNV());
+                Memory.nhanvien = nv.getNhanVien_MaNV(tk.getNv().getMaNV());
                 MainFrame1 home = new MainFrame1();
 
                 home.setVisible(true);

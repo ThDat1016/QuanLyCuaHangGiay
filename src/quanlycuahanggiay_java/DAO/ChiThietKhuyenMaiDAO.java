@@ -25,9 +25,8 @@ public class ChiThietKhuyenMaiDAO {
         ArrayList<ChiTietChuongTrinhKhuyenMai> KM = new ArrayList<>();
         while ( result.next() ) {
             ChiTietChuongTrinhKhuyenMai khuyenmai = new ChiTietChuongTrinhKhuyenMai();
-           // khuyenmai.setMaGiay(result.getInt("MAGIAY"));
             khuyenmai.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
-            khuyenmai.setMaKM(result.getString("MAKM"));
+            khuyenmai.getKm().setMaKM(result.getString("MAKM"));
             khuyenmai.setTileKM(result.getFloat("TILEKM"));
             KM.add(khuyenmai);
         }
@@ -52,8 +51,8 @@ public class ChiThietKhuyenMaiDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("makm", hd.getMaKM());
-        insertValues.put("magiay", hd.getMaGiay());
+        insertValues.put("makm", hd.getKm().getMaKM());
+        insertValues.put("magiay", hd.getGiay().getStrMaGiay());
         insertValues.put("tilekm", hd.getTiLeKM());
         
         Boolean check = connect.Insert("CHITIETCHUONGTRINHKHUYENMAI", insertValues);
@@ -65,7 +64,7 @@ public class ChiThietKhuyenMaiDAO {
    
     public Boolean xoa(ChiTietChuongTrinhKhuyenMai hd) throws Exception {
         connect = new ConnectUnit();
-        String condition = " makm = '"+hd.getMaKM()+"' && magiay = '"+hd.getMaGiay()+"'";
+        String condition = " makm = '"+hd.getKm().getMaKM()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Delete("CHITIETCHUONGTRINHKHUYENMAI", condition);
         
@@ -73,20 +72,16 @@ public class ChiThietKhuyenMaiDAO {
         return check;
     }
     
-    /**
-     * @param hd truyền vào dữ liệu hdách hàng mới
-     * Sửa thông tin đăng nhập hoặc là cấp bậc của 1 hdách hàng
-     * @return true nếu thành công
-     */
+   
     public Boolean sua(ChiTietChuongTrinhKhuyenMai hd) throws Exception {
         connect = new ConnectUnit();
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("magiay", hd.getMaGiay());
+        insertValues.put("magiay", hd.getGiay().getStrMaGiay());
         insertValues.put("tilekm", hd.getTiLeKM());
         
-        String condition = " makm = '"+hd.getMaKM()+"' && magiay = '"+hd.getMaGiay()+"'";
+        String condition = " makm = '"+hd.getKm().getMaKM()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Update("CHITIETCHUONGTRINHKHUYENMAI", insertValues, condition);
         

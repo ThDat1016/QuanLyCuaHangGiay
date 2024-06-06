@@ -3,29 +3,80 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package quanlycuahanggiay_java.DTO;
+
 import java.math.BigDecimal;
+
 public class Giay {
 
-    private String  strTenGiay, strChatLieu, strMaLoai, strMaxx, strMaMau, strMaThuongHieu;
+    private String strTenGiay;
+    private String strChatLieu;
+    private Loai loai;
+    private XuatXu xx;
+    private MauSac mausac;
+    private ThuongHieu thuonghieu;
     private int iSoLuong, iSize, strMaGiay;
     private BigDecimal iGia;
-    private boolean  strDoiTuongSD;
-    
+    private boolean strDoiTuongSD;
 
-    public Giay() {
+    public Giay(String strTenGiay, String strChatLieu, Loai loai, XuatXu xx, MauSac mausac, ThuongHieu thuonghieu, int iSoLuong, int iSize, int strMaGiay, BigDecimal iGia, boolean strDoiTuongSD) {
+        this.strTenGiay = strTenGiay;
+        this.strChatLieu = strChatLieu;
+        this.loai = loai;
+        this.xx = xx;
+        this.mausac = mausac;
+        this.thuonghieu = thuonghieu;
+        this.iSoLuong = iSoLuong;
+        this.iSize = iSize;
+        this.strMaGiay = strMaGiay;
+        this.iGia = iGia;
+        this.strDoiTuongSD = strDoiTuongSD;
     }
 
-    public Giay(int strMaGiay, String strTenGiay, boolean strDoiTuongSD, String strChatLieu, String strMaLoai, String strMaxx, String strMaMau, String strMaThuongHieu, int iSoLuong, BigDecimal iGia, int iSize) {
-        this.strMaGiay = strMaGiay;
-        this.strTenGiay = strTenGiay;
-        this.strDoiTuongSD = strDoiTuongSD;
+    public Giay() {
+        loai = new Loai();
+        xx = new XuatXu();
+        mausac = new MauSac();
+        thuonghieu = new ThuongHieu();
+
+    }
+
+    public String getStrChatLieu() {
+        return strChatLieu;
+    }
+
+    public void setStrChatLieu(String strChatLieu) {
         this.strChatLieu = strChatLieu;
-        this.strMaLoai = strMaLoai;
-        this.strMaxx = strMaxx;
-        this.strMaMau = strMaMau;
-        this.strMaThuongHieu = strMaThuongHieu;
+    }
+
+    public String getStrTenGiay() {
+        return strTenGiay;
+    }
+
+    public void setStrTenGiay(String strTenGiay) {
+        this.strTenGiay = strTenGiay;
+    }
+
+    public void setLoai(Loai loai) {
+        this.loai = loai;
+    }
+
+    public void setXx(XuatXu xx) {
+        this.xx = xx;
+    }
+
+    public void setMausac(MauSac mausac) {
+        this.mausac = mausac;
+    }
+
+    public void setThuonghieu(ThuongHieu thuonghieu) {
+        this.thuonghieu = thuonghieu;
+    }
+
+    public void setiSoLuong(int iSoLuong) {
         this.iSoLuong = iSoLuong;
-        this.iGia = iGia;
+    }
+
+    public void setiSize(int iSize) {
         this.iSize = iSize;
     }
 
@@ -33,92 +84,52 @@ public class Giay {
         this.strMaGiay = strMaGiay;
     }
 
-    public void setStrTenGiay(String strTenGiay) {
-        this.strTenGiay = strTenGiay;
+    public void setiGia(BigDecimal iGia) {
+        this.iGia = iGia;
     }
 
     public void setStrDoiTuongSD(boolean strDoiTuongSD) {
         this.strDoiTuongSD = strDoiTuongSD;
     }
 
-    public void setStrChatLieu(String strChatLieu) {
-        this.strChatLieu = strChatLieu;
+    public Loai getLoai() {
+        return loai;
     }
 
-    public void setStrMaLoai(String strMaLoai) {
-        this.strMaLoai = strMaLoai;
+    public XuatXu getXx() {
+        return xx;
     }
 
-    public void setStrMaxx(String strMaxx) {
-        this.strMaxx = strMaxx;
+    public MauSac getMausac() {
+        return mausac;
     }
 
-    public void setStrMaMau(String strMaMau) {
-        this.strMaMau = strMaMau;
-    }
-
-    public void setStrMaThuongHieu(String strMaThuongHieu) {
-        this.strMaThuongHieu = strMaThuongHieu;
-    }
-
-    public void setiSoLuong(int iSoLuong) {
-        this.iSoLuong = iSoLuong;
-    }
-
-    public void setiGia(BigDecimal iGia) {
-        this.iGia = iGia;
-    }
-
-    public void setiSize(int iSize) {
-        this.iSize = iSize;
-    }
-
-    public int getStrMaGiay() {
-        return strMaGiay;
-    }
-
-    public String getStrTenGiay() {
-        return strTenGiay;
-    }
-
-    public boolean getStrDoiTuongSD() {
-        return strDoiTuongSD;
-    }
-
-    public String getStrChatLieu() {
-        return strChatLieu;
-    }
-
-    public String getStrMaLoai() {
-        return strMaLoai;
-    }
-
-    public String getStrMaxx() {
-        return strMaxx;
-    }
-
-    public String getStrMaMau() {
-        return strMaMau;
-    }
-
-    public String getStrMaThuongHieu() {
-        return strMaThuongHieu;
+    public ThuongHieu getThuonghieu() {
+        return thuonghieu;
     }
 
     public int getiSoLuong() {
         return iSoLuong;
     }
 
+    public int getiSize() {
+        return iSize;
+    }
+
+    public int getStrMaGiay() {
+        return strMaGiay;
+    }
+
     public BigDecimal getiGia() {
         return iGia;
     }
 
-    public int getiSize() {
-        return iSize;
+    public boolean isStrDoiTuongSD() {
+        return strDoiTuongSD;
     }
-    
- @Override
- public String toString(){
-     return "Giay{" + "strMaGiay=" + strMaGiay + ", strTenGiay=" + strTenGiay + ", strDoiTuongSD=" + strDoiTuongSD + ", strChatLieu=" + strChatLieu + ", strMaLoai=" + strMaLoai + ", strMaxx=" + strMaxx + ", strMaMau=" + strMaMau + ", strMaThuongHieu=" + strMaThuongHieu + ", iSoLuong=" + iSoLuong + ", iGia=" + iGia + ", iSize=" + iSize + '}';
- }
+
+    @Override
+    public String toString() {
+        return "Giay{" + "strMaGiay=" + strMaGiay + ", strTenGiay=" + strTenGiay + ", strDoiTuongSD=" + strDoiTuongSD + ", strChatLieu=" + strChatLieu + ", strMaLoai=" + strMaLoai + ", strMaxx=" + strMaxx + ", strMaMau=" + strMaMau + ", strMaThuongHieu=" + strMaThuongHieu + ", iSoLuong=" + iSoLuong + ", iGia=" + iGia + ", iSize=" + iSize + '}';
+    }
 }

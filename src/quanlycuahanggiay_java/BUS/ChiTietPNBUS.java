@@ -74,24 +74,24 @@ public class ChiTietPNBUS {
         int flag = 0;
         if (MaSP1 == MaSP2)
             for (ChiTietPhieuNhap hoadon : list_PN) {
-                if ( hoadon.getMaGiay() == MaSP1 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP1 ) {
                     arr.add(hoadon);
-                    System.out.println("Tim thay SP1" + hoadon.getMaPN() );
+                    System.out.println("Tim thay SP1" + hoadon.getPn().getMaPN() );
                 }
             }
         else    
             for (ChiTietPhieuNhap hoadon : list_PN) {
-                if ( hoadon.getMaGiay() == MaSP1 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP1 ) {
                     flag = 1;
-                    System.out.println("Tim thay SP1" + hoadon.getMaPN() );
+                    System.out.println("Tim thay SP1" + hoadon.getPn().getMaPN() );
                 }
-                if ( hoadon.getMaGiay() == MaSP2 ) {
+                if ( hoadon.getGiay().getStrMaGiay() == MaSP2 ) {
                     flag = 2;
-                    System.out.println("Tim thay SP2" + hoadon.getMaPN() );
+                    System.out.println("Tim thay SP2" + hoadon.getPn().getMaPN() );
                 }
                 
                 if ( flag == 2 )
-                    if ( hoadon.getMaGiay() == MaSP2  )
+                    if ( hoadon.getGiay().getStrMaGiay() == MaSP2  )
                         break;
                 
                 if ( flag == 1 || flag == 2 )
@@ -106,8 +106,8 @@ public class ChiTietPNBUS {
     public ArrayList<ChiTietPhieuNhap> timKiem_SoLuong(int SL1, int SL2) {
         ArrayList<ChiTietPhieuNhap> arr = new ArrayList<>();
         for (ChiTietPhieuNhap hoadon : list_PN) {
-            if ( hoadon.getSoLuong() >= SL1 && hoadon.getSoLuong() <= SL2) {
-                System.out.println("Tim thay " + hoadon.getMaPN() );
+            if ( hoadon.getGiay().getiSoLuong() >= SL1 && hoadon.getGiay().getiSoLuong() <= SL2) {
+                System.out.println("Tim thay " + hoadon.getPn().getMaPN() );
                 arr.add(hoadon);
             }
         }
@@ -120,8 +120,8 @@ public class ChiTietPNBUS {
      */
     public boolean kiemTraKhoachinh(ChiTietPhieuNhap pn) {
         for (ChiTietPhieuNhap hoadon : list_PN) {
-            if (hoadon.getMaPN() == pn.getMaPN() &&
-                    hoadon.getMaGiay() == pn.getMaGiay()){
+            if (hoadon.getPn().getMaPN() == pn.getPn().getMaPN() &&
+                    hoadon.getGiay().getStrMaGiay() == pn.getGiay().getStrMaGiay()){
                 System.out.println("Bị trùng");
                 return true;
             }
@@ -153,8 +153,8 @@ public class ChiTietPNBUS {
             
             // duyệt từng phẩn tử
             for ( ChiTietPhieuNhap hoadon : list_PN ) {
-                if (hoadon.getMaGiay() == pn.getMaGiay()
-                        && hoadon.getMaPN() == pn.getMaPN()){
+                if (hoadon.getGiay().getStrMaGiay() == pn.getGiay().getStrMaGiay()
+                        && hoadon.getPn().getMaPN() == pn.getPn().getMaPN()){
                     list_PN.remove(hoadon);
                     return true;
                 }
@@ -174,10 +174,10 @@ public class ChiTietPNBUS {
             
             // duyệt từng phẩn tử
             for ( ChiTietPhieuNhap hoadon : list_PN ) {
-                if (hoadon.getMaPN() == pn.getMaPN()
-                        && hoadon.getMaGiay() == pn.getMaGiay()){
-                    hoadon.setMaGiay(pn.getMaGiay());
-                    hoadon.setMaPN(pn.getMaPN());
+                if (hoadon.getPn().getMaPN() == pn.getPn().getMaPN()
+                        && hoadon.getGiay().getStrMaGiay() == pn.getGiay().getStrMaGiay()){
+                    hoadon.getGiay().setStrMaGiay(pn.getGiay().getStrMaGiay());
+                    hoadon.getPn().setMaPN(pn.getPn().getMaPN());
                     hoadon.setGiaNhap(pn.getGiaNhap());
                     hoadon.setSoLuong(pn.getSoLuong());
                     return true;

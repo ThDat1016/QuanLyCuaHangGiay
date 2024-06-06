@@ -43,7 +43,7 @@ public class TaiKhoanBUS {
             
             // duyệt từng phẩn tử
             for ( TaiKhoangNV taikhoan : list_TK ) {
-                if (taikhoan.getMaNV() == tk.getMaNV()){
+                if (taikhoan.getNv().getMaNV() == tk.getNv().getMaNV()){
                     list_TK.remove(taikhoan);
                 break;
                 }
@@ -63,7 +63,7 @@ public class TaiKhoanBUS {
             
             // duyệt từng phẩn tử
             for ( TaiKhoangNV taikhoan : list_TK ) {
-                if (taikhoan.getMaNV() == tk.getMaNV()){
+                if (taikhoan.getNv().getMaNV() == tk.getNv().getMaNV()){
                 break;
                 }
             }
@@ -76,7 +76,7 @@ public class TaiKhoanBUS {
     public Boolean kiemTraDangNhap(TaiKhoangNV tk) {
         for ( TaiKhoangNV taikhoan : list_TK ) {
             // kiểm tra mật khảu và tên đăng nhập
-           if (taikhoan.getMaNV() == tk.getMaNV() && taikhoan.getMatKhau().equalsIgnoreCase(tk.getMatKhau())) {
+           if (taikhoan.getNv().getMaNV() == tk.getNv().getMaNV() && taikhoan.getMatKhau().equalsIgnoreCase(tk.getMatKhau())) {
     return true;
 }
 
@@ -86,8 +86,8 @@ public class TaiKhoanBUS {
     
     public String getCapBac_Ten(int strTen) {
         for ( TaiKhoangNV taikhoan : list_TK ) {
-            if ( taikhoan.getMaNV()== strTen )
-                return taikhoan.getCapBac();
+            if ( taikhoan.getNv().getMaNV()== strTen )
+                return taikhoan.getNv().getChucVu();
         } 
         return "-1";
     }

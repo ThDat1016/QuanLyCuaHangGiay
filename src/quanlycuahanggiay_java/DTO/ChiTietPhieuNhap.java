@@ -8,20 +8,37 @@ import java.math.BigDecimal;
 
 public class ChiTietPhieuNhap {
 
-    private int MaPN;
+    private PhieuNhap pn;
     private BigDecimal GiaNhap;
     private Giay giay;
+    private int SoLuong;
 
+    public void setSoLuong(int SoLuong) {
+        this.SoLuong = SoLuong;
+    }
+
+    public int getSoLuong() {
+        return SoLuong;
+    }
 
     public ChiTietPhieuNhap() {
+        pn = new PhieuNhap();
         giay = new Giay();
     }
 
-    public ChiTietPhieuNhap(int maGiay, int maPN, int soLuong, BigDecimal giaNhap, Giay giay) {
-        super();
-        MaPN = maPN;
-        GiaNhap = giaNhap;
+    public ChiTietPhieuNhap(PhieuNhap pn, BigDecimal GiaNhap, Giay giay, int SoLuong) {
+        this.pn = pn;
+        this.GiaNhap = GiaNhap;
         this.giay = giay;
+        this.SoLuong = SoLuong;
+    }
+
+    public void setPn(PhieuNhap pn) {
+        this.pn = pn;
+    }
+
+    public PhieuNhap getPn() {
+        return pn;
     }
 
     public void setGiay(Giay giay) {
@@ -31,30 +48,6 @@ public class ChiTietPhieuNhap {
     public Giay getGiay() {
         return giay;
     }
-
-//    public int getMaGiay() {
-//        return MaGiay;
-//    }
-//
-//    public void setMaGiay(int maGiay) {
-//        MaGiay = maGiay;
-//    }
-
-    public int getMaPN() {
-        return MaPN;
-    }
-
-    public void setMaPN(int maPN) {
-        MaPN = maPN;
-    }
-
-//    public int getSoLuong() {
-//        return SoLuong;
-//    }
-//
-//    public void setSoLuong(int soLuong) {
-//        SoLuong = soLuong;
-//    }
 
     public BigDecimal getGiaNhap() {
         return GiaNhap;

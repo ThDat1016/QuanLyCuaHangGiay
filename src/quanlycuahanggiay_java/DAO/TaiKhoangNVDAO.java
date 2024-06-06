@@ -25,9 +25,9 @@ public class TaiKhoangNVDAO {
         ArrayList<TaiKhoangNV> taikhoans = new ArrayList<>();
         while ( result.next() ) {
             TaiKhoangNV taikhoang = new TaiKhoangNV();
-            taikhoang.setMaNV(result.getInt("MANV"));
+            taikhoang.getNv().setMaNV(result.getInt("MANV"));
             taikhoang.setMatKhau(result.getString("MATKHAU"));
-            taikhoang.setCapBac( result.getString("CAPBAC") );
+            taikhoang.getNv().setChucVu( result.getString("CAPBAC") );
             taikhoans.add(taikhoang);
         }
         connect.Close();
@@ -51,9 +51,9 @@ public class TaiKhoangNVDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("tendangnhap", tk.getMaNV());
+        insertValues.put("tendangnhap", tk.getNv().getMaNV());
         insertValues.put("matkhau", tk.getMatKhau());
-        insertValues.put("capbac", tk.getCapBac());
+        insertValues.put("capbac", tk.getNv().getChucVu());
         
         Boolean check = connect.Insert("TAIKHOANNV", insertValues);
         
@@ -67,7 +67,7 @@ public class TaiKhoangNVDAO {
      */
     public Boolean xoa(TaiKhoangNV tk) throws Exception {
         connect = new ConnectUnit();
-        String condition = " tendangnhap = '"+tk.getMaNV()+"'";
+        String condition = " tendangnhap = '"+tk.getNv().getMaNV()+"'";
         
         Boolean check = connect.Delete("TAIKHOANNV", condition);
         
@@ -85,10 +85,10 @@ public class TaiKhoangNVDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("matkhau", tk.getMaNV());
-        insertValues.put("capbac", tk.getCapBac());
+        insertValues.put("matkhau", tk.getNv().getMaNV());
+        insertValues.put("capbac", tk.getNv().getChucVu());
         
-        String condition = " tendangnhap = '"+tk.getMaNV()+"'";
+        String condition = " tendangnhap = '"+tk.getNv().getMaNV()+"'";
         
         Boolean check = connect.Update("TAIKHOANNV", insertValues, condition);
         

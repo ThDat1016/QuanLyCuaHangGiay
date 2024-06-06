@@ -31,9 +31,9 @@ public class KhuyenMaiBUS {
 //        }
 //        return null;
 //    }
-      public ChuongTrinhKhuyenMai getInfor(int MaKM){
+      public ChuongTrinhKhuyenMai getInfor(String MaKM){
         for (ChuongTrinhKhuyenMai hd : list_KM) {
-            if (hd.getMaKM() == MaKM)
+            if (hd.getMaKM()== MaKM)
                 return hd;
         }
         return null;
@@ -62,7 +62,7 @@ public class KhuyenMaiBUS {
         this.list_KM = list_KM;
     }
     
-    public ArrayList<ChuongTrinhKhuyenMai> timKiem_MaKM(int MaKM) {
+    public ArrayList<ChuongTrinhKhuyenMai> timKiem_MaKM(String MaKM) {
         ArrayList<ChuongTrinhKhuyenMai> arr = new ArrayList<>();
         for (ChuongTrinhKhuyenMai hoadon : list_KM) {
             if ( hoadon.getMaKM() == MaKM ) {

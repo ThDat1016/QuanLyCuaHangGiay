@@ -8,8 +8,7 @@ import java.math.BigDecimal;
 
 public class ChiTietHoaDon {
 
-    //private int MaGiay;
-    private int MaHD;
+    private HoaDon hd;
     private int Soluong;
     private BigDecimal GiaBan;
 
@@ -17,13 +16,13 @@ public class ChiTietHoaDon {
 
     public ChiTietHoaDon() {
         giay = new Giay();
+        hd = new HoaDon();
     }
 
-    public ChiTietHoaDon( int maHD, int soluong, BigDecimal giaBan, Giay giay) {
-        //MaGiay = maGiay;
-        MaHD = maHD;
-        Soluong = soluong;
-        GiaBan = giaBan;
+    public ChiTietHoaDon(HoaDon hd, int Soluong, BigDecimal GiaBan, Giay giay) {
+        this.hd = hd;
+        this.Soluong = Soluong;
+        this.GiaBan = GiaBan;
         this.giay = giay;
     }
 
@@ -35,20 +34,13 @@ public class ChiTietHoaDon {
         return giay;
     }
 
-//    public int getMaGiay() {
-//        return MaGiay;
-//    }
-//
-//    public void setMaGiay(int maGiay) {
-//        MaGiay = maGiay;
-//    }
 
-    public int getMaHD() {
-        return MaHD;
+    public HoaDon getHd() {
+        return hd;
     }
 
-    public void setMaHD(int maHD) {
-        MaHD = maHD;
+    public void setHd(HoaDon hd) {
+        this.hd = hd;
     }
 
     public int getSoluong() {

@@ -382,7 +382,7 @@ public class BanHang_panel extends javax.swing.JPanel {
         BigDecimal soLuong = new BigDecimal((int) SoLuong.getValue());
         BigDecimal thanhTien = giaBan.multiply(soLuong);
         e.setGiaBan(thanhTien);
-        e.setMaHD(0); // khi nhận thanh toán, mã hóa đơn sẽ trở thành mã hóa đơn mới nhất (vì lúc này chưa tạo hóa đơn)
+        e.getHd().setMaHD(0); // khi nhận thanh toán, mã hóa đơn sẽ trở thành mã hóa đơn mới nhất (vì lúc này chưa tạo hóa đơn)
         e.setSoluong((int) SoLuong.getValue());
 
         if (e.getSoluong() == 0) {
@@ -563,11 +563,11 @@ public class BanHang_panel extends javax.swing.JPanel {
             LocalDateTime ngayHienTai = LocalDateTime.now();
             java.sql.Date sqlDate = java.sql.Date.valueOf(ngayHienTai.toLocalDate());
             hd.setNgayBan(sqlDate);
-            hd.setMaKM(maKM.getText());
-            hd.setMaNV(Memory.nhanvien.getMaNV());
+            hd.getKm().setMaKM(maKM.getText());
+            hd.getNv().setMaNV(Memory.nhanvien.getMaNV());
 
             hd.setThue(0.1f);
-            hd.setMaKH(maKH);
+            hd.getKh().setMaKH(maKH);
             hd.setTongTien(TongTienHD(Memory.tongTien));
             hd.setThue(1);
             if (InforKH() != null) {
@@ -583,7 +583,7 @@ public class BanHang_panel extends javax.swing.JPanel {
 
             for (ChiTietHoaDon hoadon : chiTiet) {
                 System.out.println(maxHD);
-                hoadon.setMaHD(maxHD);
+                hoadon.getHd().setMaHD(maxHD);
                 chiTietHDBUS.them(hoadon);
                 System.out.println(hoadon.getGiay().getStrMaGiay());
             }

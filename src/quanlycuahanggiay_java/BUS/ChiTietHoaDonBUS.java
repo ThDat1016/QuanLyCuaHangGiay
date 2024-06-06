@@ -79,18 +79,18 @@ public class ChiTietHoaDonBUS {
             for (ChiTietHoaDon hoadon : list_HD) {
                 if (hoadon.getGiay().getStrMaGiay() == MaSP1) {
                     arr.add(hoadon);
-                    System.out.println("Tim thay SP1" + hoadon.getMaHD());
+                    System.out.println("Tim thay SP1" + hoadon.getHd().getMaHD());
                 }
             }
         } else {
             for (ChiTietHoaDon hoadon : list_HD) {
                 if (hoadon.getGiay().getStrMaGiay() == MaSP1) {
                     flag = 1;
-                    System.out.println("Tim thay SP1" + hoadon.getMaHD());
+                    System.out.println("Tim thay SP1" + hoadon.getHd().getMaHD());
                 }
                 if (hoadon.getGiay().getStrMaGiay() == MaSP2) {
                     flag = 2;
-                    System.out.println("Tim thay SP2" + hoadon.getMaHD());
+                    System.out.println("Tim thay SP2" + hoadon.getHd().getMaHD());
                 }
 
                 if (flag == 2) {

@@ -27,7 +27,7 @@ public class ChuongTrinhKhuyenMaiDAO {
             ChuongTrinhKhuyenMai khuyenmai = new ChuongTrinhKhuyenMai();
             khuyenmai.setDieuKien(result.getString("DieuKien"));
             khuyenmai.setLoaiChuongTrinh(result.getString("LoaiChuongtrinh"));
-            khuyenmai.setMaKM(result.getInt("MaKM"));
+            khuyenmai.setMaKM(result.getString("MaKM"));
             khuyenmai.setNgayBatDau(result.getDate("Ngaybatdau"));
             khuyenmai.setNgayKetThuc(result.getDate("ngayketthuc"));
             khuyenmai.setTenChuongTrinh(result.getString("tenchuongtrinh"));

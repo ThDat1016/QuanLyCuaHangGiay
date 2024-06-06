@@ -25,7 +25,7 @@ public class ChiTietHoaDonDAO {
         while ( result.next() ) {
             ChiTietHoaDon hoadon = new ChiTietHoaDon();
             hoadon.getGiay().setStrMaGiay(result.getInt("MAGIAY"));
-            hoadon.setMaHD(result.getInt("MAHD"));
+            hoadon.getHd().setMaHD(result.getInt("MAHD"));
             hoadon.getGiay().setiGia(result.getBigDecimal("GIABAN"));
             hoadon.setSoluong(result.getInt("SOLUONG"));
             
@@ -48,7 +48,7 @@ public class ChiTietHoaDonDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("mahd", hd.getMaHD());
+        insertValues.put("mahd", hd.getHd().getMaHD());
         insertValues.put("magiay", hd.getGiay().getStrMaGiay());
         insertValues.put("soluong", hd.getSoluong());
         insertValues.put("giaban", hd.getGiaBan());
@@ -61,7 +61,7 @@ public class ChiTietHoaDonDAO {
     
    public Boolean xoa(ChiTietHoaDon hd) throws Exception {
         connect = new ConnectUnit();
-        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
+        String condition = " mahd = '"+hd.getHd().getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Delete("CHITIETHOADON", condition);
         
@@ -78,7 +78,7 @@ public class ChiTietHoaDonDAO {
         insertValues.put("soluong", hd.getSoluong());
         insertValues.put("giaban", hd.getGiaBan());
         
-        String condition = " mahd = '"+hd.getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
+        String condition = " mahd = '"+hd.getHd().getMaHD()+"' && magiay = '"+hd.getGiay().getStrMaGiay()+"'";
         
         Boolean check = connect.Update("CHITIETHOADON", insertValues, condition);
         

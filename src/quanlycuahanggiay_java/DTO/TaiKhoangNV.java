@@ -9,40 +9,33 @@ package quanlycuahanggiay_java.DTO;
  * @author Admin
  */
 public class TaiKhoangNV {
-        private int MaNV;
-	private String MatKhau;
-	private String CapBac;
-        
-     public TaiKhoangNV(){}
 
-    public TaiKhoangNV(int MaNV, String MatKhau, String CapBac) {
-        this.MaNV = MaNV;
-        this.MatKhau = MatKhau;
-        this.CapBac = CapBac;
+    private NhanVien nv;
+    private String MatKhau;
+
+    public TaiKhoangNV() {
+        nv = new NhanVien();
     }
 
-    public int getMaNV() {
-        return MaNV;
+    public TaiKhoangNV(NhanVien nv, String MatKhau) {
+        this.MatKhau = MatKhau;
+        this.nv = nv;
     }
 
     public String getMatKhau() {
         return MatKhau;
     }
 
-    public String getCapBac() {
-        return CapBac;
+    public NhanVien getNv() {
+        return nv;
     }
 
-    public void setMaNV(int MaNV) {
-        this.MaNV = MaNV;
+    public void setNv(NhanVien nv) {
+        this.nv = nv;
     }
 
     public void setMatKhau(String MatKhau) {
         this.MatKhau = MatKhau;
     }
 
-    public void setCapBac(String CapBac) {
-        this.CapBac = CapBac;
-    }
-        
 }

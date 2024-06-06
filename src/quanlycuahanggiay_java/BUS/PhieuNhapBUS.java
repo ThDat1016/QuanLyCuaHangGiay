@@ -96,7 +96,7 @@ public class PhieuNhapBUS {
     public ArrayList<PhieuNhap> timKiem_MaNV(int MaNV) {
         ArrayList<PhieuNhap> arr = new ArrayList<>();
         for (PhieuNhap hoadon : list_TK) {
-            if (hoadon.getMaNV() ==  MaNV ) {
+            if (hoadon.getNv().getMaNV() ==  MaNV ) {
                 System.out.println("Tim thay " + hoadon.getMaPN());
                 arr.add(hoadon);
             }
@@ -108,7 +108,7 @@ public class PhieuNhapBUS {
     public ArrayList<PhieuNhap> timKiem_MaNCC(String strMaNCC) {
         ArrayList<PhieuNhap> arr = new ArrayList<>();
         for (PhieuNhap hoadon : list_TK) {
-            if (hoadon.getMaNCC().indexOf(strMaNCC) != -1) {
+            if (hoadon.getNCC().getMaNCC().indexOf(strMaNCC) != -1) {
                 System.out.println("Tim thay " + hoadon.getMaPN());
                 arr.add(hoadon);
             }
@@ -134,7 +134,7 @@ public class PhieuNhapBUS {
      *
      * @return true nếu thành công
      */
-    public Boolean them(PhieuNhapDTO tk) throws Exception {
+    public Boolean them(PhieuNhap tk) throws Exception {
         if (tkDAO.them(tk)) {
             list_TK.add(tk);
         }
@@ -168,8 +168,8 @@ public class PhieuNhapBUS {
             // duyệt từng phẩn tử
             for (PhieuNhap taikhoan : list_TK) {
                 if (taikhoan.getMaPN() == tk.getMaPN()) {
-                    taikhoan.setMaNCC(tk.getMaNCC());
-                    taikhoan.setMaNV(tk.getMaNV());
+                    taikhoan.getNCC().setMaNCC(tk.getNCC().getMaNCC());
+                    taikhoan.getNv().setMaNV(tk.getNv().getMaNV());
                     taikhoan.setMaPN(tk.getMaPN());
                     taikhoan.setNgayNhap(tk.getNgayNhap());
                     taikhoan.setTongTien(tk.getTongTien());

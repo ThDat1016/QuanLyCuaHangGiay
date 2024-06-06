@@ -680,9 +680,9 @@ public class ThongKe_panel extends javax.swing.JPanel {
             while (result.next()) {
                 HoaDon hd = new HoaDon();
                 hd.setMaHD(result.getInt("MAHD"));
-                hd.setMaKH(result.getInt("MAKH"));
-                hd.setMaKM(result.getString("MAKM"));
-                hd.setMaNV(result.getInt("MANV"));
+                hd.getKh().setMaKH(result.getInt("MAKH"));
+                hd.getKm().setMaKM(result.getString("MAKM"));
+                hd.getNv().setMaNV(result.getInt("MANV"));
                 hd.setNgayBan(result.getDate("NGAYBAN"));
                 hd.setTongTien(result.getBigDecimal("TONGTIEN"));
                 String[] rowData = {
@@ -711,15 +711,15 @@ public class ThongKe_panel extends javax.swing.JPanel {
             while (result.next()) {
                 PhieuNhap pn = new PhieuNhap();
                 pn.setMaPN(result.getInt("MAPN"));
-                pn.setMaNCC(result.getString("MANCC"));
-                pn.setMaNV(result.getInt("MANV"));
+                pn.getNCC().setMaNCC(result.getString("MANCC"));
+                pn.getNv().setMaNV(result.getInt("MANV"));
                 pn.setNgayNhap(result.getDate("NGAYNHAP"));
                 pn.setTongTien(result.getBigDecimal("TONGTIEN"));
 
                 String[] rowData = {
                     String.valueOf(pn.getMaPN()),
-                    pn.getMaNCC(),
-                    String.valueOf(pn.getMaNV()),
+                    pn.getNCC().getMaNCC(),
+                    String.valueOf(pn.getNv().getMaNV()),
                     String.valueOf(pn.getNgayNhap()),
                     String.valueOf(pn.getTongTien())
                 };

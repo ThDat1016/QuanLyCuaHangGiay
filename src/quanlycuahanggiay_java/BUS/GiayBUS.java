@@ -75,46 +75,7 @@ public class GiayBUS {
         return hd;
     }
     
-//    public Giay getInfor(int i){
-//        int iCount =0;
-//        for (Giay hd : list_SP) {
-//            if (iCount == i)
-//                return hd;
-//            iCount++;
-//        }
-//        return null;
-//    }
 
-//    public ArrayList<Giay> timKiem_MaSP(int strMaSP1, int strMaSP2, int sapxep) {
-//        ArrayList<Giay> arr = new ArrayList<>();
-//        
-//        //Collections.sort(this.list_SP, SanPhamDTO::maSPTangdan);
-//
-//        int flag = 0;
-//        for (Giay sanpham : list_SP) {
-//            if ( sanpham.getStrMaGiay() == strMaSP1) {
-//                flag = 1;
-////                System.out.println("Tim thay SP1" + sanpham.getStrMaSP() );
-//            }
-//            if ( sanpham.getStrMaGiay() == strMaSP2  ) {
-//                flag = 2;
-////                System.out.println("Tim thay SP2" + sanpham.getStrMaSP() );
-//            }
-//            if ( flag == 1 || flag == 2 )
-//                arr.add(sanpham);
-//            if ( flag == 2 )
-//                break;
-//        }
-//        
-//        if(sapxep == 1){
-////            Collections.sort(arr, SanPhamDTO::maSPTangdan);
-//        }
-//        else if(sapxep == -1) {
-////            Collections.sort(arr, SanPhamDTO::maSPGiamdan);
-//        }
-//        return arr;
-//    }
-//    
     public ArrayList<Giay> timKiem_SoLuong(int SL1, int SL2,int sapxep) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
@@ -168,7 +129,7 @@ public class GiayBUS {
     public ArrayList<Giay> timKiem_MaLoai(String strMaLoai) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrMaLoai().indexOf(strMaLoai) != -1 ) {
+            if ( sanpham.getLoai().getMaLoai().indexOf(strMaLoai) != -1 ) {
                 arr.add(sanpham);
             }
         }
@@ -179,7 +140,7 @@ public class GiayBUS {
     public ArrayList<Giay> timKiem_MaXX(String strMaXX) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrMaxx().indexOf(strMaXX) != -1 ) {
+            if ( sanpham.getXx().getStrMaxuatxu().indexOf(strMaXX) != -1 ) {
                 arr.add(sanpham);
             }
         }
@@ -190,7 +151,7 @@ public class GiayBUS {
     public ArrayList<Giay> timKiem_MaMau(String strMaMau) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrMaMau().indexOf(strMaMau) != -1 ) {
+            if ( sanpham.getMausac().getMaMau().indexOf(strMaMau) != -1 ) {
                 arr.add(sanpham);
             }
         }
@@ -201,7 +162,7 @@ public class GiayBUS {
     public ArrayList<Giay> timKiem_MaThuongHieu(String strMaThuongHieu) {
         ArrayList<Giay> arr = new ArrayList<>();
         for (Giay sanpham : list_SP) {
-            if ( sanpham.getStrMaThuongHieu().indexOf(strMaThuongHieu) != -1 ) {
+            if ( sanpham.getThuonghieu().getMaThuongHieu().indexOf(strMaThuongHieu) != -1 ) {
                 arr.add(sanpham);
             }
         }
@@ -244,34 +205,6 @@ public class GiayBUS {
         return false;
     }
     
-    /**
-     * sửa thông tin của 1sản phẩm <br>
-     * - Trừ thông tin đăng nhập củasản phẩm đó
-     * @return true nếu thực hiện thành công
-     */
-    public Boolean sua(Giay hd) throws Exception {
-        if ( spDAO.sua(hd) ) {
-            
-            // duyệt từng phẩn tử
-            for ( Giay sanpham : list_SP ) {
-                if (sanpham.getStrMaGiay() == hd.getStrMaGiay()){
-                    sanpham.setStrMaGiay(hd.getStrMaGiay());
-                    sanpham.setStrChatLieu(hd.getStrChatLieu());
-                    sanpham.setStrDoiTuongSD(hd.getStrDoiTuongSD());
-                    sanpham.setStrMaLoai(hd.getStrMaLoai());
-                    sanpham.setStrMaMau(hd.getStrMaMau());
-                    sanpham.setStrMaThuongHieu(hd.getStrMaThuongHieu());
-                    sanpham.setStrMaxx(hd.getStrMaxx());
-                    sanpham.setStrTenGiay(hd.getStrTenGiay());
-                    sanpham.setiGia(hd.getiGia());
-                    sanpham.setiSize(hd.getiSize());
-                    sanpham.setiSoLuong(hd.getiSoLuong());
-                    return true;
-                }
-            }
-        }
-        
-        return false;
-    }
+  
     
 }

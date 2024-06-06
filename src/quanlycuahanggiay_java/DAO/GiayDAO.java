@@ -27,11 +27,12 @@ public class GiayDAO {
             Giay sanpham = new Giay();
             sanpham.setStrMaGiay(result.getInt("MAGIAY"));
             sanpham.setStrChatLieu(result.getString("CHATLIEU"));
+            
             sanpham.setStrDoiTuongSD(result.getBoolean("DOITUONGSD"));
-            sanpham.setStrMaLoai(result.getString("MALOAI"));
-            sanpham.setStrMaMau(result.getString("MAMAU"));
-            sanpham.setStrMaThuongHieu(result.getString("MATHUONGHIEU"));
-            sanpham.setStrMaxx(result.getString("MAXX"));
+            sanpham.getLoai().setMaLoai(result.getString("MALOAI"));
+            sanpham.getMausac().setMaMau(result.getString("MAMAU"));
+            sanpham.getThuonghieu().setMaThuongHieu(result.getString("MATHUONGHIEU"));
+            sanpham.getXx().setStrMaxuatxu(result.getString("MAXX"));
             sanpham.setStrTenGiay(result.getString("TENGIAY"));
             sanpham.setiGia(result.getBigDecimal("DONGIA"));
             sanpham.setiSize(result.getInt("SIZE"));
@@ -60,11 +61,11 @@ public class GiayDAO {
         insertValues.put("DONGIA", hd.getiGia());
         insertValues.put("SIZE", hd.getiSize());
         insertValues.put("CHATLIEU", hd.getStrChatLieu());
-        insertValues.put("DOITUONGSD", hd.getStrDoiTuongSD());
-        insertValues.put("MALOAI", hd.getStrMaLoai());
-        insertValues.put("MAMAU", hd.getStrMaMau());
-        insertValues.put("MATHUONGHIEU", hd.getStrMaThuongHieu());
-        insertValues.put("MAXX", hd.getStrMaxx());
+        insertValues.put("DOITUONGSD", hd.isStrDoiTuongSD());
+        insertValues.put("MALOAI", hd.getLoai().getMaLoai());
+        insertValues.put("MAMAU", hd.getMausac().getMaMau());
+        insertValues.put("MATHUONGHIEU", hd.getThuonghieu().getMaThuongHieu());
+        insertValues.put("MAXX", hd.getXx().getStrMaxuatxu());
         insertValues.put("TENGIAY", hd.getStrTenGiay());
 
         Boolean check = connect.Insert("GIAY", insertValues);
@@ -92,16 +93,16 @@ public class GiayDAO {
 
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("soluong", hd.getiSoLuong());
-        insertValues.put("gia", hd.getiGia());
-        insertValues.put("size", hd.getiSize());
-        insertValues.put("chatlieu", hd.getStrChatLieu());
-        insertValues.put("doituongsd", hd.getStrDoiTuongSD());
-        insertValues.put("maloai", hd.getStrMaLoai());
-        insertValues.put("mamau", hd.getStrMaMau());
-        insertValues.put("mathuonghieu", hd.getStrMaThuongHieu());
-        insertValues.put("maxx", hd.getStrMaxx());
-        insertValues.put("tengiay", hd.getStrTenGiay());
+       insertValues.put("SOLUONG", hd.getiSoLuong());
+        insertValues.put("DONGIA", hd.getiGia());
+        insertValues.put("SIZE", hd.getiSize());
+        insertValues.put("CHATLIEU", hd.getStrChatLieu());
+        insertValues.put("DOITUONGSD", hd.isStrDoiTuongSD());
+        insertValues.put("MALOAI", hd.getLoai().getMaLoai());
+        insertValues.put("MAMAU", hd.getMausac().getMaMau());
+        insertValues.put("MATHUONGHIEU", hd.getThuonghieu().getMaThuongHieu());
+        insertValues.put("MAXX", hd.getXx().getStrMaxuatxu());
+        insertValues.put("TENGIAY", hd.getStrTenGiay());
 
         System.out.println(hd.toString());
 

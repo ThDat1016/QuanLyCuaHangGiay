@@ -26,8 +26,8 @@ public class PhieuNhapDAO {
         while ( result.next() ) {
             PhieuNhap nhacc = new PhieuNhap();
             nhacc.setMaPN(result.getInt("MAPN"));
-            nhacc.setMaNCC(result.getString("MANCC"));
-            nhacc.setMaNV(result.getInt("MANV"));
+            nhacc.getNCC().setMaNCC(result.getString("MANCC"));
+            nhacc.getNv().setMaNV(result.getInt("MANV"));
             nhacc.setNgayNhap(result.getDate("NGAYNHAP"));
             nhacc.setTongTien(result.getBigDecimal("TONGTIEN"));
             nhaccs.add(nhacc);
@@ -50,8 +50,8 @@ public class PhieuNhapDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("mancc", nv.getMaNCC());
-        insertValues.put("manv", nv.getMaNV());
+        insertValues.put("mancc", nv.getNCC().getMaNCC());
+        insertValues.put("manv", nv.getNv().getMaNV());
         insertValues.put("ngaynhap", nv.getNgayNhap());
         insertValues.put("tongtien", nv.getTongTien());
         
@@ -78,8 +78,8 @@ public class PhieuNhapDAO {
         
         // tạo đối tượng truyền vào
         HashMap<String, Object> insertValues = new HashMap<>();
-        insertValues.put("mancc", nv.getMaNCC());
-        insertValues.put("manv", nv.getMaNV());
+        insertValues.put("mancc", nv.getNCC().getMaNCC());
+        insertValues.put("manv", nv.getNv().getMaNV());
         insertValues.put("ngaynhap", nv.getNgayNhap());
         insertValues.put("tongtien", nv.getTongTien());
         
